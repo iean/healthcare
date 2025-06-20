@@ -3,31 +3,29 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Logo = ({ src }) => {
-  // destructuring items from config object
   const { base_url, logo, logo_width, logo_height, logo_text, title } =
     config.site;
 
+  const width = parseInt(logo_width.replace("px", ""), 10) || 150;
+  const height = parseInt(logo_height.replace("px", ""), 10) || 60;
+
   return (
-    <Link
-      href={base_url}
-      className="navbar-brand block py-1"
-      style={{
-        height: logo_height.replace("px", "") + "px",
-        width: logo_width.replace("px", "") + "px",
-      }}
-    >
+    <Link href={base_url} className="navbar-brand inline-block">
       {src || logo ? (
-        <Image
-          width={logo_width.replace("px", "") * 2}
-          height={logo_height.replace("px", "") * 2}
-          src={src ? src : logo}
-          alt={title}
-          priority
-        />
+        <div className="relative h-[48px] w-auto md:h-[60px]">
+          <Image
+            src={src || logo}
+            alt={title}
+            width={width * 2}
+            height={height * 2}
+            className="h-full w-auto object-contain"
+            priority
+          />
+        </div>
       ) : logo_text ? (
-        logo_text
+        <span className="text-xl font-bold text-primary">{logo_text}</span>
       ) : (
-        title
+        <span className="text-xl font-bold text-primary">{title}</span>
       )}
     </Link>
   );

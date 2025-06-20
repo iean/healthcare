@@ -2,19 +2,23 @@ const theme = require("./config/theme.json");
 
 let font_base = Number(theme.fonts.font_size.base.replace("px", ""));
 let font_scale = Number(theme.fonts.font_size.scale);
+
 let h6 = font_base / font_base;
 let h5 = h6 * font_scale;
 let h4 = h5 * font_scale;
 let h3 = h4 * font_scale;
 let h2 = h3 * font_scale;
 let h1 = h2 * font_scale;
+
 let fontPrimary, fontPrimaryType, fontSecondary, fontSecondaryType;
+
 if (theme.fonts.font_family.primary) {
   fontPrimary = theme.fonts.font_family.primary
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
   fontPrimaryType = theme.fonts.font_family.primary_type;
 }
+
 if (theme.fonts.font_family.secondary) {
   fontSecondary = theme.fonts.font_family.secondary
     .replace(/\+/g, " ")
@@ -27,6 +31,8 @@ module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
     "./content/**/*.{md,mdx}",
   ],
   theme: {
@@ -39,18 +45,22 @@ module.exports = {
     },
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1.5rem",
     },
     extend: {
       colors: {
-        text: theme.colors.default.text_color.default,
-        light: theme.colors.default.text_color.light,
-        dark: theme.colors.default.text_color.dark,
-        primary: theme.colors.default.theme_color.primary,
-        secondary: theme.colors.default.theme_color.secondary,
-        body: theme.colors.default.theme_color.body,
-        border: theme.colors.default.theme_color.border,
-        "theme-light": theme.colors.default.theme_color.theme_light,
+        // Branded colors from Heart and Haven Care logo
+        primary: "#b9892f", // Gold
+        secondary: "#5a2671", // Deep purple
+        background: "#5a2671", // Reused for body/hero sections
+        text: "#ffffff", // Default text color on dark background
+
+        light: theme.colors.default?.text_color?.light || "#f9fafb",
+        dark: theme.colors.default?.text_color?.dark || "#1f2937",
+        body: theme.colors.default?.theme_color?.body || "#ffffff",
+        border: theme.colors.default?.theme_color?.border || "#e5e7eb",
+        "theme-light":
+          theme.colors.default?.theme_color?.theme_light || "#f3f4f6",
       },
       fontSize: {
         base: font_base + "px",
@@ -65,8 +75,14 @@ module.exports = {
         h6: h6 + "rem",
       },
       fontFamily: {
-        primary: [fontPrimary, fontPrimaryType],
-        secondary: [fontSecondary, fontSecondaryType],
+        primary: [fontPrimary || "Poppins", fontPrimaryType || "sans-serif"],
+        secondary: [
+          fontSecondary || "Open Sans",
+          fontSecondaryType || "sans-serif",
+        ],
+      },
+      boxShadow: {
+        header: "0 4px 12px rgba(0, 0, 0, 0.1)",
       },
     },
   },
@@ -75,5 +91,4 @@ module.exports = {
     require("@tailwindcss/forms"),
     require("tailwind-bootstrap-grid")({ generateContainer: false }),
   ],
-  // important: true,
 };

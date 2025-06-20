@@ -7,11 +7,12 @@ import HomeFeatures from "@layouts/partials/HomeFeatures";
 import Services from "@layouts/partials/Services";
 import Workflow from "@layouts/partials/Workflow";
 import { getListPage } from "../lib/contentParser";
+import banner from "@/content/home/banner.json";
 
 const Home = async () => {
   const homePage = await getListPage("content/_index.md");
   const { frontmatter } = homePage;
-  const { banner, feature, services, workflow, call_to_action } = frontmatter;
+  const { feature, services, workflow, call_to_action } = frontmatter;
   const { title } = config.site;
 
   return (

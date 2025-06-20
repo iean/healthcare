@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body suppressHydrationWarning={true}>
-        <TwSizeIndicator />
+        {/* <TwSizeIndicator /> */}
         <Header />
         <Providers>{children}</Providers>
         <Footer />
