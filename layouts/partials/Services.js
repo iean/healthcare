@@ -2,71 +2,62 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Autoplay, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
 
 const Services = ({ services }) => {
-  return services.map((service, index) => {
-    const isOdd = index % 2 > 0;
-    return (
-      <section
-        key={`service-${index}`}
-        className={`section ${isOdd && "bg-theme-light"}`}
-      >
-        <div className="container">
-          <div className="items-center gap-8 md:grid md:grid-cols-2">
-            {/* Carousel */}
-            <div className={`service-carousel ${!isOdd && "md:order-2"}`}>
-              <Swiper
-                modules={[Autoplay, Pagination]}
-                pagination={
-                  service.images.length > 1 ? { clickable: true } : false
-                }
-                autoplay={{
-                  delay: 5000,
-                  disableOnInteraction: false,
-                }}
-                init={service?.images > 1 ? false : true}
-              >
-                {/* Slides */}
-                {service?.images.map((slide, index) => (
-                  <SwiperSlide key={index}>
-                    <Image src={slide} alt="" width={600} height={500} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
+  return (
+    <section className="py-20 bg-theme-light">
+      <div className="container">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-[#2f2f85] mb-4">
+            Our Services
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-base">
+            Quality care for every stage of life — from checkups to chronic
+            care.
+          </p>
+        </div>
 
-            {/* Content */}
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {services.map((service, index) => (
             <div
-              className={`service-content mt-5 md:mt-0 ${
-                !isOdd && "md:order-1"
-              }`}
+              key={`service-${index}`}
+              className="bg-white border border-[#2f2f85] rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition duration-300 p-8 text-center"
             >
-              <h2 className="font-bold leading-[40px]">{service?.title}</h2>
-              <p className="mb-2 mt-4">{service?.content}</p>
-              {service.button.enable && (
-                <Link
-                  href={service?.button.link}
-                  className="cta-link inline-flex items-center text-primary"
-                >
-                  {service?.button.label}
+              {service.images?.[0] && (
+                <div className="flex justify-center mb-5">
                   <Image
-                    className="ml-1"
-                    src="/images/arrow-right.svg"
-                    width={18}
-                    height={14}
-                    alt="arrow"
+                    src={service.images[0]}
+                    alt={service.title}
+                    width={72}
+                    height={72}
+                    className="object-contain"
                   />
+                </div>
+              )}
+
+              <h3 className="text-xl font-semibold text-[#2f2f85] mb-3">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 text-sm mb-5 leading-relaxed">
+                {service.content}
+              </p>
+
+              {service.button?.enable && (
+                <Link
+                  href={service.button.link}
+                  className="inline-block text-[#2f2f85] text-sm font-medium hover:underline"
+                >
+                  {service.button.label} →
                 </Link>
               )}
             </div>
-          </div>
+          ))}
         </div>
-      </section>
-    );
-  });
+      </div>
+    </section>
+  );
 };
 
 export default Services;

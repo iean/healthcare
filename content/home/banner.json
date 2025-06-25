@@ -1,0 +1,12 @@
+{
+  "title": "Empowering Quality Care at Home",
+  "content": "We provide professional and compassionate care services tailored to your needs.",
+  "button": {
+    "enable": true,
+    "label": "Get In Touch",
+    "link": "/contact",
+    "rel": ""
+  },
+  "bgImage": "/images/banner-caregiving/hero1.jpg",
+  "image": "/images/banner-caregiving/hero3.jpg"
+}

@@ -24,7 +24,7 @@ function Pricing({ data }) {
                     <span className="text-5xl text-dark">${plan.price}</span>
                     <span>/ {plan.type}</span>
                   </div>
-                  <h5 className="mt-2 font-normal text-text">
+                  <h5 className="mt-2 font-normal text-brandText">
                     {plan.subtitle}
                   </h5>
                   <ul className="mt-5">
