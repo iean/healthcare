@@ -1,35 +1,77 @@
-import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
+import { markdownify } from "@lib/utils/textConverter";
+import {
+  MdAccessTime,
+  MdHome,
+  MdElderly,
+  MdSelfImprovement,
+} from "react-icons/md";
+
+// Icon mapping
+const iconMap = {
+  hourly: <MdAccessTime size={30} className="text-brand" />,
+  livein: <MdHome size={30} className="text-brand" />,
+  dementia: <MdElderly size={30} className="text-brand" />,
+  respite: <MdSelfImprovement size={30} className="text-brand" />,
+};
 
 const HomeFeatures = ({ feature }) => {
   return (
-    <section className="section bg-theme-light">
-      <div className="container">
-        <div className="text-center">
-          <h2>{markdownify(feature.title)}</h2>
+    <section className="py-16 bg-[#F9F7FB]">
+      <div className="container mx-auto px-4">
+        {/* Logo & Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="flex justify-center mb-4">
+            <Image
+              src="/images/logo-transparent.png"
+              alt="Heart and Haven Care"
+              width={180}
+              height={80}
+              className="drop-shadow-md"
+            />
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#2f2f85] mb-2">
+            Compassionate Care, Trusted Support
+          </h2>
+          <p className="text-gray-600 text-base leading-relaxed">
+            {feature.subtitle ||
+              "Discover our reliable, professional home care services designed to bring peace of mind to you and your loved ones."}
+          </p>
         </div>
-        <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-          {feature.features.map((item, i) => (
+
+        {/* Feature Cards */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {feature.features.map((item, index) => (
             <div
-              className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
-              key={`feature-${i}`}
+              key={`feature-${index}`}
+              className="bg-white border border-[#2f2f85] rounded-xl text-center p-8 shadow-md hover:shadow-lg hover:scale-[1.015] transition duration-300"
             >
-              {item.icon && (
-                <Image
-                  className="mx-auto"
-                  src={item.icon}
-                  width={30}
-                  height={30}
-                  alt=""
-                />
-              )}
-              <div className="mt-4">
-                {markdownify(item.name, "h3", "h5")}
-                <p className="mt-3">{item.content}</p>
+              <div className="w-16 h-16 mx-auto flex items-center justify-center bg-[#e8eafd] rounded-full mb-5">
+                {iconMap[item.icon] || <MdAccessTime size={30} />}
               </div>
+              <h3 className="text-lg font-semibold text-[#2f2f85]">
+                {item.name}
+              </h3>
+              <p className="mt-3 text-gray-600 text-sm leading-relaxed">
+                {item.content}
+              </p>
             </div>
           ))}
         </div>
+
+        {/* CTA */}
+        {feature.button?.enable && (
+          <div className="mt-12 text-center">
+            <a
+              href={feature.button.link}
+              rel={feature.button.rel}
+              className="inline-block bg-[#2f2f85] text-white font-medium py-2.5 px-7 rounded-full hover:bg-opacity-90 transition"
+            >
+              {feature.button.label}
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

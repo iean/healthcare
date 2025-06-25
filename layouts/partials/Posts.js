@@ -30,10 +30,10 @@ const Posts = ({ posts }) => {
                 {posts[0].frontmatter.title}
               </Link>
             </h2>
-            <p className="text-text">
+            <p className="text-brandText">
               {plainify(
                 posts[0].content?.slice(0, Number(summary_length)),
-                "div"
+                "div",
               )}
             </p>
             <Link
@@ -65,7 +65,7 @@ const Posts = ({ posts }) => {
               {post.frontmatter.title}
             </Link>
           </h2>
-          <p className="text-text">{post.frontmatter.desc}</p>
+          <p className="text-brandText">{post.frontmatter.desc}</p>
           <Link
             className="btn btn-primary mt-4"
             href={`/${blog_folder}/${post.slug}`}

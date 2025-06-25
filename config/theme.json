@@ -2,9 +2,9 @@
   "colors": {
     "default": {
       "text_color": {
-        "default": "#ffffff",
-        "light": "#f5f5f5",
-        "dark": "#1a1a1a"
+        "default": "#5a2671",
+        "light": "#7a4b91",
+        "dark": "#2e1540"
       },
       "theme_color": {
         "primary": "#b9892f",

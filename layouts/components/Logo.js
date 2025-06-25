@@ -12,20 +12,18 @@ const Logo = ({ src }) => {
   return (
     <Link href={base_url} className="navbar-brand inline-block">
       {src || logo ? (
-        <div className="relative h-[48px] w-auto md:h-[60px]">
-          <Image
-            src={src || logo}
-            alt={title}
-            width={width * 2}
-            height={height * 2}
-            className="h-full w-auto object-contain"
-            priority
-          />
-        </div>
+        <Image
+          src={src || logo}
+          alt={title}
+          width={180}
+          height={80}
+          className="h-[60px] md:h-[80px] w-auto object-contain"
+          priority
+        />
       ) : logo_text ? (
-        <span className="text-xl font-bold text-primary">{logo_text}</span>
+        <span className="text-2xl font-bold text-primary">{logo_text}</span>
       ) : (
-        <span className="text-xl font-bold text-primary">{title}</span>
+        <span className="text-2xl font-bold text-primary">{title}</span>
       )}
     </Link>
   );

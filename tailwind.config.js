@@ -10,22 +10,6 @@ let h3 = h4 * font_scale;
 let h2 = h3 * font_scale;
 let h1 = h2 * font_scale;
 
-let fontPrimary, fontPrimaryType, fontSecondary, fontSecondaryType;
-
-if (theme.fonts.font_family.primary) {
-  fontPrimary = theme.fonts.font_family.primary
-    .replace(/\+/g, " ")
-    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
-  fontPrimaryType = theme.fonts.font_family.primary_type;
-}
-
-if (theme.fonts.font_family.secondary) {
-  fontSecondary = theme.fonts.font_family.secondary
-    .replace(/\+/g, " ")
-    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
-  fontSecondaryType = theme.fonts.font_family.secondary_type;
-}
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -37,30 +21,29 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: "540px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      sm: theme.layout.breakpoints.sm || "540px",
+      md: theme.layout.breakpoints.md || "768px",
+      lg: theme.layout.breakpoints.lg || "1024px",
+      xl: theme.layout.breakpoints.xl || "1280px",
+      "2xl": theme.layout.breakpoints["2xl"] || "1536px",
     },
     container: {
       center: true,
-      padding: "1.5rem",
+      padding: theme.layout.container.padding || "1.5rem",
     },
     extend: {
       colors: {
-        // Branded colors from Heart and Haven Care logo
-        primary: "#b9892f", // Gold
-        secondary: "#5a2671", // Deep purple
-        background: "#5a2671", // Reused for body/hero sections
-        text: "#ffffff", // Default text color on dark background
+        // Brand Colors
+        primary: theme.colors.default.theme_color.secondary || "#5a2671", // deep purple
+        accent: theme.colors.default.theme_color.primary || "#b9892f", // gold
+        brandText: theme.colors.default.theme_color.secondary || "#5a2671",
 
-        light: theme.colors.default?.text_color?.light || "#f9fafb",
-        dark: theme.colors.default?.text_color?.dark || "#1f2937",
-        body: theme.colors.default?.theme_color?.body || "#ffffff",
-        border: theme.colors.default?.theme_color?.border || "#e5e7eb",
-        "theme-light":
-          theme.colors.default?.theme_color?.theme_light || "#f3f4f6",
+        // Support Colors
+        background: theme.colors.default.theme_color.theme_light || "#f9f7fc",
+        body: theme.colors.default.theme_color.body || "#ffffff",
+        border: theme.colors.default.theme_color.border || "#e0e0e0",
+        light: theme.colors.default.text_color.light || "#f5f5f5",
+        dark: theme.colors.default.text_color.dark || "#1a1a1a",
       },
       fontSize: {
         base: font_base + "px",
@@ -75,14 +58,28 @@ module.exports = {
         h6: h6 + "rem",
       },
       fontFamily: {
-        primary: [fontPrimary || "Poppins", fontPrimaryType || "sans-serif"],
-        secondary: [
-          fontSecondary || "Open Sans",
-          fontSecondaryType || "sans-serif",
-        ],
+        sans: ["var(--font-inter)", "sans-serif"],
+        serif: ["var(--font-playfair)", "serif"],
+        primary: ["var(--font-playfair)", "serif"],
+        secondary: ["var(--font-inter)", "sans-serif"],
       },
       boxShadow: {
         header: "0 4px 12px rgba(0, 0, 0, 0.1)",
+      },
+      keyframes: {
+        fadeLeftSlow: {
+          "0%": { opacity: "0", transform: "translateX(-40px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        fadeLeftSlow: "fadeLeftSlow 1.2s ease-out forwards",
+      },
+      backgroundImage: {
+        "soft-care-gradient":
+          "linear-gradient(135deg, #7f3a9d 0%, #a249a9 40%, #f6b867 100%)",
+        "brand-text-gradient":
+          "linear-gradient(to right, #8338ec, #d77b55, #f4b860)",
       },
     },
   },

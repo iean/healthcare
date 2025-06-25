@@ -1,127 +1,142 @@
 "use client";
 
-import Logo from "@components/Logo";
-import menu from "@config/menu.json";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import config from "../../config/config.json";
+import { useEffect, useState } from "react";
+import { FaFacebookF, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
+import config from "@config/config.json";
+import menu from "@config/menu.json";
 
 const Header = () => {
   const pathname = usePathname();
+  const { base_url, logo, title } = config.site;
   const { main } = menu;
-  const [navOpen, setNavOpen] = useState(false);
-  const { logo } = config.site;
   const { enable, label, link } = config.nav_button;
 
+  const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-secondary shadow-md" : "bg-transparent"
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled ? "shadow-md bg-white/95 backdrop-blur" : "bg-white"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:py-6">
-        {/* Logo */}
-        <div className="flex-shrink-0">
-          <Logo src={logo} />
-        </div>
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <Link href={base_url} className="flex items-center">
+            <Image
+              src={logo}
+              alt={title}
+              width={180}
+              height={80}
+              className="object-contain max-h-[70px] w-auto"
+              priority
+            />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden flex-1 justify-center space-x-10 text-base font-medium text-white md:flex">
-          {main.map((menuItem, i) =>
-            menuItem.hasChildren ? (
-              <li className="group relative" key={i}>
-                <span className="inline-flex cursor-pointer items-center gap-1">
-                  {menuItem.name}
-                  <svg
-                    className="h-4 w-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M5.23 7.21L10 12l4.77-4.79-1.41-1.42L10 9.17 6.64 5.79 5.23 7.21z" />
-                  </svg>
-                </span>
-                <ul className="absolute left-0 mt-3 hidden w-44 rounded-md bg-white py-2 shadow-lg z-50 group-hover:block">
-                  {menuItem.children.map((child, j) => (
-                    <li key={j}>
-                      <Link
-                        href={child.url}
-                        className="block px-4 py-2 text-secondary hover:bg-gray-100"
-                      >
-                        {child.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li key={i}>
-                <Link
-                  href={menuItem.url}
-                  className={`hover:text-primary transition ${
-                    pathname === menuItem.url
-                      ? "text-primary font-semibold"
-                      : ""
-                  }`}
-                >
-                  {menuItem.name}
-                </Link>
-              </li>
-            ),
-          )}
-        </ul>
-
-        {/* CTA Button */}
-        {enable && (
-          <div className="hidden md:block">
-            <Link
-              href={link}
-              className="rounded-full bg-primary px-6 py-2 text-sm font-semibold text-white hover:bg-opacity-90"
-            >
-              {label}
-            </Link>
-          </div>
-        )}
-
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setNavOpen(!navOpen)}
-          className="md:hidden text-white"
-        >
-          <svg className="h-6 w-6" fill="none" stroke="currentColor">
-            {navOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-      </nav>
-
-      {/* Mobile Menu Dropdown */}
-      {navOpen && (
-        <div className="bg-secondary md:hidden">
-          <ul className="flex flex-col items-center space-y-4 px-6 py-6 text-white">
+          {/* Desktop Nav */}
+          <ul className="hidden md:flex items-center space-x-8 text-base font-semibold text-accent uppercase">
             {main.map((item, i) => (
               <li key={i}>
-                <Link href={item.url} onClick={() => setNavOpen(false)}>
+                <Link
+                  href={item.url}
+                  className={`px-4 py-2 rounded-full transition duration-200 ${
+                    pathname === item.url
+                      ? "bg-primary text-white"
+                      : "hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Right side: Contact + Social */}
+          <div className="hidden md:flex items-center space-x-6 pl-6 border-l border-gray-300">
+            {/* Contact */}
+            <div className="flex items-center space-x-2">
+              <FaPhoneAlt className="text-accent text-lg" />
+              <div>
+                <p className="text-xs font-bold text-primary">Contact Us</p>
+                <p className="text-sm font-semibold text-gray-800">
+                  0207 798 1182
+                </p>
+              </div>
+            </div>
+
+            {/* Socials */}
+            <div className="flex items-center space-x-4 text-accent text-lg">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedinIn />
+              </a>
+            </div>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="inline-flex items-center justify-center text-gray-800 md:hidden"
+            onClick={() => setNavOpen(!navOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-7 h-7" fill="none" stroke="currentColor">
+              {navOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Nav Dropdown */}
+      {navOpen && (
+        <div className="md:hidden bg-white shadow-inner px-4 pb-4">
+          <ul className="flex flex-col space-y-2 text-base font-medium text-gray-800">
+            {main.map((item, i) => (
+              <li key={i}>
+                <Link
+                  href={item.url}
+                  onClick={() => setNavOpen(false)}
+                  className={`block px-3 py-2 rounded-md transition ${
+                    pathname === item.url
+                      ? "text-primary bg-primary/10"
+                      : "hover:text-accent"
+                  }`}
+                >
                   {item.name}
                 </Link>
               </li>
@@ -130,8 +145,8 @@ const Header = () => {
               <li>
                 <Link
                   href={link}
-                  className="inline-block rounded-full bg-primary px-6 py-2 text-sm font-semibold text-white"
                   onClick={() => setNavOpen(false)}
+                  className="block text-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow-md hover:bg-opacity-90 mt-2"
                 >
                   {label}
                 </Link>
