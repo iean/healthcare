@@ -3,16 +3,20 @@ import { markdownify } from "@lib/utils/textConverter";
 import {
   MdAccessTime,
   MdHome,
-  MdElderly,
-  MdSelfImprovement,
+  MdSupportAgent,
+  MdMonetizationOn,
+  MdSpeed,
+  MdCloud,
 } from "react-icons/md";
 
 // Icon mapping
 const iconMap = {
   hourly: <MdAccessTime size={30} className="text-brand" />,
   livein: <MdHome size={30} className="text-brand" />,
-  dementia: <MdElderly size={30} className="text-brand" />,
-  respite: <MdSelfImprovement size={30} className="text-brand" />,
+  "24h": <MdSupportAgent size={30} className="text-brand" />,
+  value: <MdMonetizationOn size={30} className="text-brand" />,
+  fast: <MdSpeed size={30} className="text-brand" />,
+  cloud: <MdCloud size={30} className="text-brand" />,
 };
 
 const HomeFeatures = ({ feature }) => {
