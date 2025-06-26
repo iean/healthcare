@@ -37,7 +37,7 @@ const Header = () => {
               src={logo}
               alt={title}
               width={180}
-              height={80}
+              height={100}
               className="object-contain max-h-[70px] w-auto"
               priority
             />
