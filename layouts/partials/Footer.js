@@ -8,10 +8,10 @@ import social from "@config/social.json";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-[#431c63] via-[#6e296d] to-[#ec9e57] text-white">
-      {/* Top White Section */}
-      <div className="relative z-10 bg-white text-black rounded-t-2xl shadow-lg px-6 py-10 max-w-7xl mx-auto mt-[-20px]">
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-8">
+    <footer className="bg-gradient-to-b from-[#431c63] via-[#6e296d] to-[#ec9e57] text-white pt-2">
+      {/* Card Container */}
+      <div className="relative z-10 bg-[#fdfbff] text-black rounded-t-[2rem] shadow-2xl px-6 py-12 max-w-7xl mx-auto mt-1 border border-[#ece4f4]">
+        <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-10">
           {/* Logo & Contact */}
           <div className="space-y-3">
             <Image
@@ -20,7 +20,7 @@ const Footer = () => {
               width={140}
               height={60}
             />
-            <div className="text-sm">
+            <div className="text-sm text-[#333]">
               <p>
                 <strong>T:</strong> 0123 456 7890
               </p>
@@ -31,7 +31,7 @@ const Footer = () => {
                 <strong>E:</strong>{" "}
                 <a
                   href="mailto:info@heartandhavencare.co.uk"
-                  className="text-[#5e3ea1]"
+                  className="text-[#5e3ea1] hover:underline"
                 >
                   info@heartandhavencare.co.uk
                 </a>
@@ -40,7 +40,7 @@ const Footer = () => {
                 <strong>E:</strong>{" "}
                 <a
                   href="mailto:support@heartandhavencare.co.uk"
-                  className="text-[#5e3ea1]"
+                  className="text-[#5e3ea1] hover:underline"
                 >
                   support@heartandhavencare.co.uk
                 </a>
@@ -49,9 +49,11 @@ const Footer = () => {
           </div>
 
           {/* Address */}
-          <div className="text-[#431c63]">
-            <h4 className="font-semibold text-lg mb-2">Address</h4>
-            <p className="text-sm">
+          <div>
+            <h4 className="font-semibold text-[#431c63] text-lg mb-2">
+              Address
+            </h4>
+            <p className="text-sm text-[#333]">
               Haven House, <br />
               101 Care Lane, <br />
               London, HA1 2BC
@@ -59,9 +61,11 @@ const Footer = () => {
           </div>
 
           {/* Opening Hours */}
-          <div className="text-[#431c63]">
-            <h4 className="font-semibold text-lg mb-2">Opening Hours</h4>
-            <p className="text-sm">
+          <div>
+            <h4 className="font-semibold text-[#431c63] text-lg mb-2">
+              Opening Hours
+            </h4>
+            <p className="text-sm text-[#333]">
               Mon–Fri: 9:00am – 5:30pm <br />
               Saturday: 10:00am – 1:00pm <br />
               Sunday: Closed
@@ -69,17 +73,22 @@ const Footer = () => {
           </div>
 
           {/* Social */}
-          <div className="text-[#431c63]">
-            <h4 className="font-semibold text-lg mb-2">Follow Us</h4>
-            <Social source={social} className="flex space-x-4 mt-2" />
+          <div>
+            <h4 className="font-semibold text-[#431c63] text-lg mb-2">
+              Follow Us
+            </h4>
+            <Social
+              source={social}
+              className="flex space-x-4 mt-2 text-[#431c63]"
+            />
           </div>
         </div>
       </div>
 
       {/* CQC Info Section */}
-      <div className="bg-white text-black py-6 shadow-inner max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between px-6">
-          <div className="flex items-center gap-4">
+      <div className="bg-[#fff9f4] text-black py-6 shadow-inner max-w-7xl mx-auto px-6 rounded-b-[1rem] border-t border-[#f1d0af]">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="flex items-start gap-4">
             <Image
               src="/images/cqc-logo.png"
               alt="CQC"
@@ -100,19 +109,17 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div className="mt-4 md:mt-0">
-            <Link
-              href="/registration-details"
-              className="inline-block bg-green-600 text-white px-4 py-2 rounded font-semibold text-sm"
-            >
-              See registration details
-            </Link>
-          </div>
+          <Link
+            href="/registration-details"
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-semibold text-sm"
+          >
+            See registration details
+          </Link>
         </div>
       </div>
 
       {/* Bottom Strip */}
-      <div className="border-t border-white/30 py-4 text-sm text-center">
+      <div className="border-t border-white/20 py-4 text-sm text-center bg-[#00000020] mt-4">
         <Link href="/privacy-policy" className="mx-2 hover:underline">
           Privacy Policy
         </Link>
