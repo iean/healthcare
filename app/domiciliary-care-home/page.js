@@ -1,12 +1,11 @@
 import config from "@config/config.json";
 import SeoMeta from "@layouts/SeoMeta";
-import HomeBanner from "@layouts/partials/HomeBanner";
 import Services from "@layouts/partials/Services";
-import HomeFeatures from "@layouts/partials/HomeFeatures";
-import CareInfoBanner from "@layouts/partials/CareInfoBanner";
 import Contact from "@layouts/Contact";
 import { getListPage, getRegularPage } from "../lib/contentParser";
-import banner from "@/content/home/banner.json";
+import DomiciliaryBanner from "@layouts/domiciliary-care-home/Banner";
+import DomiciliaryPerks from "@layouts/domiciliary-care-home/Perks";
+import StaffingApart from "@layouts/domiciliary-care-home/StaffingApart";
 
 const DomiciliaryCareHome = async () => {
   const homePage = await getListPage("content/_index.md");
@@ -18,15 +17,10 @@ const DomiciliaryCareHome = async () => {
   return (
     <>
       <SeoMeta title={`Domiciliary Care Home | ${title}`} />
-      <HomeBanner banner={banner} />
+      <DomiciliaryBanner />
       <Services services={services} />
-      <HomeFeatures feature={feature} />
-      <CareInfoBanner
-        title="What Sets Our Staffing Apart"
-        description="Our dedicated professionals deliver compassionate support tailored to each individual's needs."
-        imageSrc="/images/banner-caregiving/care-help-2.jpg"
-        primaryButton={{ text: "KNOW MORE", href: "/contact" }}
-      />
+      <DomiciliaryPerks feature={feature} />
+      <StaffingApart />
       <Contact data={contactPage} />
     </>
   );
