@@ -2,71 +2,88 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Autoplay, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
 
-const Services = ({ services }) => {
-  return services.map((service, index) => {
-    const isOdd = index % 2 > 0;
-    return (
-      <section
-        key={`service-${index}`}
-        className={`section ${isOdd && "bg-theme-light"}`}
-      >
-        <div className="container">
-          <div className="items-center gap-8 md:grid md:grid-cols-2">
-            {/* Carousel */}
-            <div className={`service-carousel ${!isOdd && "md:order-2"}`}>
-              <Swiper
-                modules={[Autoplay, Pagination]}
-                pagination={
-                  service.images.length > 1 ? { clickable: true } : false
-                }
-                autoplay={{
-                  delay: 5000,
-                  disableOnInteraction: false,
-                }}
-                init={service?.images > 1 ? false : true}
-              >
-                {/* Slides */}
-                {service?.images.map((slide, index) => (
-                  <SwiperSlide key={index}>
-                    <Image src={slide} alt="" width={600} height={500} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
+const services = [
+  {
+    title: "Domiciliary Care Services",
+    content:
+      "Personalized home care tailored to your loved one’s daily needs — from companionship to medication support, ensuring comfort and independence at home.",
+    images: ["/images/services/domiciliary-care.jpg"],
+    link: "/services/domiciliary-care",
+  },
+  {
+    title: "Temporary Staffing Services",
+    content:
+      "Flexible, on-demand healthcare staffing solutions for hospitals, clinics, and care homes — connecting you with certified professionals quickly and efficiently.",
+    images: ["/images/services/temp-staffing.jpg"],
+    link: "/services/temporary-staffing",
+  },
+  {
+    title: "Supported Living Services",
+    content:
+      "Empowering individuals with disabilities or mental health needs to live independently with tailored support in a safe and caring environment.",
+    images: ["/images/services/supported-living.jpg"],
+    link: "/services/supported-living",
+  },
+];
 
-            {/* Content */}
-            <div
-              className={`service-content mt-5 md:mt-0 ${
-                !isOdd && "md:order-1"
-              }`}
-            >
-              <h2 className="font-bold leading-[40px]">{service?.title}</h2>
-              <p className="mb-2 mt-4">{service?.content}</p>
-              {service.button.enable && (
-                <Link
-                  href={service?.button.link}
-                  className="cta-link inline-flex items-center text-primary"
-                >
-                  {service?.button.label}
-                  <Image
-                    className="ml-1"
-                    src="/images/arrow-right.svg"
-                    width={18}
-                    height={14}
-                    alt="arrow"
-                  />
-                </Link>
-              )}
-            </div>
-          </div>
+const Services = () => {
+  return (
+    <section className="py-20 bg-theme-light">
+      <div className="container">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-[#5e3ea1] mb-4">
+            Our Services
+          </h2>
+          <p className="text-[#7e56c2] max-w-2xl mx-auto text-base">
+            Quality care for every stage of life — from checkups to chronic
+            care.
+          </p>
         </div>
-      </section>
-    );
-  });
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {services.map((service, index) => (
+            <Link
+              key={index}
+              href={service.link}
+              className="group block bg-white border border-[#e5e5f7] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] h-[400px] overflow-hidden"
+            >
+              {/* Image */}
+              <div className="relative h-[50%] w-full overflow-hidden">
+                <Image
+                  src={
+                    service.images?.[0]
+                      ? service.images[0]
+                      : "/images/white-log.png"
+                  }
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="h-[50%] p-6 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-[#5e3ea1] group-hover:text-[#432c82] transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-black leading-relaxed">
+                    {service.content}
+                  </p>
+                </div>
+                <div className="mt-4 text-sm font-medium text-[#5e3ea1] group-hover:underline">
+                  Learn more →
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Services;

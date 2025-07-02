@@ -1,9 +1,9 @@
 {
-  "facebook": "https://facebook.com/",
-  "twitter": "https://twitter.com/",
-  "instagram": "",
+  "facebook": "https://facebook.com/heartandhavencare",
+  "twitter": "https://twitter.com/heartandhaven",
+  "instagram": "https://instagram.com/heartandhavencare",
+  "linkedin": "https://linkedin.com/company/heartandhavencare",
   "youtube": "",
-  "linkedin": "https://linkedin.com/",
   "github": "",
   "gitlab": "",
   "discord": "",
@@ -24,9 +24,9 @@
   "tiktok": "",
   "foursquare": "",
   "rss": "",
-  "email": "",
-  "phone": "",
-  "address": "",
-  "skype": "https://skype.com/",
-  "website": ""
+  "email": "info@heartandhavencare.co.uk",
+  "phone": "+441234567890",
+  "address": "Haven House, 101 Care Lane, London, HA1 2BC",
+  "skype": "",
+  "website": "https://www.heartandhavencare.co.uk"
 }
