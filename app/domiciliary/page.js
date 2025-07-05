@@ -1,5 +1,6 @@
 import config from "@config/config.json";
 
+import SimpleHeader from "@layouts/partials/SimpleHeader";
 import HomeBanner from "@layouts/partials/HomeBanner";
 import HomeFeatures from "@layouts/partials/HomeFeatures";
 import Services from "@layouts/partials/Services";
@@ -15,6 +16,7 @@ const Domiciliary = async () => {
 
   return (
     <>
+      <SimpleHeader />
       {/* Banner */}
       <HomeBanner banner={banner} />
       {/* services */}
