@@ -11,23 +11,7 @@
       {
         "name": "Staffing",
         "url": "/staffing"
-      },
-      {
-        "name": "Blog",
-      "url": "/blogs"
-    },
-    {
-      "name": "Pricing",
-      "url": "/pricing"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
-    },
-    {
-      "name": "FAQ",
-      "url": "/faq"
-    }
+      }
   ],
   "footer": [
     {
