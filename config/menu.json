@@ -9,16 +9,8 @@
       "url": "/domiciliary"
     },
     {
-      "name": "Temporary Staffing",
+      "name": "Staffing",
       "url": "/staffing"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
-    },
-    {
-      "name": "FAQ",
-      "url": "/faq"
     }
   ],
   "footer": [
