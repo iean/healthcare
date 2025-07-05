@@ -1,8 +1,13 @@
+import AboutBanner from "@layouts/staffing/About/Banner";
+import MissionValues from "@layouts/staffing/About/MissionValues";
+import TeamShowcase from "@layouts/staffing/About/TeamShowcase";
+
 const AboutUs = () => (
-  <section className="container py-16">
-    <h1 className="text-3xl font-bold mb-4">About Us</h1>
-    <p>Learn about our healthcare staffing solutions.</p>
-  </section>
+  <>
+    <AboutBanner />
+    <MissionValues />
+    <TeamShowcase />
+  </>
 );
 
 export default AboutUs;
