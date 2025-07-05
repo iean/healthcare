@@ -1,7 +1,4 @@
 import "../styles/style.scss";
-import config from "@config/config.json";
-import theme from "@config/theme.json";
-import SimpleHeader from "@layouts/partials/SimpleHeader";
 import Footer from "@layouts/partials/Footer";
 import Providers from "@layouts/partials/Providers";
 import { Inter, Merriweather, Playfair_Display } from "next/font/google";
@@ -40,7 +37,6 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${playfair.variable} ${merriweather.variable}`}
     >
       <body className="font-sans text-brandText antialiased">
-        <SimpleHeader />
         <Providers>{children}</Providers>
         <Footer />
       </body>
