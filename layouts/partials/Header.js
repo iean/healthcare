@@ -8,10 +8,10 @@ import { FaFacebookF, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
 import config from "@config/config.json";
 import menu from "@config/menu.json";
 
-const Header = () => {
+const Header = ({ menuItems }) => {
   const pathname = usePathname();
   const { base_url, logo, title } = config.site;
-  const { main } = menu;
+  const main = menuItems || menu.main;
   const { enable, label, link } = config.nav_button;
 
   const [navOpen, setNavOpen] = useState(false);
