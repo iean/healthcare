@@ -3,9 +3,6 @@ import SeoMeta from "@layouts/SeoMeta";
 import Services from "@layouts/partials/Services";
 import Contact from "@layouts/Contact";
 import { getListPage, getRegularPage } from "../lib/contentParser";
-import DomiciliaryBanner from "@layouts/domiciliary-care-home/Banner";
-import DomiciliaryPerks from "@layouts/domiciliary-care-home/Perks";
-import StaffingApart from "@layouts/domiciliary-care-home/StaffingApart";
 
 const DomiciliaryCareHome = async () => {
   const homePage = await getListPage("content/_index.md");
@@ -17,11 +14,6 @@ const DomiciliaryCareHome = async () => {
   return (
     <>
       <SeoMeta title={`Domiciliary Care Home | ${title}`} />
-      <DomiciliaryBanner />
-      <Services services={services} />
-      <DomiciliaryPerks feature={feature} />
-      <StaffingApart />
-      <Contact data={contactPage} />
     </>
   );
 };

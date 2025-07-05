@@ -4,21 +4,13 @@
       "name": "Home",
       "url": "/"
     },
-      {
-        "name": "Domiciliary Services",
-        "url": "/domiciliary"
-      },
-      {
-        "name": "Staffing",
-        "url": "/staffing"
-      },
-      {
-        "name": "Blog",
-      "url": "/blogs"
+    {
+      "name": "Domiciliary Services",
+      "url": "/domiciliary"
     },
     {
-      "name": "Pricing",
-      "url": "/pricing"
+      "name": "Temporary Staffing",
+      "url": "/staffing"
     },
     {
       "name": "Contact",
