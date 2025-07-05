@@ -29,7 +29,7 @@ const Header = ({ menuItems }) => {
         scrolled ? "shadow-md bg-white/95 backdrop-blur" : "bg-white"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="max-w-screen-2xl mx-auto px-4 md:px-10">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href={base_url} className="flex items-center">
@@ -38,21 +38,21 @@ const Header = ({ menuItems }) => {
               alt={title}
               width={180}
               height={100}
-              className="object-contain max-h-[70px] w-auto"
+              className="object-contain max-h-[60px] w-auto"
               priority
             />
           </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden md:flex items-center space-x-8 text-base font-semibold text-accent uppercase">
+          <ul className="hidden lg:flex items-center justify-center flex-1 space-x-8 text-sm font-bold text-[#a57928] uppercase">
             {main.map((item, i) => (
               <li key={i}>
                 <Link
                   href={item.url}
                   className={`px-4 py-2 rounded-full transition duration-200 ${
                     pathname === item.url
-                      ? "bg-primary text-white"
-                      : "hover:text-primary"
+                      ? "bg-[#431c52] text-white"
+                      : "hover:text-[#431c52]"
                   }`}
                 >
                   {item.name}
@@ -61,21 +61,20 @@ const Header = ({ menuItems }) => {
             ))}
           </ul>
 
-          {/* Right side: Contact + Social */}
-          <div className="hidden md:flex items-center space-x-6 pl-6 border-l border-gray-300">
-            {/* Contact */}
+          {/* Contact + Socials */}
+          <div className="hidden lg:flex items-center space-x-6 pl-6 border-l border-gray-300">
             <div className="flex items-center space-x-2">
-              <FaPhoneAlt className="text-accent text-lg" />
+              <FaPhoneAlt className="text-[#a57928] text-lg" />
               <div>
-                <p className="text-xs font-bold text-primary">Contact Us</p>
-                <p className="text-sm font-semibold text-gray-800">
-                  0207 798 1182
+                <p className="text-xs font-bold text-[#431c52]">Contact Us</p>
+                <p className="text-sm font-semibold text-black leading-tight">
+                  0207 798
+                  <br />
+                  1182
                 </p>
               </div>
             </div>
-
-            {/* Socials */}
-            <div className="flex items-center space-x-4 text-accent text-lg">
+            <div className="flex items-center space-x-4 text-[#a57928] text-lg">
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -95,9 +94,9 @@ const Header = ({ menuItems }) => {
             </div>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile menu toggle */}
           <button
-            className="inline-flex items-center justify-center text-gray-800 md:hidden"
+            className="inline-flex items-center justify-center text-gray-800 lg:hidden"
             onClick={() => setNavOpen(!navOpen)}
             aria-label="Toggle menu"
           >
@@ -122,9 +121,9 @@ const Header = ({ menuItems }) => {
         </div>
       </div>
 
-      {/* Mobile Nav Dropdown */}
+      {/* Mobile Menu */}
       {navOpen && (
-        <div className="md:hidden bg-white shadow-inner px-4 pb-4">
+        <div className="lg:hidden bg-white shadow-inner px-4 pb-4">
           <ul className="flex flex-col space-y-2 text-base font-medium text-gray-800">
             {main.map((item, i) => (
               <li key={i}>
@@ -133,8 +132,8 @@ const Header = ({ menuItems }) => {
                   onClick={() => setNavOpen(false)}
                   className={`block px-3 py-2 rounded-md transition ${
                     pathname === item.url
-                      ? "text-primary bg-primary/10"
-                      : "hover:text-accent"
+                      ? "text-white bg-[#431c52]"
+                      : "hover:text-[#431c52]"
                   }`}
                 >
                   {item.name}
@@ -146,7 +145,7 @@ const Header = ({ menuItems }) => {
                 <Link
                   href={link}
                   onClick={() => setNavOpen(false)}
-                  className="block text-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow-md hover:bg-opacity-90 mt-2"
+                  className="block text-center rounded-full bg-[#431c52] px-5 py-2 text-sm font-semibold text-white shadow-md hover:bg-opacity-90 mt-2"
                 >
                   {label}
                 </Link>
@@ -155,6 +154,9 @@ const Header = ({ menuItems }) => {
           </ul>
         </div>
       )}
+
+      {/* Bottom Gradient Strip */}
+      <div className="h-3 bg-gradient-to-r from-[#431c52] via-[#6a2c70] to-[#431c52]" />
     </header>
   );
 };
