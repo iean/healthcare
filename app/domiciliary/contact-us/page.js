@@ -1,8 +1,1 @@
-const ContactUs = () => (
-  <section className="container py-16">
-    <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
-    <p>Reach out to our domiciliary care team.</p>
-  </section>
-);
-
-export default ContactUs;
+export { default } from "../../contact/page";
