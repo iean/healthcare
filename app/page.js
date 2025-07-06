@@ -24,7 +24,7 @@ const Home = async () => {
       <HomeBanner banner={banner} />
       {/* services */}
       <Services services={services} />
-
+      <HomeFeatures feature={feature} />
       <CareInfoBanner
         title="Financing your care options available to you"
         description="Most people are under the assumption that quality care in their own home is beyond their financial means; however, there are various financing options available..."
@@ -33,13 +33,6 @@ const Home = async () => {
         primaryButton={{ text: "FIND OUT MORE", href: "/financing" }}
         secondaryButton={{ text: "OUR CARERS", href: "/carers" }}
       />
-      {/* Features */}
-      <HomeFeatures feature={feature} />
-      {/* workflow */}
-      {/* <Workflow workflow={workflow} /> */}
-
-      {/* Cta */}
-      {/* <Cta cta={call_to_action} /> */}
     </>
   );
 };
