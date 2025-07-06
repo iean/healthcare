@@ -1,8 +1,15 @@
+import DomiciliaryBanner from "@layouts/domiciliary/Banner";
+import ServiceOptions from "@layouts/domiciliary/Options";
+import ServiceScopes from "@layouts/domiciliary/Scopes";
+import ServiceDescription from "@layouts/domiciliary/Description";
+
 const CareServices = () => (
-  <section className="container py-16">
-    <h1 className="text-3xl font-bold mb-4">Care Services</h1>
-    <p>Overview of the care services we provide.</p>
-  </section>
+  <>
+    <DomiciliaryBanner />
+    <ServiceOptions />
+    <ServiceScopes />
+    <ServiceDescription />
+  </>
 );
 
 export default CareServices;
