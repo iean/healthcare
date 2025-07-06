@@ -1,15 +1,16 @@
-import StaffingBanner from "@layouts/staffing/Banner";
-import StaffingOptions from "@layouts/staffing/Options";
-import ServiceScopes from "@layouts/staffing/Scopes";
-import ServiceDescription from "@layouts/staffing/Description";
-import WhatWeProvide from "@layouts/staffing/WhatWeProvide";
+import Hero from "@layouts/staffing/CareServices/Hero";
+import ServiceCards from "@layouts/staffing/CareServices/ServiceCards";
+import ServiceProcess from "@layouts/staffing/CareServices/ServiceProcess";
+import WhyChooseUs from "@layouts/staffing/CareServices/WhyChooseUs";
+import ContactBanner from "@layouts/staffing/CareServices/ContactBanner";
 
 const CareServices = () => (
   <>
-    <StaffingBanner />
-    <StaffingOptions />
-    <WhatWeProvide />
-    <ServiceDescription />
+    <Hero />
+    <ServiceCards />
+    <ServiceProcess />
+    <WhyChooseUs />
+    <ContactBanner />
   </>
 );
 
