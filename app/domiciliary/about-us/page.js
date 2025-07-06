@@ -1,8 +1,13 @@
+import AboutBanner from "@layouts/domiciliary/About/Banner";
+import MissionValues from "@layouts/domiciliary/About/MissionValues";
+import TeamShowcase from "@layouts/domiciliary/About/TeamShowcase";
+
 const AboutUs = () => (
-  <section className="container py-16">
-    <h1 className="text-3xl font-bold mb-4">About Us</h1>
-    <p>Information about our domiciliary services.</p>
-  </section>
+  <>
+    <AboutBanner />
+    <MissionValues />
+    <TeamShowcase />
+  </>
 );
 
 export default AboutUs;
