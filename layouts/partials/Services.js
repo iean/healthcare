@@ -9,14 +9,14 @@ const services = [
     content:
       "Personalized home care tailored to your loved one’s daily needs — from companionship to medication support, ensuring comfort and independence at home.",
     images: ["/images/services/domiciliary-care.jpg"],
-    link: "/services/domiciliary-care",
+    link: "/domiciliary",
   },
   {
     title: "Temporary Staffing Services",
     content:
       "Flexible, on-demand healthcare staffing solutions for hospitals, clinics, and care homes — connecting you with certified professionals quickly and efficiently.",
     images: ["/images/services/temp-staffing.jpg"],
-    link: "/services/temporary-staffing",
+    link: "/staffing",
   },
   {
     title: "Supported Living Services",
@@ -29,7 +29,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-20 bg-theme-light">
+    <section className="py-20 bg-theme-light w-full px-6 bg-gradient-to-r from-[#f9f5ff] via-[#fdf6eb] to-[#fff9ec]">
       <div className="container">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -48,16 +48,15 @@ const Services = () => {
             <Link
               key={index}
               href={service.link}
-              className="group block bg-white border border-[#e5e5f7] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] h-[400px] overflow-hidden"
+              className="group block relative bg-white border border-[#e5e5f7] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] h-[450px] overflow-hidden"
             >
+              {/* Gradient Top Border */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#c69c6d] via-[#d4b3f5] to-[#5e3ea1] rounded-t-xl" />
+
               {/* Image */}
               <div className="relative h-[50%] w-full overflow-hidden">
                 <Image
-                  src={
-                    service.images?.[0]
-                      ? service.images[0]
-                      : "/images/white-log.png"
-                  }
+                  src={service.images?.[0] || "/images/white-log.png"}
                   alt={service.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
@@ -70,7 +69,7 @@ const Services = () => {
                   <h3 className="text-xl font-semibold mb-2 text-[#5e3ea1] group-hover:text-[#432c82] transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-black leading-relaxed">
+                  <p className="text-sm text-black leading-relaxed line-clamp-4">
                     {service.content}
                   </p>
                 </div>

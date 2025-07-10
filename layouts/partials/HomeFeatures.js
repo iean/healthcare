@@ -21,7 +21,7 @@ const iconMap = {
 
 const HomeFeatures = ({ feature }) => {
   return (
-    <section className="py-16 bg-[#F9F7FB]">
+    <section className="py-16 bg-[#F9F7FB] bg-gradient-to-r from-[#f9f5ff] via-[#fdf6eb] to-[#fff9ec]">
       <div className="container mx-auto px-4">
         {/* Logo & Heading */}
         <div className="text-center max-w-3xl mx-auto mb-10">

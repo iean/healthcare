@@ -9,20 +9,8 @@
       "url": "/domiciliary"
     },
     {
-      "name": "Blog",
-      "url": "/blogs"
-    },
-    {
-      "name": "Pricing",
-      "url": "/pricing"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
-    },
-    {
-      "name": "FAQ",
-      "url": "/faq"
+      "name": "Staffing",
+      "url": "/staffing"
     }
   ],
   "footer": [

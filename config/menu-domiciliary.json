@@ -1,0 +1,10 @@
+{
+  "main": [
+    { "name": "Home", "url": "/domiciliary" },
+    { "name": "About Us", "url": "/domiciliary/about-us" },
+    { "name": "Care Services", "url": "/domiciliary/care-services" },
+    { "name": "How We Work", "url": "/domiciliary/how-we-work" },
+    { "name": "Available Jobs", "url": "/domiciliary/available-jobs" },
+    { "name": "Contact Us", "url": "/domiciliary/contact-us" }
+  ]
+}
