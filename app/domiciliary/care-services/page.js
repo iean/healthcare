@@ -1,15 +1,15 @@
-import PageHero from "@layouts/partials/PageHero";
-import Services from "@layouts/partials/Services";
+import DomiciliaryBanner from "@layouts/domiciliary/Banner";
+import ServiceOptions from "@layouts/domiciliary/Options";
+import ServiceScopes from "@layouts/domiciliary/Scopes";
+import ServiceDescription from "@layouts/domiciliary/Description";
 
-const CareServicesPage = () => (
+const CareServices = () => (
   <>
-    <PageHero
-      title="Care Services"
-      subtitle="Compassionate support tailored to you"
-      image="/images/banner-caregiving/hero1.jpg"
-    />
-    <Services />
+    <DomiciliaryBanner />
+    <ServiceOptions />
+    <ServiceScopes />
+    <ServiceDescription />
   </>
 );
 
-export default CareServicesPage;
+export default CareServices;

@@ -12,7 +12,7 @@ const CareInfoBanner = ({
   secondaryButton,
 }) => {
   return (
-    <section className="w-full py-12 px-6 mb-12 bg-gradient-to-r from-[#f9f5ff] via-[#fdf6eb] to-[#fff9ec]">
+    <section className="w-full py-12 px-6 bg-gradient-to-r from-[#f9f5ff] via-[#fdf6eb] to-[#fff9ec]">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         {/* Text Content */}
         <div>
