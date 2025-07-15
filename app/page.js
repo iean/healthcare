@@ -3,8 +3,8 @@ import Cta from "@layouts/components/Cta";
 import SeoMeta from "@layouts/SeoMeta";
 
 import SimpleHeader from "@layouts/partials/SimpleHeader";
-import HomeBanner from "@layouts/partials/HomeBanner";
 import HomeFeatures from "@layouts/partials/HomeFeatures";
+import HomeBannerMain from "@layouts/partials/HomeBannerMain";
 import Services from "@layouts/partials/Services";
 import CareInfoBanner from "@layouts/partials/CareInfoBanner";
 import { getListPage } from "../lib/contentParser";
@@ -21,10 +21,10 @@ const Home = async () => {
       <SeoMeta title={title} />
       <SimpleHeader />
       {/* Banner */}
-      <HomeBanner banner={banner} />
+      <HomeBannerMain banner={banner} />
       {/* services */}
-      <Services services={services} />
       <HomeFeatures feature={feature} />
+      <Services services={services} />
       <CareInfoBanner
         title="Financing your care options available to you"
         description="Most people are under the assumption that quality care in their own home is beyond their financial means; however, there are various financing options available..."
