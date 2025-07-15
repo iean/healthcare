@@ -1,15 +1,20 @@
-import HowWeWorkBanner from "@layouts/how-we-work/Banner";
-import WorkSteps from "@layouts/how-we-work/WorkSteps";
-import HelpCards from "@layouts/how-we-work/HelpCards";
-import ContactUsBanner from "@layouts/how-we-work/ContactUsBanner";
+import PageHero from "@layouts/partials/PageHero";
+import Workflow from "@layouts/partials/Workflow";
+import { getListPage } from "@lib/contentParser";
 
-const HowWeWork = () => (
-  <>
-    <HowWeWorkBanner />
-    <WorkSteps />
-    <HelpCards />
-    <ContactUsBanner />
-  </>
-);
+const HowWeWorkPage = async () => {
+  const home = await getListPage("content/_index.md");
+  const { workflow } = home.frontmatter;
+  return (
+    <>
+      <PageHero
+        title="How We Work"
+        subtitle="Our process ensures quality care"
+        image="/images/banner-caregiving/hero3.jpg"
+      />
+      <Workflow workflow={workflow} />
+    </>
+  );
+};
 
-export default HowWeWork;
+export default HowWeWorkPage;
