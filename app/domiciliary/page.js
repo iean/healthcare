@@ -2,7 +2,7 @@ import config from "@config/config.json";
 
 import HomeBanner from "@layouts/partials/HomeBanner";
 import HomeFeatures from "@layouts/partials/HomeFeatures";
-import Services from "@layouts/partials/Services";
+import Services from "@layouts/domiciliary-care-home/Services";
 import { getListPage, getRegularPage } from "../../lib/contentParser";
 import banner from "@/content/home/banner.json";
 import DomiciliaryBanner from "@layouts/domiciliary-care-home/Banner";
@@ -14,7 +14,7 @@ const Domiciliary = async () => {
   const contactPage = await getRegularPage("contact");
 
   const { frontmatter } = homePage;
-  const { feature, services, workflow, call_to_action } = frontmatter;
+  const { feature } = frontmatter;
   const { title } = config.site;
 
   return (
@@ -22,7 +22,7 @@ const Domiciliary = async () => {
       {/* Banner */}
       <HomeBanner banner={banner} />
       {/* services */}
-      <Services services={services} />
+      <Services />
       <DomiciliaryPerks feature={feature} />
       <StaffingApart />
       <Contact data={contactPage} />
