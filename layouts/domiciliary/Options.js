@@ -1,22 +1,57 @@
 "use client";
 
-import { MdFavorite, MdOutlineHome, MdAccessibility } from "react-icons/md";
+import {
+  MdOutlineHome,
+  MdAccessibility,
+  MdHolidayVillage,
+  MdLocalHospital,
+  MdNightlight,
+  MdPeople,
+  MdMedicalServices,
+  MdHotel,
+  MdAccessibilityNew,
+} from "react-icons/md";
 
 const options = [
   {
-    icon: <MdAccessibility size={40} className="text-accent" />,
-    title: "Personal Care",
-    text: "Assistance with daily routines such as washing, dressing and mobility.",
+    icon: <MdHolidayVillage size={40} className="text-accent" />,
+    title: "Holiday Care",
+    text: "Short-term support while family carers are away on holiday.",
+  },
+  {
+    icon: <MdLocalHospital size={40} className="text-accent" />,
+    title: "Hospital to Home",
+    text: "Helping you settle back home safely after a hospital stay.",
   },
   {
     icon: <MdOutlineHome size={40} className="text-accent" />,
-    title: "Household Help",
-    text: "Support with shopping, meal preparation and light housework.",
+    title: "Live in Care",
+    text: "Full-time care in your own home giving constant reassurance.",
   },
   {
-    icon: <MdFavorite size={40} className="text-accent" />,
-    title: "Companionship",
-    text: "Friendly carers to provide company and social interaction.",
+    icon: <MdNightlight size={40} className="text-accent" />,
+    title: "Night Care",
+    text: "Overnight assistance for peace of mind and uninterrupted rest.",
+  },
+  {
+    icon: <MdAccessibilityNew size={40} className="text-accent" />,
+    title: "Personal Care",
+    text: "Support with washing, dressing and other daily routines.",
+  },
+  {
+    icon: <MdHotel size={40} className="text-accent" />,
+    title: "Respite Care",
+    text: "Temporary care giving family members time to recharge.",
+  },
+  {
+    icon: <MdMedicalServices size={40} className="text-accent" />,
+    title: "Specialist Care",
+    text: "Bespoke services for complex medical or disability needs.",
+  },
+  {
+    icon: <MdPeople size={40} className="text-accent" />,
+    title: "Social Companionship",
+    text: "Friendly company and help getting out and about.",
   },
 ];
 
@@ -24,7 +59,7 @@ const ServiceOptions = () => (
   <section className="py-16 bg-theme-light">
     <div className="container">
       <h2 className="text-center text-3xl font-bold text-primary mb-8">Our Services</h2>
-      <div className="grid gap-8 md:grid-cols-3">
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {options.map((item, i) => (
           <div
             key={i}

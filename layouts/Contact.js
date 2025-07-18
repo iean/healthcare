@@ -9,15 +9,26 @@ const Contact = ({ data }) => {
   return (
     <section className="section">
       <div className="container">
-        {markdownify(title, "h1", "text-center font-normal")}
-        <div className="section row pb-0">
-          <div className="col-12 md:col-6 lg:col-7">
+        {markdownify(title, "h1", "text-center font-normal mb-8")}
+        <div className="grid md:grid-cols-2 gap-10 items-start">
+          <div className="order-2 md:order-1 content">
+            {markdownify(info.title, "h4")}
+            {markdownify(info.description, "p", "mt-4")}
+            <ul className="contact-list mt-5 space-y-2">
+              {info.contacts.map((contact, index) => (
+                <li key={index}>
+                  {markdownify(contact, "strong", "text-dark")}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="order-1 md:order-2">
             <form
-              className="contact-form"
+              className="space-y-4"
               method="POST"
               action={contact_form_action}
             >
-              <div className="mb-3">
+              <div className="grid md:grid-cols-2 gap-4">
                 <input
                   className="form-input w-full rounded"
                   name="name"
@@ -25,47 +36,35 @@ const Contact = ({ data }) => {
                   placeholder="Name"
                   required
                 />
-              </div>
-              <div className="mb-3">
                 <input
                   className="form-input w-full rounded"
-                  name="email"
-                  type="email"
-                  placeholder="Your email"
-                  required
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  className="form-input w-full rounded"
-                  name="subject"
+                  name="phone"
                   type="text"
-                  placeholder="Subject"
-                  required
+                  placeholder="Phone"
                 />
               </div>
-              <div className="mb-3">
-                <textarea
-                  className="form-textarea w-full rounded-md"
-                  rows="7"
-                  placeholder="Your message"
-                />
-              </div>
-              <button type="submit" className="btn btn-primary">
-                Send Now
+              <input
+                className="form-input w-full rounded"
+                name="email"
+                type="email"
+                placeholder="Email"
+                required
+              />
+              <input
+                className="form-input w-full rounded"
+                name="subject"
+                type="text"
+                placeholder="Subject"
+              />
+              <textarea
+                className="form-textarea w-full rounded-md"
+                rows="6"
+                placeholder="Message"
+              />
+              <button type="submit" className="btn btn-primary w-full">
+                Send Message
               </button>
             </form>
-          </div>
-          <div className="content col-12 md:col-6 lg:col-5">
-            {markdownify(info.title, "h4")}
-            {markdownify(info.description, "p", "mt-4")}
-            <ul className="contact-list mt-5">
-              {info.contacts.map((contact, index) => (
-                <li key={index}>
-                  {markdownify(contact, "strong", "text-dark")}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
