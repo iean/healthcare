@@ -2,8 +2,9 @@ import config from "@config/config.json";
 import Cta from "@layouts/components/Cta";
 import SeoMeta from "@layouts/SeoMeta";
 
-import HomeBanner from "@layouts/partials/HomeBanner";
+import SimpleHeader from "@layouts/partials/SimpleHeader";
 import HomeFeatures from "@layouts/partials/HomeFeatures";
+import HomeBannerMain from "@layouts/partials/HomeBannerMain";
 import Services from "@layouts/partials/Services";
 import CareInfoBanner from "@layouts/partials/CareInfoBanner";
 import { getListPage } from "../lib/contentParser";
@@ -18,11 +19,12 @@ const Home = async () => {
   return (
     <>
       <SeoMeta title={title} />
+      <SimpleHeader />
       {/* Banner */}
-      <HomeBanner banner={banner} />
+      <HomeBannerMain banner={banner} />
       {/* services */}
+      <HomeFeatures feature={feature} />
       <Services services={services} />
-
       <CareInfoBanner
         title="Financing your care options available to you"
         description="Most people are under the assumption that quality care in their own home is beyond their financial means; however, there are various financing options available..."
@@ -31,13 +33,6 @@ const Home = async () => {
         primaryButton={{ text: "FIND OUT MORE", href: "/financing" }}
         secondaryButton={{ text: "OUR CARERS", href: "/carers" }}
       />
-      {/* Features */}
-      <HomeFeatures feature={feature} />
-      {/* workflow */}
-      {/* <Workflow workflow={workflow} /> */}
-
-      {/* Cta */}
-      {/* <Cta cta={call_to_action} /> */}
     </>
   );
 };
