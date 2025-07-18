@@ -10,6 +10,7 @@ const ContactUsPage = async () => {
         title="Contact Us"
         subtitle="We are here to help"
         image="/images/banner-caregiving/hero2.jpg"
+        small
       />
       <Contact data={data} />
     </>
