@@ -1,32 +1,19 @@
-import PageHero from "@layouts/partials/PageHero";
-import HomeFeatures from "@layouts/partials/HomeFeatures";
-import { getListPage } from "@lib/contentParser";
+import AboutBanner from "@layouts/domiciliary/About/Banner";
+import Ethos from "@layouts/domiciliary/About/Ethos";
+import Beliefs from "@layouts/domiciliary/About/Beliefs";
+import ChooseUs from "@layouts/domiciliary/About/ChooseUs";
+import MissionValues from "@layouts/domiciliary/About/MissionValues";
+import TeamShowcase from "@layouts/domiciliary/About/TeamShowcase";
 
-const AboutPage = async () => {
-  const home = await getListPage("content/_index.md");
-  const { feature } = home.frontmatter;
-
-  return (
-    <>
-      <PageHero
-        title="About Us"
-        subtitle="Learn more about Heart and Haven Care"
-        image="/images/banner-caregiving/hero2.jpg"
-      />
-      <section className="py-12">
-        <div className="container prose text-gray-700">
-          <p>
-            Heart and Haven Care was founded with a commitment to deliver
-            compassionate domiciliary services that respect the dignity and
-            independence of every individual. Our dedicated team works closely
-            with families to craft personalised care plans that truly make a
-            difference.
-          </p>
-        </div>
-      </section>
-      <HomeFeatures feature={feature} />
-    </>
-  );
-};
+const AboutPage = () => (
+  <>
+    <AboutBanner />
+    <Ethos />
+    <Beliefs />
+    <ChooseUs />
+    <MissionValues />
+    <TeamShowcase />
+  </>
+);
 
 export default AboutPage;
