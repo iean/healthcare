@@ -54,7 +54,7 @@ const HomeBannerMain = () => {
 
               {/* Content */}
               <div className="z-10 max-w-3xl text-white">
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
                   {slide.title}
                 </h1>
                 <p className="text-md md:text-lg mb-6">{slide.content}</p>
