@@ -22,10 +22,7 @@ const Footer = () => {
             />
             <div className="text-sm text-[#333]">
               <p>
-                <strong>T:</strong> 0123 456 7890
-              </p>
-              <p>
-                <strong>M:</strong> 0789 123 4567
+                <strong>T:</strong> 01788 422422
               </p>
               <p>
                 <strong>E:</strong>{" "}
@@ -54,9 +51,9 @@ const Footer = () => {
               Address
             </h4>
             <p className="text-sm text-[#333]">
-              Haven House, <br />
-              101 Care Lane, <br />
-              London, HA1 2BC
+              6A Davy Court, <br />
+              Castle Mound Way, Central Park, <br />
+              Rugby, CV23 0UZ
             </p>
           </div>
 
@@ -66,9 +63,9 @@ const Footer = () => {
               Opening Hours
             </h4>
             <p className="text-sm text-[#333]">
-              Mon–Fri: 9:00am – 5:30pm <br />
-              Saturday: 10:00am – 1:00pm <br />
-              Sunday: Closed
+              Monday–Friday: 9:00am – 5:00pm <br />
+              Saturday & Sunday: Closed <br />
+              24/7 On Call Support
             </p>
           </div>
 
