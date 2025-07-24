@@ -44,7 +44,7 @@ const HomeBannerMain = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="w-full h-full relative flex items-center justify-center text-center px-4 md:px-8 bg-cover bg-center"
+              className="w-full h-full relative flex items-center justify-start text-left px-4 md:px-12 bg-cover bg-center"
               style={{
                 backgroundImage: `url(${slide.image})`,
               }}
@@ -53,7 +53,7 @@ const HomeBannerMain = () => {
               <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#431c52cc] via-[#6a2c70cc] to-[#f4b860cc]" />
 
               {/* Content */}
-              <div className="z-10 max-w-3xl text-white">
+              <div className="z-10 max-w-3xl text-white text-left">
                 <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
                   {slide.title}
                 </h1>
