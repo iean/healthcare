@@ -17,8 +17,8 @@
 
   "nav_button": {
     "enable": true,
-    "label": "Get Started",
-    "link": "/contact"
+    "label": "Services",
+    "link": "/"
   },
 
   "params": {
