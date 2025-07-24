@@ -65,7 +65,7 @@ const Services = () => {
 
               {/* Content */}
               <div className="h-[50%] p-6 flex flex-col justify-between">
-                <div>
+                <div className="text-left">
                   <h3 className="text-xl font-semibold mb-2 text-[#5e3ea1] group-hover:text-[#432c82] transition-colors duration-300">
                     {service.title}
                   </h3>

@@ -14,6 +14,14 @@ const Header = ({ menuItems }) => {
   const main = menuItems || menu.main;
   const { enable, label, link } = config.nav_button;
 
+  const serviceName = pathname.startsWith("/domiciliary")
+    ? "Domiciliary Care"
+    : pathname.startsWith("/staffing")
+    ? "Temporary Staffing"
+    : pathname.startsWith("/supported-living")
+    ? "Supported Living"
+    : "";
+
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -41,6 +49,11 @@ const Header = ({ menuItems }) => {
               className="object-contain max-h-[60px] w-auto"
               priority
             />
+            {serviceName && (
+              <span className="ml-2 text-sm font-semibold text-[#431c52]">
+                {serviceName}
+              </span>
+            )}
           </Link>
 
           {/* Desktop Nav */}
@@ -68,9 +81,9 @@ const Header = ({ menuItems }) => {
               <div>
                 <p className="text-xs font-bold text-[#431c52]">Contact Us</p>
                 <p className="text-sm font-semibold text-black leading-tight">
-                  0207 798
+                  01788
                   <br />
-                  1182
+                  422422
                 </p>
               </div>
             </div>

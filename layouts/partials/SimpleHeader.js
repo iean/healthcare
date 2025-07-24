@@ -58,7 +58,7 @@ const SimpleHeader = () => {
                   Contact Us
                 </span>
                 <span className="font-bold text-[#333] whitespace-nowrap">
-                  0247 798 1182
+                  01788 422422
                 </span>
               </div>
             </div>

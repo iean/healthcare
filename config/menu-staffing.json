@@ -1,6 +1,7 @@
 {
   "main": [
-    { "name": "Home", "url": "/staffing" },
+    { "name": "Home", "url": "/" },
+    { "name": "Staffing Home", "url": "/staffing" },
     { "name": "About Us", "url": "/staffing/about-us" },
     { "name": "Staffing Services", "url": "/staffing/care-services" },
     { "name": "How We Work", "url": "/staffing/how-we-work" },
