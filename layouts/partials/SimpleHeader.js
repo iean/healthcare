@@ -31,9 +31,9 @@ const SimpleHeader = () => {
             <Image
               src={logo}
               alt={title}
-              width={240}
-              height={100}
-              className="object-contain max-h-[80px] w-auto"
+              width={260}
+              height={110}
+              className="object-contain max-h-[90px] w-auto"
               priority
             />
             {serviceName && (

@@ -2,10 +2,18 @@
 import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";
+import { BiArrowBack } from "react-icons/bi";
 
 const DomiciliaryBanner = () => {
   return (
     <section className="relative z-10 bg-gradient-to-r from-[#70c198] via-[#9dbbdf] to-[#6a7cd1] overflow-hidden">
+      <Link
+        href="/"
+        className="absolute top-4 left-4 flex items-center text-white text-sm font-semibold bg-[#431c52] bg-opacity-70 hover:bg-opacity-90 px-3 py-1 rounded-full"
+      >
+        <BiArrowBack className="mr-1" />
+        Services
+      </Link>
       <div className="max-w-screen-xl mx-auto px-6 lg:px-8 py-24 flex flex-col lg:flex-row items-center justify-between relative z-20 gap-10 lg:gap-20">
         {/* Left Content */}
         <div className="w-full lg:w-1/2 text-center lg:text-left">

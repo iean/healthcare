@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import Link from "next/link";
+import { BiArrowBack } from "react-icons/bi";
 
 SwiperCore.use([Autoplay, Pagination]);
 
@@ -33,6 +34,13 @@ const slides = [
 const StaffingBanner = () => {
   return (
     <section className="relative z-10 bg-gradient-to-br from-[#431c52] via-[#6a2c70] to-[#f4b860] overflow-hidden">
+      <Link
+        href="/"
+        className="absolute top-4 left-4 flex items-center text-white text-sm font-semibold bg-[#431c52] bg-opacity-70 hover:bg-opacity-90 px-3 py-1 rounded-full"
+      >
+        <BiArrowBack className="mr-1" />
+        Services
+      </Link>
       <div className="absolute top-0 left-0 w-full h-full z-0 bg-gradient-to-r from-[#2e103d]/40 via-transparent to-transparent pointer-events-none" />
       <div className="max-w-screen-xl mx-auto px-6 lg:px-8 py-32 flex flex-col-reverse lg:flex-row items-center justify-between relative z-20 gap-12">
         {/* Left Text Carousel */}
