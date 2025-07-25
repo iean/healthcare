@@ -1,6 +1,5 @@
 {
   "main": [
-    { "name": "Home", "url": "/" },
     { "name": "Domiciliary Home", "url": "/domiciliary" },
     { "name": "About Us", "url": "/domiciliary/about" },
     { "name": "Care Services", "url": "/domiciliary/care-services" },

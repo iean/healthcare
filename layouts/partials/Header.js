@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaFacebookF, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
+import { BiArrowBack } from "react-icons/bi";
 import config from "@config/config.json";
 import menu from "@config/menu.json";
 
@@ -14,13 +15,6 @@ const Header = ({ menuItems }) => {
   const main = menuItems || menu.main;
   const { enable, label, link } = config.nav_button;
 
-  const serviceName = pathname.startsWith("/domiciliary")
-    ? "Domiciliary Care"
-    : pathname.startsWith("/staffing")
-    ? "Temporary Staffing"
-    : pathname.startsWith("/supported-living")
-    ? "Supported Living"
-    : "";
 
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -44,25 +38,20 @@ const Header = ({ menuItems }) => {
             <Image
               src={logo}
               alt={title}
-              width={180}
-              height={100}
-              className="object-contain max-h-[60px] w-auto"
+              width={260}
+              height={110}
+              className="object-contain max-h-[90px] w-auto"
               priority
             />
-            {serviceName && (
-              <span className="ml-2 text-sm font-semibold text-[#431c52]">
-                {serviceName}
-              </span>
-            )}
           </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden lg:flex items-center justify-center flex-1 space-x-8 text-sm font-bold text-[#a57928] uppercase">
+          <ul className="hidden lg:flex items-center justify-center flex-1 space-x-4 text-xs font-bold text-[#a57928] uppercase">
             {main.map((item, i) => (
               <li key={i}>
                 <Link
                   href={item.url}
-                  className={`px-4 py-2 rounded-full transition duration-200 ${
+                  className={`px-2 py-1 rounded-full transition duration-200 whitespace-nowrap ${
                     pathname === item.url
                       ? "bg-[#431c52] text-white"
                       : "hover:text-[#431c52]"
@@ -76,6 +65,13 @@ const Header = ({ menuItems }) => {
 
           {/* Contact + Socials */}
           <div className="hidden lg:flex items-center space-x-6 pl-6 border-l border-gray-300">
+            <Link
+              href={link}
+              className="flex items-center text-sm font-semibold text-[#431c52] hover:underline"
+            >
+              <BiArrowBack className="mr-1" />
+              {label}
+            </Link>
             <div className="flex items-center space-x-2">
               <FaPhoneAlt className="text-[#a57928] text-lg" />
               <div>
@@ -158,8 +154,9 @@ const Header = ({ menuItems }) => {
                 <Link
                   href={link}
                   onClick={() => setNavOpen(false)}
-                  className="block text-center rounded-full bg-[#431c52] px-5 py-2 text-sm font-semibold text-white shadow-md hover:bg-opacity-90 mt-2"
+                  className="block text-center rounded-full bg-[#431c52] px-5 py-2 text-sm font-semibold text-white shadow-md hover:bg-opacity-90 mt-2 flex items-center justify-center"
                 >
+                  <BiArrowBack className="mr-1" />
                   {label}
                 </Link>
               </li>
