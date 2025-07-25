@@ -58,8 +58,10 @@ const Contact = ({ data }) => {
               />
               <textarea
                 className="form-textarea w-full rounded-md"
+                name="message"
                 rows="6"
                 placeholder="Message"
+                required
               />
               <button type="submit" className="btn btn-primary w-full">
                 Send Message
