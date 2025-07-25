@@ -46,12 +46,12 @@ const Header = ({ menuItems }) => {
           </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden lg:flex items-center justify-center flex-1 space-x-8 text-sm font-bold text-[#a57928] uppercase">
+          <ul className="hidden lg:flex items-center justify-center flex-1 space-x-4 text-xs font-bold text-[#a57928] uppercase">
             {main.map((item, i) => (
               <li key={i}>
                 <Link
                   href={item.url}
-                  className={`px-4 py-2 rounded-full transition duration-200 ${
+                  className={`px-2 py-1 rounded-full transition duration-200 whitespace-nowrap ${
                     pathname === item.url
                       ? "bg-[#431c52] text-white"
                       : "hover:text-[#431c52]"
