@@ -41,8 +41,10 @@ const ContactFormSection = ({ data }) => {
               />
               <textarea
                 className="form-textarea w-full rounded-md"
+                name="message"
                 rows="5"
                 placeholder="Your message"
+                required
               />
               <button type="submit" className="btn btn-primary w-full">
                 Send Now
