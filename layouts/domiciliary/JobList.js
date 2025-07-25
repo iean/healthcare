@@ -14,7 +14,13 @@ const JobList = () => {
   return (
     <section className="py-16 bg-theme-light">
       <div className="container">
-        <h2 className="text-center text-3xl font-bold text-primary mb-8">
+        <h2
+          className="text-center text-3xl font-bold mb-8 bg-clip-text text-transparent"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #9e3ea1, #d46f4d, #f4b860)",
+          }}
+        >
           Current Vacancies
         </h2>
         <div className="space-y-4">
