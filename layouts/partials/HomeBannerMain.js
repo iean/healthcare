@@ -14,21 +14,21 @@ const slides = [
     content:
       "Tailored home care designed to support independence, comfort, and well-being for your loved ones.",
     link: "/domiciliary",
-    image: "/images/banner-caregiving/hero1.jpg",
+    image: "/images/home/banner_01.png",
   },
-  {
-    title: "Temporary Staffing Services",
-    content:
-      "Flexible healthcare staffing solutions for clinics, hospitals, and care homes—fast, reliable, and certified.",
-    link: "/staffing",
-    image: "/images/banner-caregiving/hero2.jpg",
-  },
+  // {
+  //   title: "Temporary Staffing Services",
+  //   content:
+  //     "Flexible healthcare staffing solutions for clinics, hospitals, and care homes—fast, reliable, and certified.",
+  //   link: "/staffing",
+  //   image: "/images/home/banner_02.jpg",
+  // },
   // {
   //   title: "Supported Living Solutions",
   //   content:
   //     "Empowering individuals with disabilities and mental health needs to live safely and independently.",
   //   link: "/services/supported-living",
-  //   image: "/images/banner-caregiving/supported-living.jpg",
+  //   image: "/images/home/banner_03.png",
   // },
 ];
 
@@ -36,7 +36,7 @@ const HomeBannerMain = () => {
   return (
     <section className="relative z-10 h-[80vh] overflow-hidden">
       <Swiper
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        autoplay={{ delay: 500000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         loop
         className="h-full"
@@ -53,8 +53,8 @@ const HomeBannerMain = () => {
               <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#431c52cc] via-[#6a2c70cc] to-[#f4b860cc]" />
 
               {/* Content */}
-              <div className="z-10 max-w-screen-xl mx-auto px-6 md:px-12">
-                <div className="max-w-3xl text-white text-left">
+              <div className="z-10 max-w-screen-xl mx-auto px-2 md:px-2 w-full">
+                <div className="max-w-3xl text-white text-left ml-4 md:ml-12 relative top-[10%] md:top-[-5%]">
                   <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
                     {slide.title}
                   </h1>
