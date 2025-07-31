@@ -151,7 +151,7 @@ const Header = ({ menuItems }) => {
             ))}
             <li className="pt-3">
               <Link
-                href="/other-services"
+                href="/"
                 className="block text-center border border-[#431c52] text-[#431c52] rounded-full px-4 py-2 text-sm hover:bg-[#431c52] hover:text-white"
               >
                 OTHER SERVICES

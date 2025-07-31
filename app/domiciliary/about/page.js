@@ -12,7 +12,7 @@ const AboutPage = () => (
     <Beliefs />
     <ChooseUs />
     <MissionValues />
-    <TeamShowcase />
+    {/* <TeamShowcase /> */}
   </>
 );
 

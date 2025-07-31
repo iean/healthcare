@@ -13,7 +13,7 @@ const ChooseUs = () => (
     <div className="container grid md:grid-cols-2 gap-8 items-center">
       <div className="order-2 md:order-1">
         <Image
-          src="/images/banner-caregiving/hero1.jpg"
+          src="/images/home/HOME_Financing.jpg"
           alt="Why Choose Us"
           width={600}
           height={400}
@@ -22,10 +22,12 @@ const ChooseUs = () => (
       </div>
       <div className="order-1 md:order-2">
         <h2 className="text-3xl font-bold text-primary mb-4">
-          Why should I choose Millennium Staffing as my domiciliary care provider?
+          Why should I choose Millennium Staffing as my domiciliary care
+          provider?
         </h2>
         <p className="text-gray-700 mb-4">
-          We understand how important it is to work with a provider you can truly trust.
+          We understand how important it is to work with a provider you can
+          truly trust.
         </p>
         <ul className="list-disc pl-5 space-y-1 text-gray-700 text-sm">
           {points.map((item, i) => (

@@ -13,9 +13,9 @@ SwiperCore.use([Autoplay, Pagination]);
 const HomeBanner = ({ banner }) => {
   const bannerImages = banner.images || [
     "/images/domiciliary/Bannerdomiciliary.jpg",
-    "/images/banner-caregiving/hero1.jpg",
-    "/images/banner-caregiving/hero2.jpg",
-    "/images/banner-caregiving/hero3.jpg",
+    "/images/domiciliary/h1.png",
+    "/images/domiciliary/h2.jpg",
+    "/images/domiciliary/h3.png",
   ];
 
   return (
