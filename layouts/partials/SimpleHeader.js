@@ -17,10 +17,10 @@ const SimpleHeader = () => {
   const serviceName = pathname.startsWith("/domiciliary")
     ? "Domiciliary Care"
     : pathname.startsWith("/staffing")
-    ? "Temporary Staffing"
-    : pathname.startsWith("/supported-living")
-    ? "Supported Living"
-    : "";
+      ? "Temporary Staffing"
+      : pathname.startsWith("/supported-living")
+        ? "Supported Living"
+        : "";
 
   return (
     <header className="bg-white shadow border-b border-[#e5e5f7]">
@@ -31,7 +31,7 @@ const SimpleHeader = () => {
             <Image
               src={logo}
               alt={title}
-              width={260}
+              width={180}
               height={110}
               className="object-contain max-h-[90px] w-auto"
               priority

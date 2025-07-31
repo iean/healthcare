@@ -29,9 +29,12 @@ const Home = async () => {
         title="Financing your care options available to you"
         description="Most people are under the assumption that quality care in their own home is beyond their financial means; however, there are various financing options available..."
         extraText="Benefit from the peace of mind that accompanies the service our excellent and empathetic staff provide."
-        imageSrc="/images/banner-caregiving/care-help-2.jpg"
-        primaryButton={{ text: "FIND OUT MORE", href: "/financing" }}
-        secondaryButton={{ text: "OUR CARERS", href: "/carers" }}
+        imageSrc="/images/home/HOME_Financing.jpg"
+        primaryButton={{ text: "FIND OUT MORE", href: "/domiciliary" }}
+        secondaryButton={{
+          text: "OUR CARERS",
+          href: "/domciliary/our-careers",
+        }}
       />
     </>
   );

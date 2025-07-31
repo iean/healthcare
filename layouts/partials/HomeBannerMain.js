@@ -16,20 +16,20 @@ const slides = [
     link: "/domiciliary",
     image: "/images/home/banner_01.png",
   },
-  // {
-  //   title: "Temporary Staffing Services",
-  //   content:
-  //     "Flexible healthcare staffing solutions for clinics, hospitals, and care homes—fast, reliable, and certified.",
-  //   link: "/staffing",
-  //   image: "/images/home/banner_02.jpg",
-  // },
-  // {
-  //   title: "Supported Living Solutions",
-  //   content:
-  //     "Empowering individuals with disabilities and mental health needs to live safely and independently.",
-  //   link: "/services/supported-living",
-  //   image: "/images/home/banner_03.png",
-  // },
+  {
+    title: "Temporary Staffing Services",
+    content:
+      "Flexible healthcare staffing solutions for clinics, hospitals, and care homes—fast, reliable, and certified.",
+    link: "/staffing",
+    image: "/images/home/banner_02.jpg",
+  },
+  {
+    title: "Supported Living Solutions",
+    content:
+      "Empowering individuals with disabilities and mental health needs to live safely and independently.",
+    link: "/services/supported-living",
+    image: "/images/home/banner_03.png",
+  },
 ];
 
 const HomeBannerMain = () => {

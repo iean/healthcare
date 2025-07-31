@@ -12,6 +12,7 @@ SwiperCore.use([Autoplay, Pagination]);
 
 const HomeBanner = ({ banner }) => {
   const bannerImages = banner.images || [
+    "/images/domiciliary/Bannerdomiciliary.jpg",
     "/images/banner-caregiving/hero1.jpg",
     "/images/banner-caregiving/hero2.jpg",
     "/images/banner-caregiving/hero3.jpg",
@@ -53,7 +54,7 @@ const HomeBanner = ({ banner }) => {
 
         {/* Right Image Slider */}
         <div className="w-full max-w-[680px] h-auto">
-          <div className="aspect-video h-full rounded-2xl shadow-xl overflow-hidden border border-gray-200 bg-white">
+          <div className="h-[400px] lg:h-[500px] rounded-2xl shadow-xl overflow-hidden border border-gray-200 bg-white">
             <Swiper
               modules={[Autoplay, Pagination]}
               autoplay={{ delay: 4000, disableOnInteraction: false }}
@@ -67,7 +68,7 @@ const HomeBanner = ({ banner }) => {
                     alt={`Banner ${i + 1}`}
                     width={900}
                     height={720}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                 </SwiperSlide>
               ))}
