@@ -12,7 +12,7 @@ const ContactUsPage = async () => {
         image="/images/banner-caregiving/hero2.jpg"
         small
       />
-      <Contact data={data} />
+      <Contact data={data} requestType="domiciliary" />
     </>
   );
 };
