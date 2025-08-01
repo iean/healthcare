@@ -9,23 +9,23 @@ const services = [
   {
     title: "Quality Personnel Service",
     text: "We recruit and deliver services nationwide, staffing all specialties across social, health, and domestic sectors.",
-    image: "/images/services/s.service1.png",
+    image: "/images/Staffing Page/Service Standard.jpg",
     icon: <MdVerifiedUser size={28} className="text-[#431c52]" />,
-    link: "/services/personnel",
+    link: "/staffing",
   },
   {
     title: "Professional & Reliable",
     text: "From staffing solutions to client experience — professionalism and reliability are at the heart of what we do.",
-    image: "/images/services/s.service2.png",
+    image: "/images/Staffing Page/Professional & Reliable.jpg",
     icon: <MdGroups size={28} className="text-[#431c52]" />,
-    link: "/services/reliable",
+    link: "/staffing",
   },
   {
     title: "Our Service Standards",
     text: "Heart & Haven Care maintains strict recruitment standards to deliver safe, effective, and person-centered care.",
-    image: "/images/services/s.service3.png",
+    image: "/images/Staffing Page/Quality Personnel Service.jpg",
     icon: <MdHealthAndSafety size={28} className="text-[#431c52]" />,
-    link: "/services/standards",
+    link: "/staffing",
   },
 ];
 

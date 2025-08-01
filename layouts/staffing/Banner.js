@@ -78,7 +78,7 @@ const StaffingBanner = () => {
         <div className="w-full lg:w-[60%] h-auto">
           <div className="aspect-[3/2] h-full rounded-2xl shadow-2xl overflow-hidden border border-gray-200 bg-white">
             <Image
-              src="/images/banner-caregiving/hero2.jpg"
+              src="/images/Staffing Page/Staffing 1.jpg"
               alt="Staffing banner"
               width={1000}
               height={700}

@@ -7,9 +7,12 @@ const Hero = () => (
   <section className="relative z-10 bg-gradient-to-br from-[#431c52] via-[#6a2c70] to-[#f4b860] overflow-hidden">
     <div className="max-w-screen-xl mx-auto px-6 lg:px-8 py-24 flex flex-col lg:flex-row items-center gap-12 relative z-20">
       <div className="w-full lg:w-1/2 text-center lg:text-left animate-fadeLeftSlow">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white">Professional Staffing Services</h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white">
+          Professional Staffing Services
+        </h1>
         <p className="mt-4 text-lg text-white max-w-xl mx-auto lg:mx-0">
-          Heart & Haven Care supplies compassionate and reliable professionals across hospitals, care homes and community services.
+          Heart & Haven Care supplies compassionate and reliable professionals
+          across hospitals, care homes and community services.
         </p>
         <Link
           href="/contact"
@@ -20,7 +23,13 @@ const Hero = () => (
       </div>
       <div className="w-full lg:w-1/2 h-64 md:h-80 relative">
         <div className="absolute inset-0 rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-          <Image src="/images/banner-caregiving/hero2.jpg" alt="Staffing" fill className="object-cover" priority />
+          <Image
+            src="/images/Staffing Page/Staffing 2.jpg"
+            alt="Staffing"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
       </div>
     </div>
