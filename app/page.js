@@ -6,7 +6,6 @@ import SimpleHeader from "@layouts/partials/SimpleHeader";
 import HomeFeatures from "@layouts/partials/HomeFeatures";
 import HomeBannerMain from "@layouts/partials/HomeBannerMain";
 import Services from "@layouts/partials/Services";
-import CareInfoBanner from "@layouts/partials/CareInfoBanner";
 import { getListPage } from "../lib/contentParser";
 import banner from "@/content/home/banner.json";
 
@@ -25,17 +24,6 @@ const Home = async () => {
       {/* services */}
       <HomeFeatures feature={feature} />
       <Services services={services} />
-      <CareInfoBanner
-        title="Financing your care options available to you"
-        description="Most people are under the assumption that quality care in their own home is beyond their financial means; however, there are various financing options available..."
-        extraText="Benefit from the peace of mind that accompanies the service our excellent and empathetic staff provide."
-        imageSrc="/images/home/HOME_Financing.jpg"
-        primaryButton={{ text: "FIND OUT MORE", href: "/domiciliary" }}
-        secondaryButton={{
-          text: "OUR CARERS",
-          href: "/domciliary/our-careers",
-        }}
-      />
     </>
   );
 };
