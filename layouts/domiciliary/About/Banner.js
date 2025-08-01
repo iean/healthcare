@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 const AboutBanner = () => (
   <section className="relative z-10 bg-gradient-to-br from-[#431c52] via-[#6a2c70] to-[#f4b860] text-white">
@@ -23,6 +24,12 @@ const AboutBanner = () => (
         Haven, you’re not just receiving care — you’re gaining a partner who
         genuinely understands and respects your journey.
       </p>
+      <Link
+        href="/domiciliary/get-started"
+        className="inline-block mt-6 border-2 border-white text-white px-6 py-3 rounded-full text-lg font-semibold shadow hover:bg-white hover:text-accent transition"
+      >
+        Get Started
+      </Link>
     </div>
   </section>
 );
