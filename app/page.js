@@ -7,7 +7,11 @@ import HomeFeatures from "@layouts/partials/HomeFeatures";
 import HomeBannerMain from "@layouts/partials/HomeBannerMain";
 import { getListPage } from "../lib/contentParser";
 import banner from "@/content/home/banner.json";
-
+/**
+ *
+ *
+ * @return {*}
+ */
 const Home = async () => {
   const homePage = await getListPage("content/_index.md");
   const { frontmatter } = homePage;
