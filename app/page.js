@@ -5,6 +5,7 @@ import SeoMeta from "@layouts/SeoMeta";
 import SimpleHeader from "@layouts/partials/SimpleHeader";
 import HomeFeatures from "@layouts/partials/HomeFeatures";
 import HomeBannerMain from "@layouts/partials/HomeBannerMain";
+import Services from "@layouts/partials/Services";
 import { getListPage } from "../lib/contentParser";
 import banner from "@/content/home/banner.json";
 /**
@@ -26,6 +27,7 @@ const Home = async () => {
       <HomeBannerMain banner={banner} />
       {/* services */}
       <HomeFeatures feature={feature} />
+      <Services services={services} />
     </>
   );
 };
