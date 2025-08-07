@@ -4,42 +4,42 @@ import Image from "next/image";
 
 const options = [
   {
-    image: "/images/services/holiday-care.jpg",
+    image: "/images/services/holiday-care.jpeg",
     title: "Holiday Care",
     text: "Short-term support while family carers are away on holiday.",
   },
   {
-    image: "/images/services/hospital-home.jpg",
+    image: "/images/services/hospital_home.jpeg",
     title: "Hospital to Home",
     text: "Helping you settle back home safely after a hospital stay.",
   },
   {
-    image: "/images/services/live-in-care.jpg",
+    image: "/images/services/live-in-care-purple.jpeg",
     title: "Live in Care",
     text: "Full-time care in your own home giving constant reassurance.",
   },
   {
-    image: "/images/services/night-care.jpg",
+    image: "/images/services/night-care.jpeg",
     title: "Night Care",
     text: "Overnight assistance for peace of mind and uninterrupted rest.",
   },
   {
-    image: "/images/services/personal-care.jpg",
+    image: "/images/services/personal-care.jpeg",
     title: "Personal Care",
     text: "Support with washing, dressing and other daily routines.",
   },
   {
-    image: "/images/services/respite-care.jpg",
+    image: "/images/services/respite-care.jpeg",
     title: "Respite Care",
     text: "Temporary care giving family members time to recharge.",
   },
   {
-    image: "/images/services/specialist-care.jpg",
+    image: "/images/services/specialist.jpeg",
     title: "Specialist Care",
     text: "Bespoke services for complex medical or disability needs.",
   },
   {
-    image: "/images/services/social-companionship.jpg",
+    image: "/images/services/social-companionship.PNG",
     title: "Social Companionship",
     text: "Friendly company and help getting out and about.",
   },

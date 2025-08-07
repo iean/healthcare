@@ -54,17 +54,19 @@ const HomeBannerMain = () => {
 
               {/* Content */}
               <div className="z-10 max-w-screen-xl mx-auto px-2 md:px-2 w-full">
-                <div className="max-w-3xl text-white text-left ml-4 md:ml-12 relative top-[10%] md:top-[-5%]">
+                <div className="max-w-3xl text-white text-center mx-auto relative top-[10%] md:top-[-5%]">
                   <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
                     {slide.title}
                   </h1>
                   <p className="text-md md:text-lg mb-6">{slide.content}</p>
-                  <Link
-                    href={slide.link}
-                    className="inline-block bg-white text-[#431c52] hover:bg-[#5e3ea1] hover:text-white font-semibold px-6 py-3 rounded-full transition"
-                  >
-                    View Service
-                  </Link>
+                  <div className="flex justify-center">
+                    <Link
+                      href={slide.link}
+                      className="inline-block bg-white text-[#431c52] hover:bg-[#5e3ea1] hover:text-white font-semibold px-6 py-3 rounded-full transition"
+                    >
+                      View Service
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

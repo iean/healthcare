@@ -21,7 +21,7 @@ const Contact = ({ data, requestType }) => {
     <section className="section">
       <div className="container">
         {markdownify(title, "h1", "text-center font-normal mb-8")}
-        <div className="grid md:grid-cols-2 gap-10 items-start">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1 content">
             {markdownify(info.title, "h4")}
             {markdownify(info.description, "p", "mt-4")}
@@ -31,7 +31,7 @@ const Contact = ({ data, requestType }) => {
               ))}
             </ul>
           </div>
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 w-full">
             <form
               className="space-y-4"
               method="POST"
@@ -39,28 +39,28 @@ const Contact = ({ data, requestType }) => {
             >
               <div className="grid md:grid-cols-2 gap-4">
                 <input
-                  className="form-input w-full rounded"
+                  className="form-input w-full rounded-md"
                   name="name"
                   type="text"
                   placeholder="Name"
                   required
                 />
                 <input
-                  className="form-input w-full rounded"
+                  className="form-input w-full rounded-md"
                   name="phone"
                   type="text"
                   placeholder="Phone"
                 />
               </div>
               <input
-                className="form-input w-full rounded"
+                className="form-input w-full rounded-md"
                 name="email"
                 type="email"
                 placeholder="Email"
                 required
               />
               <input
-                className="form-input w-full rounded"
+                className="form-input w-full rounded-md"
                 name="subject"
                 type="text"
                 placeholder="Subject"

@@ -31,13 +31,13 @@ const SimpleHeader = () => {
             <Image
               src={logo}
               alt={title}
-              width={180}
-              height={110}
-              className="object-contain max-h-[90px] w-auto"
+              width={220}
+              height={130}
+              className="object-contain max-h-[110px] w-auto"
               priority
             />
             {serviceName && (
-              <span className="ml-2 text-sm font-semibold text-[#5e3ea1]">
+              <span className="ml-3 text-base font-semibold text-[#5e3ea1]">
                 {serviceName}
               </span>
             )}
@@ -46,20 +46,22 @@ const SimpleHeader = () => {
           {/* Center: Navigation */}
           <nav className="hidden md:flex flex-1 justify-center">
             <ul className="flex space-x-6 font-semibold text-[#c69c6d] uppercase tracking-wide text-sm">
-              {main.map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={item.url}
-                    className={`px-4 py-2 rounded-full transition duration-200 ${
-                      pathname === item.url
-                        ? "bg-[#5e3ea1] text-white"
-                        : "hover:text-[#5e3ea1]"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+              {main
+                .filter((item) => item.name === "Home")
+                .map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      href={item.url}
+                      className={`px-4 py-2 rounded-full transition duration-200 ${
+                        pathname === item.url
+                          ? "bg-[#5e3ea1] text-white"
+                          : "hover:text-[#5e3ea1]"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </nav>
 
@@ -125,21 +127,23 @@ const SimpleHeader = () => {
         {navOpen && (
           <div className="md:hidden pb-4">
             <ul className="space-y-2 font-medium text-gray-700">
-              {main.map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={item.url}
-                    onClick={() => setNavOpen(false)}
-                    className={`block px-3 py-2 rounded-md transition ${
-                      pathname === item.url
-                        ? "bg-[#5e3ea1] text-white"
-                        : "hover:text-[#5e3ea1]"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+              {main
+                .filter((item) => item.name === "Home")
+                .map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      href={item.url}
+                      onClick={() => setNavOpen(false)}
+                      className={`block px-3 py-2 rounded-md transition ${
+                        pathname === item.url
+                          ? "bg-[#5e3ea1] text-white"
+                          : "hover:text-[#5e3ea1]"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
         )}

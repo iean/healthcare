@@ -13,7 +13,7 @@ const Benefits = () => (
     <div className="container grid md:grid-cols-2 gap-8 items-center">
       <div className="order-2 md:order-1">
         <Image
-          src="/images/banner-caregiving/hero3.jpg"
+          src="/images/services/social-companionship.PNG"
           alt="Benefits"
           width={600}
           height={400}
@@ -21,14 +21,17 @@ const Benefits = () => (
         />
       </div>
       <div className="order-1 md:order-2">
-        <h2 className="text-3xl font-bold text-primary mb-4">Why Join Millennium Staffing?</h2>
+        <h2 className="text-3xl font-bold text-primary mb-4">
+          Why Join Millennium Staffing?
+        </h2>
         <ul className="list-disc pl-5 space-y-1 text-gray-700 text-sm mb-4">
           {points.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
         <p className="text-gray-700">
-          Become part of a passionate team making a real difference in people's lives every day.
+          Become part of a passionate team making a real difference in people's
+          lives every day.
         </p>
       </div>
     </div>
