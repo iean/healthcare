@@ -10,7 +10,7 @@ const ServiceDescription = ({
   description1 = `At Heart & Haven Care, we connect compassionate professionals with meaningful roles in healthcare and social support. Our goal is to deliver trusted staffing solutions that empower both our clients and carers.`,
   description2 = `Whether you're looking for part-time flexibility or full-time placement, we offer a variety of roles tailored to your schedule and strengths. From hospitals to home care, we ensure you're matched with the right opportunity.`,
   description3 = `We believe in recognising the dedication of our staff. That’s why we offer competitive pay rates to reward your commitment and help you focus on what matters most — delivering exceptional care.`,
-  imageSrc = "/images/banner-caregiving/care-help-2.jpg",
+  imageSrc = "/images/services/care-unique-domiliciary.jpeg",
 }) => (
   <section className="py-16 bg-white">
     <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
@@ -42,13 +42,13 @@ const ServiceDescription = ({
 
         <div className="flex flex-wrap gap-4">
           <Link
-            href="/find-out-more"
+            href="/staffing/about-us"
             className="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 text-sm rounded-full transition"
           >
             FIND OUT MORE
           </Link>
           <Link
-            href="/register"
+            href="/staffing/how-we-work"
             className="bg-[#431c52] hover:bg-[#5c2770] text-white font-semibold px-6 py-3 text-sm rounded-full transition"
           >
             REGISTER TODAY

@@ -125,7 +125,7 @@ const Footer = () => {
           Terms and Conditions
         </Link>
         |
-        <Link href="/request-data" className="mx-2 hover:underline">
+        <Link href="/request-personal-data" className="mx-2 hover:underline">
           Request Personal Data
         </Link>
       </div>

@@ -47,7 +47,7 @@ const SimpleHeader = () => {
           <nav className="hidden md:flex flex-1 justify-center">
             <ul className="flex space-x-6 font-semibold text-[#c69c6d] uppercase tracking-wide text-sm">
               {main
-                .filter((item) => item.name === "Home")
+                .filter((item) => item.name !== "Home")
                 .map((item, i) => (
                   <li key={i}>
                     <Link
@@ -128,7 +128,7 @@ const SimpleHeader = () => {
           <div className="md:hidden pb-4">
             <ul className="space-y-2 font-medium text-gray-700">
               {main
-                .filter((item) => item.name === "Home")
+                .filter((item) => item.name !== "Home")
                 .map((item, i) => (
                   <li key={i}>
                     <Link

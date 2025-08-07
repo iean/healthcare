@@ -8,21 +8,21 @@ const services = [
     title: "Domiciliary Care Services",
     content:
       "Personalized home care tailored to your loved one’s daily needs — from companionship to medication support, ensuring comfort and independence at home.",
-    images: ["/images/home/home_card_domilciary.jpg"],
+    images: ["/images/domiciliary/Bannerdomiciliary.jpg"],
     link: "/domiciliary",
   },
   {
     title: "Temporary Staffing Services",
     content:
       "Flexible, on-demand healthcare staffing solutions for hospitals, clinics, and care homes — connecting you with certified professionals quickly and efficiently.",
-    images: ["/images/home/home_card_staffing.jpg"],
+    images: ["/images/domiciliary/Bannerdomiciliary.jpg"],
     link: "/staffing",
   },
   {
     title: "Supported Living Services",
     content:
       "Empowering individuals with disabilities or mental health needs to live independently with tailored support in a safe and caring environment.",
-    images: ["/images/home/home_card_supported_living.jpg"],
+    images: ["/images/domiciliary/Bannerdomiciliary.jpg"],
     link: "/services/supported-living",
   },
 ];

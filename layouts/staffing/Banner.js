@@ -15,7 +15,7 @@ const slides = [
     title: "Expert Healthcare Staffing",
     text: "Connecting you with qualified professionals when you need them most.",
     buttonText: "Register Today",
-    buttonLink: "/register",
+    buttonLink: "/staffing/how-we-work",
   },
   {
     title: "Rapid Placement Solutions",
@@ -27,20 +27,13 @@ const slides = [
     title: "24/7 Support",
     text: "We are available around the clock to assist your organisation.",
     buttonText: "Contact Us",
-    buttonLink: "/contact",
+    buttonLink: "/staffing/contact-us",
   },
 ];
 
 const StaffingBanner = () => {
   return (
     <section className="relative z-10 bg-gradient-to-br from-[#431c52] via-[#6a2c70] to-[#f4b860] overflow-hidden">
-      <Link
-        href="/"
-        className="absolute top-4 left-4 flex items-center text-white text-sm font-semibold bg-[#431c52] bg-opacity-70 hover:bg-opacity-90 px-3 py-1 rounded-full"
-      >
-        <BiArrowBack className="mr-1" />
-        Services
-      </Link>
       <div className="absolute top-0 left-0 w-full h-full z-0 bg-gradient-to-r from-[#2e103d]/40 via-transparent to-transparent pointer-events-none" />
       <div className="max-w-screen-xl mx-auto px-6 lg:px-8 py-32 flex flex-col-reverse lg:flex-row items-center justify-between relative z-20 gap-12">
         {/* Left Text Carousel */}
@@ -78,7 +71,7 @@ const StaffingBanner = () => {
         <div className="w-full lg:w-[60%] h-auto">
           <div className="aspect-[3/2] h-full rounded-2xl shadow-2xl overflow-hidden border border-gray-200 bg-white">
             <Image
-              src="/images/Staffing Page/Staffing 1.jpg"
+              src="/images/services/live-in-care-purple.jpeg"
               alt="Staffing banner"
               width={1000}
               height={700}
@@ -88,7 +81,6 @@ const StaffingBanner = () => {
           </div>
         </div>
       </div>
-
       {/* Bottom Wave SVG */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg

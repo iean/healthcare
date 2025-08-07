@@ -4,7 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaTwitter,
+  FaArrowLeft,
+} from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import config from "@config/config.json";
 import menu from "@config/menu.json";
@@ -36,9 +41,10 @@ const Header = ({ menuItems }) => {
         <div className="hidden sm:flex">
           <Link
             href="/"
-            className="border border-[#431c52] text-[#431c52] text-xs font-bold px-5 py-2 rounded-full hover:bg-[#431c52] hover:text-white transition"
+            className="border border-[#431c52] text-[#431c52] text-xs font-bold px-5 py-2 rounded-full hover:bg-[#431c52] hover:text-white transition flex items-center space-x-2"
           >
-            OTHER SERVICES
+            <FaArrowLeft className="text-sm" />
+            <span>OTHER SERVICES</span>
           </Link>
         </div>
 
@@ -58,14 +64,14 @@ const Header = ({ menuItems }) => {
           <Image
             src={logo}
             alt={title}
-            width={160}
-            height={120}
-            className="object-contain max-h-[70px] w-auto"
+            width={220}
+            height={130}
+            className="object-contain max-h-[110px] w-auto"
             priority
           />
         </Link>
 
-        {/* Right: Social + Register (hidden on mobile) */}
+        {/* Right: Social (hidden on mobile) */}
         <div className="hidden sm:flex items-center space-x-4">
           <div className="flex items-center space-x-2 text-white">
             <a
@@ -96,14 +102,6 @@ const Header = ({ menuItems }) => {
               <FaLinkedinIn />
             </a>
           </div>
-          {enable && (
-            <Link
-              href={link}
-              className="bg-[#431c52] text-white text-xs font-bold px-6 py-2 rounded-full hover:bg-opacity-90 transition"
-            >
-              {label}
-            </Link>
-          )}
         </div>
       </div>
 
@@ -152,21 +150,13 @@ const Header = ({ menuItems }) => {
             <li className="pt-3">
               <Link
                 href="/"
-                className="block text-center border border-[#431c52] text-[#431c52] rounded-full px-4 py-2 text-sm hover:bg-[#431c52] hover:text-white"
+                className="block text-center border border-[#431c52] text-[#431c52] rounded-full px-4 py-2 text-sm hover:bg-[#431c52] hover:text-white flex items-center justify-center space-x-2"
               >
-                OTHER SERVICES
+                <FaArrowLeft className="text-sm" />
+                <span>OTHER SERVICES</span>
               </Link>
             </li>
-            {enable && (
-              <li>
-                <Link
-                  href={link}
-                  className="block text-center bg-[#431c52] text-white rounded-full px-4 py-2 text-sm font-semibold"
-                >
-                  {label}
-                </Link>
-              </li>
-            )}
+
             <li className="pt-3 flex items-center justify-center space-x-3">
               <a
                 href="https://facebook.com"
