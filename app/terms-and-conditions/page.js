@@ -29,10 +29,10 @@ const TermsAndConditionsPage = () => {
                   1. Introduction
                 </h2>
                 <p className="mb-6">
-                  These Terms and Conditions ("Terms") govern your use of Heart
-                  & Haven Healthcare's services, website, and any related
-                  services. By using our services, you agree to be bound by
-                  these Terms.
+                  These Terms and Conditions (&quot;Terms&quot;) govern your use
+                  of Heart &amp; Haven Healthcare&apos;s services, website, and
+                  any related services. By using our services, you agree to be
+                  bound by these Terms.
                 </p>
                 <p className="mb-6">
                   Heart & Haven Healthcare is a registered domiciliary care
@@ -45,22 +45,24 @@ const TermsAndConditionsPage = () => {
                 </h2>
                 <ul className="list-disc pl-6 mb-6 space-y-2">
                   <li>
-                    <strong>"Service"</strong> means our domiciliary care
-                    services
+                    <strong>&quot;Service&quot;</strong> means our domiciliary
+                    care services
                   </li>
                   <li>
-                    <strong>"Client"</strong> means the person receiving care
-                    services
+                    <strong>&quot;Client&quot;</strong> means the person
+                    receiving care services
                   </li>
                   <li>
-                    <strong>"Carer"</strong> means our qualified care staff
+                    <strong>&quot;Carer&quot;</strong> means our qualified care
+                    staff
                   </li>
                   <li>
-                    <strong>"Website"</strong> means our online platform and
-                    services
+                    <strong>&quot;Website&quot;</strong> means our online
+                    platform and services
                   </li>
                   <li>
-                    <strong>"We/Us/Our"</strong> means Heart & Haven Healthcare
+                    <strong>&quot;We/Us/Our&quot;</strong> means Heart &amp;
+                    Haven Healthcare
                   </li>
                 </ul>
 
@@ -125,7 +127,7 @@ const TermsAndConditionsPage = () => {
                   5.2 Cancellation Policy
                 </h3>
                 <p className="mb-6">
-                  We require 24 hours' notice for cancellations. Late
+                  We require 24 hours&apos; notice for cancellations. Late
                   cancellations may incur charges as outlined in your individual
                   care agreement.
                 </p>
@@ -208,7 +210,7 @@ const TermsAndConditionsPage = () => {
                   10.2 Intellectual Property
                 </h3>
                 <p className="mb-6">
-                  All content on our website is owned by Heart & Haven
+                  All content on our website is owned by Heart &amp; Haven
                   Healthcare and protected by copyright laws.
                 </p>
 
@@ -243,7 +245,7 @@ const TermsAndConditionsPage = () => {
                 </h2>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <p className="mb-2">
-                    <strong>Heart & Haven Healthcare</strong>
+                    <strong>Heart &amp; Haven Healthcare</strong>
                   </p>
                   <p className="mb-2">Phone: 01788 422422</p>
                   <p className="mb-2">Email: info@heartandhaven.com</p>

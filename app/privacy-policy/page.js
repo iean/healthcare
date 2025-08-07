@@ -29,17 +29,17 @@ const PrivacyPolicyPage = () => {
                   1. Introduction
                 </h2>
                 <p className="mb-6">
-                  Heart & Haven Healthcare ("we", "our", or "us") is committed
-                  to protecting and respecting your privacy. This Privacy Policy
-                  explains how we collect, use, store, and protect your personal
-                  information when you visit our website, use our services, or
-                  interact with us in any way.
+                  Heart & Haven Healthcare (&quot;we&quot;, &quot;our&quot;, or
+                  &quot;us&quot;) is committed to protecting and respecting your
+                  privacy. This Privacy Policy explains how we collect, use,
+                  store, and protect your personal information when you visit
+                  our website, use our services, or interact with us in any way.
                 </p>
                 <p className="mb-6">
                   We are registered as a data controller with the Information
-                  Commissioner's Office (ICO) and comply with the UK General
-                  Data Protection Regulation (UK GDPR) and the Data Protection
-                  Act 2018.
+                  Commissioner&apos;s Office (ICO) and comply with the UK
+                  General Data Protection Regulation (UK GDPR) and the Data
+                  Protection Act 2018.
                 </p>
 
                 <h2 className="text-2xl font-bold text-primary mb-6">
@@ -204,8 +204,8 @@ const PrivacyPolicyPage = () => {
                 <div className="mt-8 p-4 bg-blue-50 border-l-4 border-blue-400 rounded">
                   <p className="text-sm text-blue-800">
                     <strong>Supervisory Authority:</strong> You have the right
-                    to lodge a complaint with the Information Commissioner's
-                    Office (ICO) at{" "}
+                    to lodge a complaint with the Information
+                    Commissioner&apos;s Office (ICO) at{" "}
                     <a
                       href="https://ico.org.uk"
                       className="text-blue-600 hover:underline"

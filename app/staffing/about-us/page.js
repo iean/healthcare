@@ -81,8 +81,8 @@ const AboutUs = () => (
             Professional, Efficient and Personable
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Everything about Heart & Haven Healthcare stands for quality,
-            whether that's the services we provide or the staff we employ.
+            Everything about Heart &amp; Haven Healthcare stands for quality,
+            whether that&apos;s the services we provide or the staff we employ.
           </p>
         </div>
 

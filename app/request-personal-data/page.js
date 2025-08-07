@@ -88,7 +88,7 @@ const RequestPersonalDataPage = () => {
                   <p className="mb-4">
                     You have the right to request a copy of all personal
                     information we hold about you. This is commonly known as a
-                    "Subject Access Request" (SAR).
+                    &quot;Subject Access Request&quot; (SAR).
                   </p>
 
                   <h3 className="text-xl font-semibold text-accent mb-4">
