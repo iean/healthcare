@@ -8,7 +8,7 @@ const services = [
     title: "Domiciliary Care Services",
     content:
       "Personalized home care tailored to your loved one’s daily needs — from companionship to medication support, ensuring comfort and independence at home.",
-    images: ["/images/home/home_card_domiciliary.jpg"],
+    images: ["/images/home/home_card_domilciary.jpg"],
     link: "/domiciliary",
   },
   {
