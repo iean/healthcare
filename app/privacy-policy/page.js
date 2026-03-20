@@ -29,7 +29,7 @@ const PrivacyPolicyPage = () => {
                   1. Introduction
                 </h2>
                 <p className="mb-6">
-                  Heart & Haven Healthcare (&quot;we&quot;, &quot;our&quot;, or
+                  Kare Plus Rugby (&quot;we&quot;, &quot;our&quot;, or
                   &quot;us&quot;) is committed to protecting and respecting your
                   privacy. This Privacy Policy explains how we collect, use,
                   store, and protect your personal information when you visit
@@ -195,7 +195,7 @@ const PrivacyPolicyPage = () => {
                   <p className="mb-2">
                     <strong>Data Protection Officer</strong>
                   </p>
-                  <p className="mb-2">Heart & Haven Healthcare</p>
+                  <p className="mb-2">Kare Plus Rugby</p>
                   <p className="mb-2">Email: privacy@heartandhaven.com</p>
                   <p className="mb-2">Phone: 01788 422422</p>
                   <p className="mb-2">Address: [Your Business Address]</p>

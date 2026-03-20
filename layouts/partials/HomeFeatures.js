@@ -1,4 +1,4 @@
-import Image from "next/image";
+import config from "@config/config.json";
 import { markdownify } from "@lib/utils/textConverter";
 import {
   MdAccessTime,
@@ -20,19 +20,17 @@ const iconMap = {
 };
 
 const HomeFeatures = ({ feature }) => {
+  const brandName = config.site.logo_text || config.site.title;
+
   return (
     <section className="py-16 bg-[#F9F7FB] bg-gradient-to-r from-[#f9f5ff] via-[#fdf6eb] to-[#fff9ec]">
       <div className="container mx-auto px-4">
         {/* Logo & Heading */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="flex justify-center mb-4">
-            <Image
-              src="/images/logo-transparent.png"
-              alt="Heart and Haven Care"
-              width={180}
-              height={80}
-              className="drop-shadow-md"
-            />
+            <span className="rounded-full border border-[#2f2f85]/15 bg-white px-5 py-3 text-lg font-bold text-[#2f2f85] shadow-sm sm:text-xl">
+              {brandName}
+            </span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-bold text-[#2f2f85] mb-2">

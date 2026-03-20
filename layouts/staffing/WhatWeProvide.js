@@ -22,7 +22,7 @@ const services = [
   },
   {
     title: "Our Service Standards",
-    text: "Heart & Haven Care maintains strict recruitment standards to deliver safe, effective, and person-centered care.",
+    text: "Kare Plus Rugby maintains strict recruitment standards to deliver safe, effective, and person-centered care.",
     image: "/images/Staffing Page/Quality Personnel Service.jpg",
     icon: <MdHealthAndSafety size={28} className="text-[#431c52]" />,
     link: "/staffing",
@@ -33,7 +33,7 @@ const WhatWeProvide = () => (
   <section className="py-20 px-4 bg-gradient-to-br from-[#fdf6ec] via-[#f9effb] to-[#f7e9ff]">
     <div className="max-w-7xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-[#431c52] mb-4">
-        What Heart and Haven Care Provides
+        What Kare Plus Rugby Provides
       </h2>
       <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
         From expert staffing services to professional healthcare delivery, we

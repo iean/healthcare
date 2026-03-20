@@ -26,7 +26,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Heart and Haven Care",
+  title: "Kare Plus Rugby",
   description: "Professional caregiving services",
 };
 

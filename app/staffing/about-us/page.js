@@ -20,7 +20,7 @@ const AboutUs = () => (
           Quality, Efficient & Person-centred Service
         </h1>
         <p className="text-xl text-white text-center mb-8 max-w-4xl mx-auto">
-          Heart & Haven Healthcare is a specialist employment business,
+          Kare Plus Rugby is a specialist employment business,
           supplying highly trained healthcare professionals to care homes,
           hospitals, and healthcare clients across the UK.
         </p>
@@ -39,7 +39,7 @@ const AboutUs = () => (
           <div>
             <h2 className="text-3xl font-bold text-primary mb-6">About Us</h2>
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Heart & Haven Healthcare is a specialist employment business,
+              Kare Plus Rugby is a specialist employment business,
               which supplies to care homes, hospitals and other healthcare
               clients across the UK with highly trained nurses, social workers,
               care assistants, support workers and more.
@@ -81,7 +81,7 @@ const AboutUs = () => (
             Professional, Efficient and Personable
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Everything about Heart &amp; Haven Healthcare stands for quality,
+            Everything about Kare Plus Rugby stands for quality,
             whether that&apos;s the services we provide or the staff we employ.
           </p>
         </div>
@@ -172,7 +172,7 @@ const AboutUs = () => (
               clients get the very best standard of staff.
             </p>
             <p className="text-gray-700 mb-6 leading-relaxed">
-              In particular, Heart & Haven Healthcare aims to recruit
+              In particular, Kare Plus Rugby aims to recruit
               individuals who have a great track record of working with diverse
               clients. We always provide an extensive and outstanding level of
               care and service to each one of our clients.

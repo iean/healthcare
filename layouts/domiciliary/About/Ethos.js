@@ -10,7 +10,7 @@ const Ethos = () => (
         <h2 className="text-3xl font-bold text-primary mb-4">Our Ethos</h2>
         <p className="text-gray-700">
           Putting People First — Care with Compassion, Dignity & Respect. At
-          Heart & Haven Care, we know first-hand what it means to care for a
+          Kare Plus Rugby, we know first-hand what it means to care for a
           loved one at home. That’s why we understand how vital it is to find
           care professionals who not only have the right skills — but the
           compassion, patience, and heart to truly make a difference.
@@ -35,7 +35,7 @@ const Ethos = () => (
           in familiar surroundings.
           <br />
           <br />
-          At Heart & Haven, our carers are more than staff — they are trusted
+          At Kare Plus Rugby, our carers are more than staff — they are trusted
           companions, respected members of the community, and part of our
           extended care family. We pride ourselves on delivering care that not
           only meets expectations — but exceeds them — every single day.

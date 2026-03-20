@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FaPhoneAlt, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
@@ -12,7 +11,8 @@ const SimpleHeader = () => {
   const pathname = usePathname();
   const [navOpen, setNavOpen] = useState(false);
   const { main } = menu;
-  const { base_url, logo, title } = config.site;
+  const { base_url, logo_text, title } = config.site;
+  const brandName = logo_text || title;
 
   const serviceName = pathname.startsWith("/domiciliary")
     ? "Domiciliary Care"
@@ -28,14 +28,9 @@ const SimpleHeader = () => {
         <div className="flex items-center justify-between py-4">
           {/* Left: Logo */}
           <Link href={base_url} className="flex items-center">
-            <Image
-              src={logo}
-              alt={title}
-              width={220}
-              height={130}
-              className="object-contain max-h-[110px] w-auto"
-              priority
-            />
+            <span className="max-w-[220px] text-lg font-bold leading-tight text-[#431c52] sm:text-xl">
+              {brandName}
+            </span>
             {serviceName && (
               <span className="ml-3 text-base font-semibold text-[#5e3ea1]">
                 {serviceName}

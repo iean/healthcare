@@ -30,12 +30,12 @@ const TermsAndConditionsPage = () => {
                 </h2>
                 <p className="mb-6">
                   These Terms and Conditions (&quot;Terms&quot;) govern your use
-                  of Heart &amp; Haven Healthcare&apos;s services, website, and
+                  of Kare Plus Rugby&apos;s services, website, and
                   any related services. By using our services, you agree to be
                   bound by these Terms.
                 </p>
                 <p className="mb-6">
-                  Heart & Haven Healthcare is a registered domiciliary care
+                  Kare Plus Rugby is a registered domiciliary care
                   provider regulated by the Care Quality Commission (CQC) and
                   operates in accordance with UK healthcare regulations.
                 </p>
@@ -61,8 +61,7 @@ const TermsAndConditionsPage = () => {
                     platform and services
                   </li>
                   <li>
-                    <strong>&quot;We/Us/Our&quot;</strong> means Heart &amp;
-                    Haven Healthcare
+                    <strong>&quot;We/Us/Our&quot;</strong> means Kare Plus Rugby
                   </li>
                 </ul>
 
@@ -210,8 +209,8 @@ const TermsAndConditionsPage = () => {
                   10.2 Intellectual Property
                 </h3>
                 <p className="mb-6">
-                  All content on our website is owned by Heart &amp; Haven
-                  Healthcare and protected by copyright laws.
+                  All content on our website is owned by Kare Plus Rugby and
+                  protected by copyright laws.
                 </p>
 
                 <h2 className="text-2xl font-bold text-primary mb-6">
@@ -245,7 +244,7 @@ const TermsAndConditionsPage = () => {
                 </h2>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <p className="mb-2">
-                    <strong>Heart &amp; Haven Healthcare</strong>
+                    <strong>Kare Plus Rugby</strong>
                   </p>
                   <p className="mb-2">Phone: 01788 422422</p>
                   <p className="mb-2">Email: info@heartandhaven.com</p>

@@ -23,7 +23,7 @@ const reasons = [
 const WhyChooseUs = () => (
   <section className="py-16 bg-[#f9f7fc]">
     <div className="container">
-      <h2 className="text-center text-3xl font-bold text-primary mb-12">Why Choose Heart & Haven</h2>
+      <h2 className="text-center text-3xl font-bold text-primary mb-12">Why Choose Kare Plus Rugby</h2>
       <div className="grid gap-8 md:grid-cols-3">
         {reasons.map((reason, index) => (
           <div

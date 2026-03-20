@@ -7,6 +7,8 @@ import config from "@config/config.json";
 import social from "@config/social.json";
 
 const Footer = () => {
+  const brandName = config.site.logo_text || config.site.title;
+
   return (
     <footer className="bg-gradient-to-b from-[#431c63] via-[#6e296d] to-[#ec9e57] text-white pt-2">
       {/* Card Container */}
@@ -14,12 +16,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-10">
           {/* Logo & Contact */}
           <div className="space-y-3">
-            <Image
-              src={config.site.logo}
-              alt="Heart & Haven Care"
-              width={140}
-              height={60}
-            />
+            <Link
+              href={config.site.base_url}
+              className="inline-block text-2xl font-bold leading-tight text-[#431c63]"
+            >
+              {brandName}
+            </Link>
             <div className="text-sm text-[#333]">
               <p>
                 <strong>T:</strong> 01788 422422
@@ -94,8 +96,8 @@ const Footer = () => {
             />
             <div className="text-sm">
               <p>
-                CQC regulates Heart & Haven Care Ltd to provide care at{" "}
-                <strong>Heart & Haven Care - Main Office</strong>
+                CQC regulates Kare Plus Rugby Ltd to provide care at{" "}
+                <strong>Kare Plus Rugby - Main Office</strong>
               </p>
               <p className="text-red-600 font-semibold">
                 We haven't inspected this service yet

@@ -79,7 +79,7 @@ const RequestPersonalDataPage = () => {
                   <p className="mb-6">
                     Under the UK General Data Protection Regulation (UK GDPR),
                     you have several rights regarding your personal information
-                    held by Heart & Haven Healthcare.
+                    held by Kare Plus Rugby.
                   </p>
 
                   <h3 className="text-xl font-semibold text-accent mb-4">
@@ -269,7 +269,7 @@ const RequestPersonalDataPage = () => {
                     <label className="text-sm text-gray-600">
                       I confirm that I am the data subject or have legal
                       authority to make this request on their behalf. I
-                      understand that Heart & Haven Healthcare may need to
+                      understand that Kare Plus Rugby may need to
                       verify my identity before processing this request. *
                     </label>
                   </div>

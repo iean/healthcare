@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ServiceDescription = ({
-  title = "Heart & Haven Care",
+  title = "Kare Plus Rugby",
   subtitle1 = "Flexible Opportunities with Personalised Support",
   subtitle2 = "Competitive Pay That Values Your Work",
-  description1 = `At Heart & Haven Care, we connect compassionate professionals with meaningful roles in healthcare and social support. Our goal is to deliver trusted staffing solutions that empower both our clients and carers.`,
+  description1 = `At Kare Plus Rugby, we connect compassionate professionals with meaningful roles in healthcare and social support. Our goal is to deliver trusted staffing solutions that empower both our clients and carers.`,
   description2 = `Whether you're looking for part-time flexibility or full-time placement, we offer a variety of roles tailored to your schedule and strengths. From hospitals to home care, we ensure you're matched with the right opportunity.`,
   description3 = `We believe in recognising the dedication of our staff. That’s why we offer competitive pay rates to reward your commitment and help you focus on what matters most — delivering exceptional care.`,
   imageSrc = "/images/services/care-unique-domiliciary.jpeg",

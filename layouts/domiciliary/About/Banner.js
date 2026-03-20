@@ -14,7 +14,7 @@ const AboutBanner = () => (
         Your Privacy is Central — Your Care is Personal
       </h1>
       <p className="max-w-2xl mx-auto text-lg">
-        At Heart & Haven Care, we believe that true care starts with trust.
+        At Kare Plus Rugby, we believe that true care starts with trust.
         That’s why your privacy is not just respected — it's at the heart of
         everything we do. We deliver dignified, compassionate, and professional
         support that empowers you or your loved ones to live independently with

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -16,9 +15,10 @@ import menu from "@config/menu.json";
 
 const Header = ({ menuItems }) => {
   const pathname = usePathname();
-  const { base_url, logo, title } = config.site;
+  const { base_url, logo_text, title } = config.site;
   const main = menuItems || menu.main;
   const { enable, label, link } = config.nav_button;
+  const brandName = logo_text || title;
 
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -61,14 +61,9 @@ const Header = ({ menuItems }) => {
 
         {/* Center Logo */}
         <Link href={base_url} className="flex items-center justify-center">
-          <Image
-            src={logo}
-            alt={title}
-            width={220}
-            height={130}
-            className="object-contain max-h-[110px] w-auto"
-            priority
-          />
+          <span className="max-w-[220px] text-center text-lg font-bold leading-tight text-[#431c52] sm:text-xl lg:text-2xl">
+            {brandName}
+          </span>
         </Link>
 
         {/* Right: Social (hidden on mobile) */}
