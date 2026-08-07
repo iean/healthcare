@@ -18,7 +18,7 @@ Ongoing goal: improve the design and change content/topics as Alif directs, acro
 5. **Security work in §7 P0 comes before cosmetic work.** `/admin` and `GET /api/messages` are currently unauthenticated on a live healthcare site, exposing real contact details.
 6. **Never commit `.env`** — it holds a GitHub token. It's in `.git/info/exclude`, not `.gitignore`, so `git add .env` would still work. Don't.
 7. **Use pnpm**, never npm or yarn.
-8. **Don't push to `main` without asking.** Other contributors work on this repo.
+8. **Push to `main` freely** — Alif granted standing permission (2026-08-07); no need to ask each time. Force-pushes, branch deletion, and history rewrites still need a check-in. Note other contributors work on this repo, so pull before you start.
 9. **If you can't verify a change, say so.** Don't claim something works when you haven't seen it run.
 
 ## Commands

@@ -327,4 +327,4 @@ Follow this loop every session.
 - **Never touch a page marked `Keep`** without asking.
 - **Do P0 security items before cosmetic work.** Real people's contact details are exposed right now.
 - **Use pnpm**, never npm or yarn — the lockfile is pnpm's.
-- **Don't push to `main` without asking.** Other people appear to work on this repo.
+- **Push to `main` freely.** Alif granted standing permission 2026-08-07 — don't ask each time. Force-pushes, branch deletion, and history rewrites are still worth a check-in. Other people work on this repo, so `git pull` before starting.
