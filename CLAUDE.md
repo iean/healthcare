@@ -1,0 +1,46 @@
+# Heart & Haven Care — start here
+
+**Read [PROJECT.md](PROJECT.md) in full before doing anything.** It holds the site map, design system, work log, backlog, and the working process. This file is only a pointer plus the rules that must never be broken.
+
+## What this is
+
+A UK healthcare website — domiciliary care, temporary staffing, and supported living. Next.js 14 (App Router) + Tailwind + Markdown content, built on the Bigspring Light template. Deployed via Netlify.
+
+Ongoing goal: improve the design and change content/topics as Alif directs, across many sessions.
+
+## Rules
+
+1. **Follow the design system** in PROJECT.md §4. Use the Tailwind tokens `primary` (#5a2671 purple), `accent` (#b9892f gold), `background`, and `text-h1`…`text-h6`. Never hardcode a hex that isn't in §4. For global changes edit `config/theme.json`, not individual components.
+   - **Naming trap:** `theme.json` calls the gold "primary" and the purple "secondary". Tailwind swaps them. Go by the Tailwind name.
+2. **Log every change** in PROJECT.md §6 — date, files, why — and tick the §7 backlog item.
+3. **For topic/content changes, update the §3 site map first**, then do the work.
+4. **Reuse before creating.** Search `layouts/` first. There is already heavy duplication between `layouts/domiciliary/` and `layouts/staffing/`; don't add more.
+5. **Security work in §7 P0 comes before cosmetic work.** `/admin` and `GET /api/messages` are currently unauthenticated on a live healthcare site, exposing real contact details.
+6. **Never commit `.env`** — it holds a GitHub token. It's in `.git/info/exclude`, not `.gitignore`, so `git add .env` would still work. Don't.
+7. **Use pnpm**, never npm or yarn.
+8. **Don't push to `main` without asking.** Other contributors work on this repo.
+9. **If you can't verify a change, say so.** Don't claim something works when you haven't seen it run.
+
+## Commands
+
+```bash
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build
+pnpm lint
+```
+
+⚠️ **Node is not installed on this machine as of 2026-08-07** — nothing can be run or previewed locally until it is. See PROJECT.md §2.
+
+## Key files
+
+| Path | What |
+|---|---|
+| [config/theme.json](config/theme.json) | Colors, fonts, spacing — global theme |
+| [config/config.json](config/config.json) | Site title, logo, contact email, footer |
+| [config/menu.json](config/menu.json) | Main nav (+ `menu-domiciliary.json`, `menu-staffing.json`) |
+| [tailwind.config.js](tailwind.config.js) | Reads theme.json, derives the type scale |
+| [app/](app/) | Routes (App Router) |
+| [layouts/](layouts/) | React components |
+| [content/](content/) | Markdown pages and blog posts |
+| [styles/](styles/) | SCSS |
