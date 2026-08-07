@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 import nodemailer from "nodemailer";
+import config from "@config/config.json";
 
 const getStartedFile = path.join(process.cwd(), "data", "get-started.json");
 
@@ -20,7 +21,7 @@ async function writeGetStarted(entries) {
 }
 
 async function sendEmail(formData) {
-  const transporter = nodemailer.createTransporter({
+  const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
@@ -41,7 +42,10 @@ async function sendEmail(formData) {
 
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
-    to: "info@haven&heartcare.com",
+    // Was "info@haven&heartcare.com" — not a valid address ("&" cannot appear
+    // in a domain), so this never delivered. Single source of truth is now
+    // params.contact_email in config/config.json.
+    to: config.params.contact_email,
     subject: `New Get Started Request - ${formData.name}`,
     html,
   });

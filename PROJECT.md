@@ -69,12 +69,19 @@ Other scripts: `pnpm build`, `pnpm start`, `pnpm lint`.
 
 ### Environment variables
 
-Not committed (correctly). The contact form needs:
+Not committed (correctly). Set these in the Netlify/Vercel dashboard.
 
-- `EMAIL_USER` — Gmail address used to send
-- `EMAIL_PASS` — Gmail **app password**, not the account password
+| Variable | Required | Purpose |
+|---|---|---|
+| `EMAIL_USER` | **Yes** | Gmail address used to send form notifications |
+| `EMAIL_PASS` | **Yes** | Gmail **app password**, not the account password |
+| `ADMIN_USER` | **Yes** | Username for the admin login |
+| `ADMIN_PASSWORD` | **Yes** | Password for the admin login |
+| `PRIVACY_EMAIL` | No | Where GDPR data requests go. Falls back to `params.contact_email`. |
 
-Set these in the Netlify/Vercel dashboard. Without them the contact form silently fails to email (see §7 P0).
+⚠️ **`ADMIN_USER` and `ADMIN_PASSWORD` must be set or the admin area is unreachable.** [middleware.js](middleware.js) fails closed by design — an unset variable locks everyone out rather than silently leaving the door open. If `/admin` returns 401 no matter what you type, these are missing.
+
+⚠️ Without `EMAIL_USER`/`EMAIL_PASS` the contact form now returns a visible error instead of failing silently.
 
 ### Local-only file
 
@@ -235,6 +242,29 @@ _To be filled in with Alif. Current placeholders — confirm before relying on t
 
 Newest first. Every session adds an entry.
 
+### 2026-08-07 — P0 security and contact-form fixes
+
+**Added [middleware.js](middleware.js)** — HTTP Basic Auth (`ADMIN_USER` / `ADMIN_PASSWORD`), fails closed if unset.
+
+Protected:
+- `/admin` and everything beneath it — was fully public
+- `GET /api/messages`, `GET /api/get-started`, `GET /api/request-data` — all three returned personal data to anyone. `request-data` was the worst: it exposed GDPR proof-of-identity details.
+- `POST /api/jobs` — anyone could create job listings
+
+Deliberately left public: `GET /api/jobs` (the domiciliary and staffing job lists call it), and the `POST` side of the three form endpoints (that's the public submitting a form).
+
+**Fixed silently broken email.** [app/api/get-started/route.js](app/api/get-started/route.js) and [app/api/request-data/route.js](app/api/request-data/route.js) both called `nodemailer.createTransporter(...)`. No such method — it is `createTransport`. Every send threw a TypeError, was caught, and logged. **The Get Started form and the GDPR data-request form have almost certainly never delivered a single email.**
+
+**Fixed the contact form** in [app/api/messages/route.js](app/api/messages/route.js):
+- `NextResponse.redirect("/thank-you")` used a relative URL, which Next.js rejects — the visitor got an error, not a thank-you page
+- Changed to a `303` so the browser converts POST→GET and cannot re-submit on refresh
+- Email failure was swallowed, showing a thank-you page while the enquiry vanished. It now returns a visible error.
+- The `data/messages.json` write is now best-effort in a `try/catch` — on Netlify's read-only filesystem it was throwing and could take the whole request down with it
+
+**Fixed invalid recipients.** get-started mailed `info@haven&heartcare.com` — `&` is illegal in a domain, so it could never deliver even once the typo was fixed. Both routes now use `params.contact_email` from [config/config.json](config/config.json) as a single source of truth, with `PRIVACY_EMAIL` able to override for GDPR requests.
+
+**Verification:** Node is not installed, so no build was run. All four changed files were syntax-checked with macOS JavaScriptCore and parse cleanly. **The logic is unverified at runtime** — see §7 P0 for what must be tested once Node is available.
+
 ### 2026-08-07 — Project setup and initial audit
 - Configured git on Alif's Mac: `user.name=rakibalif1`, `user.email=tannattharida@gmail.com`, `credential.helper=osxkeychain`
 - Cloned `iean/healthcare` into `~/Desktop/website` (a broken, empty `.git` folder from a failed earlier attempt was removed first — it contained no data)
@@ -247,13 +277,23 @@ Newest first. Every session adds an entry.
 
 ## 7. Backlog / Next Steps
 
-### P0 — Security & data protection (do these first)
+### P0 — Security & data protection
 
-- [ ] **`/admin` has no authentication whatsoever.** [app/admin/page.js](app/admin/page.js) and its subpages are publicly reachable on the live site. There is no `middleware.js` and no auth check anywhere in `app/` or `lib/`. Anyone who guesses the URL can read messages and add/delete jobs.
-- [ ] **`GET /api/messages` returns every contact submission to anyone.** [app/api/messages/route.js](app/api/messages/route.js) has no auth. Names, emails, phone numbers, and message bodies from a **healthcare** site are exposed. For a UK business this is a UK GDPR problem, not just a bug. Fix before anything cosmetic.
-- [ ] **`POST /api/jobs` is unauthenticated** — [app/api/jobs/route.js](app/api/jobs/route.js) lets anyone create job listings on the live site.
-- [ ] **Contact messages are probably being lost.** The route writes to `data/messages.json` via `fs.writeFile`. On Netlify/Vercel the filesystem is ephemeral and read-only, so writes fail or vanish on redeploy. Email is the only real delivery path — and it's wrapped in a `try/catch` that logs and swallows the error, so a misconfigured `EMAIL_USER`/`EMAIL_PASS` fails **silently**. Move to a real datastore or a form service, and surface send failures.
-- [ ] **`NextResponse.redirect("/thank-you")` uses a relative URL.** Next.js requires an absolute URL here; this throws. Users likely see an error instead of the thank-you page after submitting.
+Code fixes are done (2026-08-07). **The remaining items are Alif's to do — the fixes are not live until they are.**
+
+- [x] **`/admin` had no authentication** — now behind Basic Auth in [middleware.js](middleware.js)
+- [x] **`GET /api/messages` exposed every contact submission** — now authenticated
+- [x] **`GET /api/get-started` and `GET /api/request-data` exposed personal data** — now authenticated. Found during the fix; not in the original audit.
+- [x] **`POST /api/jobs` was unauthenticated** — now authenticated
+- [x] **Get Started + GDPR emails never sent** (`createTransporter` typo) — fixed
+- [x] **Contact form redirect threw / email failed silently** — fixed
+- [ ] **Set `ADMIN_USER` and `ADMIN_PASSWORD` in Netlify.** Until then `/admin` returns 401 for everyone, including Alif. Use a long random password — this guards patient-adjacent data.
+- [ ] **Confirm `EMAIL_USER` / `EMAIL_PASS` are set and correct** in Netlify. If the Get Started form never worked, they may never have been configured.
+- [ ] **Test all three forms end-to-end after deploy** — contact, get-started, request-personal-data. Confirm an email actually arrives.
+- [ ] **Replace `params.contact_email`** (`masud.official@gmail.com`) with a real Heart & Haven address — all three forms now send there.
+- [ ] **Move submissions off the filesystem.** Writes to `data/*.json` still cannot persist on Netlify. Email is the only reliable delivery. A proper datastore or form service is the real fix.
+- [ ] **Check whether anything leaked** while the endpoints were open. `data/messages.json` is empty in the repo, but that only reflects what was committed.
+- [ ] **Run `pnpm build` once Node is installed.** The security changes have not been executed, only syntax-checked.
 
 ### P1 — Broken and wrong content
 

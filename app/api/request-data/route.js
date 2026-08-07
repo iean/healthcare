@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 import nodemailer from "nodemailer";
+import config from "@config/config.json";
 
 const dataRequestsFile = path.join(process.cwd(), "data", "data-requests.json");
 
@@ -20,7 +21,7 @@ async function writeDataRequests(requests) {
 }
 
 async function sendEmail(formData) {
-  const transporter = nodemailer.createTransporter({
+  const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
@@ -56,7 +57,10 @@ async function sendEmail(formData) {
 
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
-    to: "privacy@heartandhaven.com",
+    // GDPR requests carry a 30-day statutory deadline, so they must reach a
+    // monitored inbox. Set PRIVACY_EMAIL in Netlify to route them somewhere
+    // dedicated; otherwise they fall back to the main contact address.
+    to: process.env.PRIVACY_EMAIL || config.params.contact_email,
     subject: `Data Request - ${formData.requestType} - ${formData.name}`,
     html,
   });
