@@ -41,31 +41,25 @@ The site does double duty: it markets services to **clients and their families**
 | Package manager | **pnpm** (`pnpm-lock.yaml` is committed — do not use npm/yarn, it will fight the lockfile) |
 | Deploy | Netlify (`netlify.toml`) — Vercel config also present |
 
-### ⚠️ Blocker: Node is not installed on this machine
+### Local toolchain (installed 2026-08-07)
 
-Verified 2026-08-07: `node`, `npm`, and `pnpm` are all missing. **The site cannot currently be built or previewed locally.** Until this is fixed, all changes are unverified — we can edit code but cannot see the result.
-
-To fix (pick one):
+Node **v24.19.0** (LTS), npm 11.17.0, pnpm 11.20.0. Installed without sudo by extracting the official arm64 tarball (SHA-256 verified) to `~/.local/node`; `~/.zshrc` puts `~/.local/node/bin` on `PATH`. pnpm comes from corepack.
 
 ```bash
-# Option A — official installer (easiest, no terminal setup)
-# Download the macOS LTS .pkg from https://nodejs.org and run it
-
-# Option B — Homebrew (requires installing Homebrew first)
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install node
-```
-
-Then:
-
-```bash
-npm install -g pnpm     # project uses pnpm
 cd ~/Desktop/website
 pnpm install
 pnpm dev                # → http://localhost:3000
 ```
 
 Other scripts: `pnpm build`, `pnpm start`, `pnpm lint`.
+
+**[pnpm-workspace.yaml](pnpm-workspace.yaml)** exists solely to fix this: pnpm 11 refuses to run a dependency's install scripts until they're approved, and its pre-run check then aborts `pnpm build` with `ERR_PNPM_IGNORED_BUILDS`. The file allows `sharp`, `swiper`, `@parcel/watcher` and `unrs-resolver` — all long-standing dependencies already pinned in the lockfile. Delete it and the build breaks again on pnpm 11.
+
+Note the setting **moved** in pnpm 11: a `pnpm.onlyBuiltDependencies` block in `package.json` is silently ignored. It has to be `allowBuilds` in `pnpm-workspace.yaml`.
+
+### Do not put a `.env` in this repo
+
+Next.js auto-loads `.env` and reports `Environments: .env` at startup, so anything in it becomes a server-side environment variable. Alif's GitHub token briefly lived there and was being loaded into the dev server on every run. It now sits at `~/.website-github.env`, outside the project, and the token is in the macOS Keychain — `git push` works without any file. Real app secrets belong in the Netlify dashboard.
 
 ### Environment variables
 
@@ -263,7 +257,23 @@ Deliberately left public: `GET /api/jobs` (the domiciliary and staffing job list
 
 **Fixed invalid recipients.** get-started mailed `info@haven&heartcare.com` — `&` is illegal in a domain, so it could never deliver even once the typo was fixed. Both routes now use `params.contact_email` from [config/config.json](config/config.json) as a single source of truth, with `PRIVACY_EMAIL` able to override for GDPR requests.
 
-**Verification:** Node is not installed, so no build was run. All four changed files were syntax-checked with macOS JavaScriptCore and parse cleanly. **The logic is unverified at runtime** — see §7 P0 for what must be tested once Node is available.
+**Verification (same day, after installing Node):** `next build` succeeds and reports `ƒ Middleware 26.8 kB`, so the middleware compiles and registers. `next lint` is clean. Ran a dev server and checked every route by hand:
+
+| Check | Result |
+|---|---|
+| `/admin`, `/admin/messages`, `/admin/jobs` — no credentials | 401 ✅ |
+| `GET /api/messages`, `/api/get-started`, `/api/request-data` — no credentials | 401 ✅ |
+| `POST /api/jobs` — no credentials | 401 ✅ |
+| `/admin` — wrong password, and wrong username | 401 ✅ |
+| `/admin`, `GET /api/messages` — correct credentials | 200 ✅ |
+| `GET /api/jobs` — must stay public for the job lists | 200 ✅ |
+| Homepage — must stay public | 200 ✅ |
+| **Fail-closed:** correct credentials but `ADMIN_USER`/`ADMIN_PASSWORD` unset | 401 ✅ |
+| `POST /api/messages` with no email credentials | 500 + visible error, no fake thank-you ✅ |
+
+A password containing a colon was used deliberately and worked, confirming the split-on-first-colon parsing.
+
+**Still untested:** the success path of the contact form (the `303` redirect to `/thank-you`), because that needs working `EMAIL_USER`/`EMAIL_PASS`. Test it on the deployed site.
 
 ### 2026-08-07 — Project setup and initial audit
 - Configured git on Alif's Mac: `user.name=rakibalif1`, `user.email=tannattharida@gmail.com`, `credential.helper=osxkeychain`
@@ -293,7 +303,7 @@ Code fixes are done (2026-08-07). **The remaining items are Alif's to do — the
 - [ ] **Replace `params.contact_email`** (`masud.official@gmail.com`) with a real Heart & Haven address — all three forms now send there.
 - [ ] **Move submissions off the filesystem.** Writes to `data/*.json` still cannot persist on Netlify. Email is the only reliable delivery. A proper datastore or form service is the real fix.
 - [ ] **Check whether anything leaked** while the endpoints were open. `data/messages.json` is empty in the repo, but that only reflects what was committed.
-- [ ] **Run `pnpm build` once Node is installed.** The security changes have not been executed, only syntax-checked.
+- [x] **Build and runtime verification** — done 2026-08-07, see §6
 
 ### P1 — Broken and wrong content
 

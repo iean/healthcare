@@ -30,7 +30,11 @@ pnpm build
 pnpm lint
 ```
 
-⚠️ **Node is not installed on this machine as of 2026-08-07** — nothing can be run or previewed locally until it is. See PROJECT.md §2.
+Node v24.19.0 is installed at `~/.local/node` (on `PATH` via `~/.zshrc`).
+
+⚠️ Don't delete `pnpm-workspace.yaml` — it's what stops pnpm 11 aborting the build with `ERR_PNPM_IGNORED_BUILDS`. See PROJECT.md §2.
+
+⚠️ **Never add a `.env` to this repo** — Next.js auto-loads it into the server environment. Real secrets go in the Netlify dashboard.
 
 ## Key files
 
