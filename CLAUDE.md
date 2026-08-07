@@ -4,7 +4,7 @@
 
 ## What this is
 
-A UK healthcare website — domiciliary care, temporary staffing, and supported living. Next.js 14 (App Router) + Tailwind + Markdown content, built on the Bigspring Light template. Deployed via Netlify.
+A UK healthcare website — domiciliary care, temporary staffing, and supported living. Next.js 14 (App Router) + Tailwind + Markdown content, built on the Bigspring Light template. **Self-hosted on a VPS — every push to `main` auto-deploys to production.**
 
 Ongoing goal: improve the design and change content/topics as Alif directs, across many sessions.
 
@@ -18,7 +18,7 @@ Ongoing goal: improve the design and change content/topics as Alif directs, acro
 5. **Security work in §7 P0 comes before cosmetic work.** `/admin` and `GET /api/messages` are currently unauthenticated on a live healthcare site, exposing real contact details.
 6. **Never commit `.env`** — it holds a GitHub token. It's in `.git/info/exclude`, not `.gitignore`, so `git add .env` would still work. Don't.
 7. **Use pnpm**, never npm or yarn.
-8. **Push to `main` freely** — Alif granted standing permission (2026-08-07); no need to ask each time. Force-pushes, branch deletion, and history rewrites still need a check-in. Note other contributors work on this repo, so pull before you start.
+8. **Pushing to `main` deploys to production immediately.** [.github/workflows/deploy.yml](.github/workflows/deploy.yml) SSHes into the VPS and restarts the app on every push. There is no staging. Alif granted standing permission (2026-08-07) so you needn't ask — but **build and test locally before you push**, because the users see it seconds later. Force-pushes, branch deletion, and history rewrites still need a check-in. Other contributors work here, so pull first.
 9. **If you can't verify a change, say so.** Don't claim something works when you haven't seen it run.
 
 ## Commands
@@ -34,7 +34,7 @@ Node v24.19.0 is installed at `~/.local/node` (on `PATH` via `~/.zshrc`).
 
 ⚠️ Don't delete `pnpm-workspace.yaml` — it's what stops pnpm 11 aborting the build with `ERR_PNPM_IGNORED_BUILDS`. See PROJECT.md §2.
 
-⚠️ **Never add a `.env` to this repo** — Next.js auto-loads it into the server environment. Real secrets go in the Netlify dashboard.
+⚠️ **Never add a `.env` to this repo** — Next.js auto-loads it into the server environment. Real secrets go on the VPS, in the pm2 environment.
 
 ## Key files
 

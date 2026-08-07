@@ -38,8 +38,26 @@ The site does double duty: it markets services to **clients and their families**
 | Email | `nodemailer` (Gmail transport) |
 | Carousel | `swiper` 8 |
 | Icons | `react-icons` |
-| Package manager | **pnpm** (`pnpm-lock.yaml` is committed — do not use npm/yarn, it will fight the lockfile) |
-| Deploy | Netlify (`netlify.toml`) — Vercel config also present |
+| Package manager | **pnpm** locally (`pnpm-lock.yaml` is committed). ⚠️ **The server uses `npm install`** — see below. |
+| Deploy | **Self-hosted VPS** at `46.252.193.48`, pm2 process `heartandhaven` |
+
+### Deployment — it is NOT Netlify
+
+`netlify.toml` exists but is a leftover. The real pipeline is [.github/workflows/deploy.yml](.github/workflows/deploy.yml):
+
+**every push to `main` SSHes into the VPS, runs `git pull`, `npm install`, `npm run build`, and restarts pm2.** There is no staging step and no approval. A push is a production deploy.
+
+**Live URL:** `http://46.252.193.48:3000`
+
+⚠️ **`heartandhavencare.co.uk` does not resolve** — NXDOMAIN from both the local resolver and 8.8.8.8 (checked 2026-08-07), despite being referenced in the site content. The domain is unregistered, expired, or never pointed anywhere.
+
+⚠️ **The site is served over plain HTTP on port 3000.** No TLS, no reverse proxy, no domain. Care enquiries containing names, phone numbers and health details are submitted unencrypted. See §7 P0.
+
+Known problems with the pipeline:
+
+- **The server runs `npm install`, not pnpm**, so `pnpm-lock.yaml` is ignored in production and versions can drift from local. (There is a commit literally titled "fix npm".) `pnpm-workspace.yaml` has no effect on the server either.
+- **The deploy script has no `set -e`.** Commands inside the heredoc can fail and the workflow still reports success — so a green tick does not prove a deploy worked.
+- **`data/*.json` are tracked in git *and* written to at runtime.** Once the server has local changes to `data/messages.json`, `git pull` will refuse to merge and every future deploy silently stops updating the code.
 
 ### Local toolchain (installed 2026-08-07)
 
@@ -59,11 +77,11 @@ Note the setting **moved** in pnpm 11: a `pnpm.onlyBuiltDependencies` block in `
 
 ### Do not put a `.env` in this repo
 
-Next.js auto-loads `.env` and reports `Environments: .env` at startup, so anything in it becomes a server-side environment variable. Alif's GitHub token briefly lived there and was being loaded into the dev server on every run. It now sits at `~/.website-github.env`, outside the project, and the token is in the macOS Keychain — `git push` works without any file. Real app secrets belong in the Netlify dashboard.
+Next.js auto-loads `.env` and reports `Environments: .env` at startup, so anything in it becomes a server-side environment variable. Alif's GitHub token briefly lived there and was being loaded into the dev server on every run. It now sits at `~/.website-github.env`, outside the project, and the token is in the macOS Keychain — `git push` works without any file. Real app secrets belong on the VPS, in the pm2 environment.
 
 ### Environment variables
 
-Not committed (correctly). Set these in the Netlify/Vercel dashboard.
+Not committed (correctly). **Set these on the VPS**, not in any hosting dashboard — there isn't one. They need to be in the pm2 environment (an ecosystem file, `pm2 set`, or a `.env` on the server), then `pm2 restart heartandhaven --update-env`.
 
 | Variable | Required | Purpose |
 |---|---|---|
@@ -73,13 +91,13 @@ Not committed (correctly). Set these in the Netlify/Vercel dashboard.
 | `ADMIN_PASSWORD` | **Yes** | Password for the admin login |
 | `PRIVACY_EMAIL` | No | Where GDPR data requests go. Falls back to `params.contact_email`. |
 
-⚠️ **`ADMIN_USER` and `ADMIN_PASSWORD` must be set or the admin area is unreachable.** [middleware.js](middleware.js) fails closed by design — an unset variable locks everyone out rather than silently leaving the door open. If `/admin` returns 401 no matter what you type, these are missing.
+⚠️ **`ADMIN_USER` and `ADMIN_PASSWORD` are not set on the server as of 2026-08-07** — `http://46.252.193.48:3000/admin` returns 401 to everyone, Alif included. [middleware.js](middleware.js) fails closed by design: an unset variable locks the door rather than silently leaving it open. **The admin area is unusable until these are set on the VPS.**
 
 ⚠️ Without `EMAIL_USER`/`EMAIL_PASS` the contact form now returns a visible error instead of failing silently.
 
-### Local-only file
+### GitHub credentials
 
-`.env` in the repo root holds Alif's GitHub token. It is **not** in `.gitignore`, so it has been added to `.git/info/exclude` instead — a local, untracked ignore. **Never `git add` it.** It can be deleted once the macOS Keychain has the credentials.
+Alif's token is in the **macOS Keychain**; `git push` works with no file present. A copy of the values sits at `~/.website-github.env`, outside the repo. `.env` and `.DS_Store` are in `.git/info/exclude` (a local ignore) because the repo's own `.gitignore` covers `.env.local` but **not** plain `.env`.
 
 ---
 
@@ -253,7 +271,7 @@ Deliberately left public: `GET /api/jobs` (the domiciliary and staffing job list
 - `NextResponse.redirect("/thank-you")` used a relative URL, which Next.js rejects — the visitor got an error, not a thank-you page
 - Changed to a `303` so the browser converts POST→GET and cannot re-submit on refresh
 - Email failure was swallowed, showing a thank-you page while the enquiry vanished. It now returns a visible error.
-- The `data/messages.json` write is now best-effort in a `try/catch` — on Netlify's read-only filesystem it was throwing and could take the whole request down with it
+- The `data/messages.json` write is now best-effort in a `try/catch` — an unhandled write failure could take the whole request down. (The VPS filesystem is in fact persistent — see the deployment correction below — but the guard is still right.)
 
 **Fixed invalid recipients.** get-started mailed `info@haven&heartcare.com` — `&` is illegal in a domain, so it could never deliver even once the typo was fixed. Both routes now use `params.contact_email` from [config/config.json](config/config.json) as a single source of truth, with `PRIVACY_EMAIL` able to override for GDPR requests.
 
@@ -274,6 +292,23 @@ Deliberately left public: `GET /api/jobs` (the domiciliary and staffing job list
 A password containing a colon was used deliberately and worked, confirming the split-on-first-colon parsing.
 
 **Still untested:** the success path of the contact form (the `303` redirect to `/thank-you`), because that needs working `EMAIL_USER`/`EMAIL_PASS`. Test it on the deployed site.
+
+**Confirmed live in production** — every push to `main` auto-deploys, so these fixes went out immediately. Verified against `http://46.252.193.48:3000`:
+
+| Live check | Result |
+|---|---|
+| `GET /api/messages` — the endpoint that was leaking enquiries | **401** — leak closed ✅ |
+| `GET /admin` | **401** ✅ |
+| `GET /` homepage | **200** — site healthy ✅ |
+| `GET /api/jobs` — must stay public | **200** ✅ |
+
+### 2026-08-07 — Corrected deployment facts
+
+Earlier entries in this file claimed the site was on Netlify, inferred from `netlify.toml`. **That was wrong.** `netlify.toml` is a leftover; the real pipeline is a GitHub Actions SSH deploy to a self-hosted VPS. Consequences that matter:
+
+- Environment variables go **on the server**, not in a hosting dashboard
+- The filesystem is **persistent**, not ephemeral — so `data/messages.json` on the server has been accumulating real enquiries, and the unauthenticated endpoint was exposing them for real, not hypothetically. The empty file in git only reflects what was committed.
+- Pushing to `main` **is** deploying to production
 
 ### 2026-08-07 — Project setup and initial audit
 - Configured git on Alif's Mac: `user.name=rakibalif1`, `user.email=tannattharida@gmail.com`, `credential.helper=osxkeychain`
@@ -297,12 +332,16 @@ Code fixes are done (2026-08-07). **The remaining items are Alif's to do — the
 - [x] **`POST /api/jobs` was unauthenticated** — now authenticated
 - [x] **Get Started + GDPR emails never sent** (`createTransporter` typo) — fixed
 - [x] **Contact form redirect threw / email failed silently** — fixed
-- [ ] **Set `ADMIN_USER` and `ADMIN_PASSWORD` in Netlify.** Until then `/admin` returns 401 for everyone, including Alif. Use a long random password — this guards patient-adjacent data.
-- [ ] **Confirm `EMAIL_USER` / `EMAIL_PASS` are set and correct** in Netlify. If the Get Started form never worked, they may never have been configured.
-- [ ] **Test all three forms end-to-end after deploy** — contact, get-started, request-personal-data. Confirm an email actually arrives.
+- [ ] **Set `ADMIN_USER` and `ADMIN_PASSWORD` on the VPS.** Until then `/admin` returns 401 for everyone, Alif included. Long random password — this guards patient-adjacent data.
+- [ ] **The site has no HTTPS.** It serves plain HTTP on `46.252.193.48:3000`. Contact forms carrying names, phone numbers and health details are sent unencrypted, and Basic Auth credentials cross the wire in base64 — trivially readable. **The admin password is only as safe as the connection.** Fix: nginx/Caddy reverse proxy on 80/443 with a Let's Encrypt certificate.
+- [ ] **The domain does not resolve.** `heartandhavencare.co.uk` is NXDOMAIN, yet appears in site content. Register/repoint it, then wire it to the VPS.
+- [ ] **Read `data/messages.json` on the server** (`/var/www/healthcare/data/`). The filesystem is persistent, so real enquiries have been accumulating there — and were publicly downloadable until today. Anyone who fetched that URL got the lot. Assess whether disclosure notification is needed.
+- [ ] **Confirm `EMAIL_USER` / `EMAIL_PASS` are set** on the VPS. If Get Started never worked, they may never have been configured.
+- [ ] **Test all three forms end-to-end** — contact, get-started, request-personal-data. Confirm an email actually arrives.
 - [ ] **Replace `params.contact_email`** (`masud.official@gmail.com`) with a real Heart & Haven address — all three forms now send there.
-- [ ] **Move submissions off the filesystem.** Writes to `data/*.json` still cannot persist on Netlify. Email is the only reliable delivery. A proper datastore or form service is the real fix.
-- [ ] **Check whether anything leaked** while the endpoints were open. `data/messages.json` is empty in the repo, but that only reflects what was committed.
+- [ ] **Untrack `data/*.json`.** They are committed *and* written at runtime. As soon as the server's copy differs, `git pull` refuses to merge and **every future deploy silently stops updating the site** — the workflow has no `set -e`, so it still reports success. Add to `.gitignore` and `git rm --cached`.
+- [ ] **Add `set -e` to the deploy workflow** so a failed build fails the run instead of showing a green tick.
+- [ ] **Make the server use pnpm**, or drop `pnpm-lock.yaml`. Right now the server runs `npm install` and ignores the committed lockfile, so production versions can drift from local.
 - [x] **Build and runtime verification** — done 2026-08-07, see §6
 
 ### P1 — Broken and wrong content
@@ -347,7 +386,7 @@ Code fixes are done (2026-08-07). **The remaining items are Alif's to do — the
 
 ### Open questions for Alif
 
-1. **Is the site live?** What's the production URL? Netlify or Vercel?
+1. **The domain doesn't resolve.** Is `heartandhavencare.co.uk` registered? The site is only reachable at `http://46.252.193.48:3000`.
 2. **Supported Living** — build the page, or remove it from the nav?
 3. **Design references** — 2–3 sites whose look you like?
 4. **Which section first** — homepage, domiciliary, or staffing?
