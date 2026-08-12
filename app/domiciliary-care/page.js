@@ -6,7 +6,7 @@ import FeatureGrid from "@components/ui/FeatureGrid";
 import Card from "@components/ui/Card";
 import Reveal from "@components/ui/Reveal";
 import CtaBand from "@layouts/home/CtaBand";
-import EnquiryForm from "@layouts/forms/EnquiryForm";
+import MultiStepEnquiry from "@layouts/forms/MultiStepEnquiry";
 import site from "@config/site.json";
 import {
   FaBath, FaPills, FaUtensils, FaWalking, FaHeart, FaMoon,
@@ -161,7 +161,13 @@ const DomiciliaryCarePage = () => (
     {/* Enquiry form */}
     <Section tone="white" size="lg" id="enquiry">
       <Container width="narrow">
-        <EnquiryForm variant="care" id="enquiry-form" />
+        <SectionHeading
+          eyebrow="Enquire"
+          title="Arrange a free home assessment"
+          subtitle="Three short steps. No obligation, and no charge for the assessment."
+          className="mb-8"
+        />
+        <MultiStepEnquiry id="care-enquiry" />
       </Container>
     </Section>
 
