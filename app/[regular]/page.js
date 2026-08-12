@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import NotFound from "@layouts/404";
 import Contact from "@layouts/Contact";
 import Default from "@layouts/Default";
@@ -9,6 +10,14 @@ import { getRegularPage, getSinglePage } from "@lib/contentParser";
 // for all regular pages
 const RegularPages = async ({ params }) => {
   const { regular } = params;
+
+  // Return a real 404 for unknown slugs. getRegularPage() silently falls back
+  // to rendering content/404.md, which meant every mistyped URL returned HTTP
+  // 200 with 404 content - a soft 404. Search engines index those, and
+  // monitoring never sees the error.
+  const known = await getSinglePage("content");
+  if (!known.some((p) => p.slug === regular)) notFound();
+
   const regularPageData = await getRegularPage(regular);
   const { title, meta_title, description, image, noindex, canonical, layout } =
     regularPageData.frontmatter;
@@ -50,3 +59,7 @@ export const generateStaticParams = async () => {
 
   return paths;
 };
+
+// Only slugs returned by generateStaticParams are valid routes; anything
+// else 404s instead of being rendered on demand.
+export const dynamicParams = false;

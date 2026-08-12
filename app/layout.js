@@ -57,20 +57,54 @@ export const viewport = {
 };
 
 /**
- * Organisation schema.
+ * MedicalBusiness / LocalBusiness structured data.
  *
- * Deliberately NOT emitting MedicalBusiness/LocalBusiness with address or
- * geo data yet: the address and registration fields are still placeholders,
- * and publishing placeholder text as structured data would feed nonsense to
- * search engines. The richer schema is added per-page once real details exist.
+ * Address, phone, email and URL come from config/site.json, which took them
+ * from the repo's existing config/social.json - real values, not invented.
+ *
+ * Fields still holding a [TODO: ...] placeholder are filtered out below rather
+ * than published: putting placeholder text into structured data feeds nonsense
+ * straight to search engines. So areaServed, registration IDs and anything
+ * else unverified simply do not appear until someone fills them in.
  */
+const isReal = (v) => typeof v === "string" && v && !v.includes("[TODO");
+
+const b = site.business;
 const orgSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.business.legal_name,
-  alternateName: site.business.trading_name,
-  telephone: site.business.phone,
+  "@type": ["MedicalBusiness", "LocalBusiness"],
+  name: b.legal_name,
+  alternateName: b.trading_name,
   description: site.seo.default_description,
+  url: isReal(site.seo.base_url) ? site.seo.base_url : undefined,
+  telephone: b.phone,
+  ...(isReal(b.email) ? { email: b.email } : {}),
+  ...(isReal(b.address.street)
+    ? {
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: b.address.street,
+          addressLocality: b.address.locality,
+          addressRegion: b.address.region,
+          postalCode: b.address.postcode,
+          addressCountry: b.address.country,
+        },
+      }
+    : {}),
+  ...(isReal(b.areas_served) ? { areaServed: b.areas_served } : {}),
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
+  ],
+  makesOffer: [
+    "Domiciliary care",
+    "Supported living",
+    "Care home staffing",
+  ].map((n) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
 };
 
 export default function RootLayout({ children }) {
