@@ -2,7 +2,6 @@ import config from "@config/config.json";
 import Cta from "@layouts/components/Cta";
 import SeoMeta from "@layouts/SeoMeta";
 
-import SimpleHeader from "@layouts/partials/SimpleHeader";
 import HomeFeatures from "@layouts/partials/HomeFeatures";
 import HomeBannerMain from "@layouts/partials/HomeBannerMain";
 import Services from "@layouts/partials/Services";
@@ -22,7 +21,6 @@ const Home = async () => {
   return (
     <>
       <SeoMeta title={title} />
-      <SimpleHeader />
       {/* Banner */}
       <HomeBannerMain banner={banner} />
       {/* services */}

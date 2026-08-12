@@ -1,0 +1,92 @@
+{
+  "_comment": "Single source of truth for business details, navigation and SEO defaults. Values wrapped in [TODO: ...] are placeholders that MUST be replaced with verified information before this site goes live. Do not invent values here - especially anything regulatory.",
+
+  "business": {
+    "legal_name": "Heart & Haven Care Ltd",
+    "trading_name": "Heart & Haven Care",
+    "phone": "01788 422422",
+    "phone_href": "tel:+441788422422",
+    "email": "[TODO: INSERT REAL BUSINESS ENQUIRY EMAIL]",
+    "careers_email": "[TODO: INSERT REAL RECRUITMENT EMAIL]",
+    "safeguarding_email": "[TODO: INSERT REAL SAFEGUARDING CONTACT EMAIL]",
+    "address": {
+      "street": "[TODO: INSERT REGISTERED OFFICE STREET ADDRESS]",
+      "locality": "[TODO: INSERT TOWN/CITY]",
+      "region": "[TODO: INSERT COUNTY]",
+      "postcode": "[TODO: INSERT POSTCODE]",
+      "country": "GB"
+    },
+    "companies_house_number": "[TODO: INSERT COMPANIES HOUSE REGISTRATION NUMBER]",
+    "cqc_provider_id": "[TODO: INSERT CQC PROVIDER ID - VERIFY REGISTRATION BEFORE PUBLISHING ANY CQC CLAIM]",
+    "ico_registration": "[TODO: INSERT ICO DATA PROTECTION REGISTRATION NUMBER]",
+    "opening_hours": {
+      "office": "Monday to Friday, 9:00am – 5:00pm",
+      "on_call": "24 hours a day, 7 days a week"
+    },
+    "areas_served": "[TODO: CONFIRM THE TOWNS / BOROUGHS COVERED]"
+  },
+
+  "nav": {
+    "primary": [
+      { "name": "Domiciliary Care", "url": "/domiciliary-care" },
+      { "name": "Care Home Staffing", "url": "/care-home-staffing" },
+      { "name": "Supported Living", "url": "/supported-living" },
+      { "name": "About", "url": "/about" },
+      { "name": "FAQs", "url": "/faq" },
+      { "name": "Contact", "url": "/contact" }
+    ],
+    "intents": [
+      {
+        "id": "care",
+        "label": "I need care at home",
+        "description": "For individuals and families arranging support at home.",
+        "url": "/domiciliary-care",
+        "cta": "Explore home care"
+      },
+      {
+        "id": "staff",
+        "label": "I need staff for my care home",
+        "description": "For care homes and managers who need nurses and carers.",
+        "url": "/care-home-staffing",
+        "cta": "Request staff"
+      },
+      {
+        "id": "work",
+        "label": "I want to work in care",
+        "description": "For carers and nurses looking for their next role.",
+        "url": "/careers",
+        "cta": "See our vacancies"
+      }
+    ],
+    "footer": {
+      "services": [
+        { "text": "Domiciliary Care", "url": "/domiciliary-care" },
+        { "text": "Care Home Staffing", "url": "/care-home-staffing" },
+        { "text": "Supported Living", "url": "/supported-living" }
+      ],
+      "company": [
+        { "text": "About Us", "url": "/about" },
+        { "text": "Careers", "url": "/careers" },
+        { "text": "FAQs", "url": "/faq" },
+        { "text": "Contact", "url": "/contact" }
+      ],
+      "legal": [
+        { "text": "Privacy Policy", "url": "/privacy-policy" },
+        { "text": "Cookie Policy", "url": "/cookie-policy" },
+        { "text": "Complaints Procedure", "url": "/complaints" },
+        { "text": "Safeguarding", "url": "/safeguarding" },
+        { "text": "Terms & Conditions", "url": "/terms-and-conditions" },
+        { "text": "Request Your Data", "url": "/request-personal-data" }
+      ]
+    }
+  },
+
+  "seo": {
+    "site_name": "Heart & Haven Care",
+    "base_url": "[TODO: INSERT LIVE SITE URL ONCE THE DOMAIN RESOLVES]",
+    "default_title": "Heart & Haven Care | Home Care & Care Home Staffing",
+    "default_description": "Heart & Haven Care provides domiciliary care at home and supplies vetted nurses and carers to care homes across the UK.",
+    "og_image": "/images/H&H-New-Color-logo.png",
+    "twitter_handle": ""
+  }
+}
