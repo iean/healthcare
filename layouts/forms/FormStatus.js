@@ -65,7 +65,7 @@ export const ErrorPanel = ({ children }) => (
  * This is the pattern the GOV.UK Design System uses, and it is far better than
  * inline-only errors for anyone using a screen reader or magnifier.
  */
-export const ErrorSummary = ({ errors, refEl }) => {
+export const ErrorSummary = ({ errors, refEl, idFor = (f) => f }) => {
   const entries = Object.entries(errors).filter(([, v]) => v);
   if (entries.length === 0) return null;
 
@@ -83,10 +83,10 @@ export const ErrorSummary = ({ errors, refEl }) => {
         {entries.map(([field, message]) => (
           <li key={field}>
             <a
-              href={`#${field}`}
+              href={`#${idFor(field)}`}
               onClick={(e) => {
                 e.preventDefault();
-                const el = document.getElementById(field);
+                const el = document.getElementById(idFor(field));
                 el?.focus();
                 el?.scrollIntoView({ block: "center", behavior: "smooth" });
               }}

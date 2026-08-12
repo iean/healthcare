@@ -93,6 +93,10 @@ const VARIANTS = {
 
 const EnquiryForm = ({ variant = "general", id = "enquiry" }) => {
   const cfg = VARIANTS[variant];
+  // Two EnquiryForms can be mounted at once (the contact page tabs), so field
+  // ids must be namespaced. Duplicate ids break label/for associations and
+  // aria-describedby, and are an accessibility failure in their own right.
+  const fid = (name) => `${id}-${name}`;
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -195,12 +199,12 @@ const EnquiryForm = ({ variant = "general", id = "enquiry" }) => {
         <p className="mt-2 leading-relaxed text-textMuted">{cfg.intro}</p>
       </div>
 
-      <ErrorSummary errors={errors} refEl={summaryRef} />
+      <ErrorSummary errors={errors} refEl={summaryRef} idFor={fid} />
       {state === "error" && <ErrorPanel>{serverError}</ErrorPanel>}
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
-          id="name"
+          id={fid("name")}
           label="Your name"
           required
           autoComplete="name"
@@ -210,7 +214,7 @@ const EnquiryForm = ({ variant = "general", id = "enquiry" }) => {
           error={errors.name}
         />
         <Field
-          id="phone"
+          id={fid("phone")}
           label="Phone number"
           type="tel"
           required
@@ -223,7 +227,7 @@ const EnquiryForm = ({ variant = "general", id = "enquiry" }) => {
       </div>
 
       <Field
-        id="email"
+        id={fid("email")}
         label="Email address"
         type="email"
         required
@@ -236,7 +240,7 @@ const EnquiryForm = ({ variant = "general", id = "enquiry" }) => {
 
       {needsOrg && (
         <Field
-          id="organisation"
+          id={fid("organisation")}
           label={variant === "staffing" ? "Care home / organisation" : "Your organisation"}
           required
           autoComplete="organization"
@@ -248,7 +252,7 @@ const EnquiryForm = ({ variant = "general", id = "enquiry" }) => {
       )}
 
       <Field
-        id="subject"
+        id={fid("subject")}
         as="select"
         label={cfg.subjectLabel}
         value={values.subject}
@@ -262,7 +266,7 @@ const EnquiryForm = ({ variant = "general", id = "enquiry" }) => {
       </Field>
 
       <Field
-        id="message"
+        id={fid("message")}
         as="textarea"
         label={cfg.detailLabel}
         hint={cfg.detailHint}
@@ -277,24 +281,24 @@ const EnquiryForm = ({ variant = "general", id = "enquiry" }) => {
       <div>
         <div className="flex items-start gap-3">
           <input
-            id="consent"
+            id={fid("consent")}
             name="consent"
             type="checkbox"
             checked={values.consent}
             onChange={set("consent")}
             onBlur={blur("consent")}
             aria-invalid={errors.consent ? "true" : undefined}
-            aria-describedby={errors.consent ? "consent-error" : undefined}
+            aria-describedby={errors.consent ? fid("consent-error") : undefined}
             className="mt-1 h-5 w-5 shrink-0 rounded border-borderStrong text-primary-700 focus:ring-2 focus:ring-primary-600"
           />
-          <label htmlFor="consent" className="text-[15px] leading-relaxed text-text">
+          <label htmlFor={fid("consent")} className="text-[15px] leading-relaxed text-text">
             I agree to Heart &amp; Haven Care contacting me about this enquiry.
             <span aria-hidden="true" className="ml-0.5 text-danger">*</span>
             <span className="sr-only"> (required)</span>
           </label>
         </div>
         {errors.consent && (
-          <p id="consent-error" role="alert" className="mt-1.5 text-sm font-medium text-danger">
+          <p id={fid("consent-error")} role="alert" className="mt-1.5 text-sm font-medium text-danger">
             ⚠ {errors.consent}
           </p>
         )}
