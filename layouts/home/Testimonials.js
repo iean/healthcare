@@ -1,31 +1,42 @@
 import Section from "@components/ui/Section";
 import SectionHeading from "@components/ui/SectionHeading";
-import Reveal from "@components/ui/Reveal";
+import { Container } from "@components/ui/Section";
+import TestimonialCarousel from "@components/ui/TestimonialCarousel";
 
 /**
- * Testimonials.
+ * Testimonials section.
  *
- * IMPORTANT: these are NOT real testimonials and must not be published as-is.
- * Inventing quotes from care clients would be dishonest, and on a healthcare
- * site it also risks breaching CQC guidance on truthful marketing and the
- * CAP Code. The layout is built and ready; the words are visibly marked as
- * placeholders so nobody can mistake them for genuine feedback.
+ * IMPORTANT: the quotes below are NOT real and must not be published as-is.
+ * Inventing testimonials from care clients would be dishonest, and on a
+ * healthcare site it also risks breaching CQC expectations on truthful
+ * marketing and the CAP Code rules on substantiation.
  *
- * To go live, replace each entry with a real quote plus written consent from
- * the person who gave it. See OVERNIGHT_REPORT.md.
+ * The carousel component itself is finished and polished. Replace each quote
+ * with a genuine one plus written consent from the person who gave it, swap
+ * the amber placeholder styling in TestimonialCarousel for the normal card
+ * styling, then remove the warning below.
  */
 const PLACEHOLDERS = [
   {
     id: 1,
+    quote:
+      "[TODO: INSERT REAL TESTIMONIAL 1 — a family member of someone receiving care at home. Must be a genuine quote with written consent.]",
+    name: "[TODO: NAME OR INITIALS]",
     context: "Family member of a domiciliary care client",
   },
   {
     id: 2,
-    context: "Care home manager who books staff with us",
+    quote:
+      "[TODO: INSERT REAL TESTIMONIAL 2 — a care home manager who books staff through Kare Plus Rugby.]",
+    name: "[TODO: NAME OR INITIALS]",
+    context: "Care home manager",
   },
   {
     id: 3,
-    context: "Carer working through Kare Plus Rugby",
+    quote:
+      "[TODO: INSERT REAL TESTIMONIAL 3 — a carer or nurse who works through Kare Plus Rugby.]",
+    name: "[TODO: NAME OR INITIALS]",
+    context: "Carer working with us",
   },
 ];
 
@@ -38,35 +49,13 @@ const Testimonials = () => (
       className="mb-12"
     />
 
-    <ul className="grid gap-6 md:grid-cols-3">
-      {PLACEHOLDERS.map((t, i) => (
-        <li key={t.id}>
-          <Reveal delay={i * 90} className="h-full">
-            <figure className="flex h-full flex-col rounded-card border-2 border-dashed border-amber-500 bg-amber-50 p-6">
-              <p className="mb-3 inline-flex w-fit rounded bg-amber-200 px-2 py-1 text-xs font-bold uppercase tracking-wide text-amber-900">
-                Placeholder — not a real quote
-              </p>
-              <blockquote className="flex-1 text-[15px] leading-relaxed text-amber-950">
-                [TODO: INSERT REAL TESTIMONIAL {t.id} — must be a genuine quote
-                with written consent from the person who gave it. Do not publish
-                this section until all three are replaced.]
-              </blockquote>
-              <figcaption className="mt-5 border-t border-amber-300 pt-4 text-sm text-amber-900">
-                <span className="block font-semibold">
-                  [TODO: NAME OR INITIALS]
-                </span>
-                <span className="block">{t.context}</span>
-              </figcaption>
-            </figure>
-          </Reveal>
-        </li>
-      ))}
-    </ul>
+    <Container width="narrow" className="px-0">
+      <TestimonialCarousel items={PLACEHOLDERS} />
+    </Container>
 
     <p className="mx-auto mt-8 max-w-2xl rounded-card border border-amber-400 bg-amber-50 p-4 text-center text-sm font-semibold text-amber-900">
-      ⚠ Developer note: this entire section is placeholder content. Either
-      replace all three quotes with real, consented testimonials or remove the
-      section before the site goes live.
+      ⚠ Developer note: all three quotes are placeholders. Replace them with
+      real, consented testimonials or remove this section before launch.
     </p>
   </Section>
 );

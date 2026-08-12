@@ -4,6 +4,11 @@ import { useState, useId } from "react";
 import Section from "@components/ui/Section";
 import SectionHeading from "@components/ui/SectionHeading";
 import Button from "@components/ui/Button";
+import StepTimeline from "@components/ui/StepTimeline";
+import {
+  PhoneCall, ClipboardList, FileCheck2, HeartHandshake,
+  Send, Users, UserCheck, ReceiptText,
+} from "lucide-react";
 
 /**
  * How it works, split by audience.
@@ -20,18 +25,22 @@ const JOURNEYS = {
     label: "Arranging care at home",
     steps: [
       {
+        icon: PhoneCall,
         title: "Talk to us",
         body: "Call or send an enquiry. We will ask about the person needing support, what a typical day looks like, and what would help most.",
       },
       {
+        icon: ClipboardList,
         title: "Free home assessment",
         body: "A coordinator visits at a time that suits you to understand needs, routines, risks and preferences — with family involved if you want them there.",
       },
       {
+        icon: FileCheck2,
         title: "Agree a care plan",
         body: "We write a plan setting out exactly what will happen at each visit, who will provide it, and what it costs. Nothing starts until you are happy with it.",
       },
       {
+        icon: HeartHandshake,
         title: "Care begins, and keeps adapting",
         body: "Your named coordinator stays in touch, and the plan is reviewed as things change. You can adjust or stop support at any point.",
       },
@@ -42,18 +51,22 @@ const JOURNEYS = {
     label: "Booking staff for a care home",
     steps: [
       {
+        icon: Send,
         title: "Tell us what you need",
         body: "Send us the roles, dates and shift pattern — whether that is a planned block booking or cover for tonight.",
       },
       {
+        icon: Users,
         title: "We match from our team",
         body: "We fill the shift with staff whose checks, training and experience suit your home, and confirm who is coming.",
       },
       {
+        icon: UserCheck,
         title: "Staff arrive ready to work",
         body: "Workers arrive with ID and are briefed on your home's expectations. We ask for your feedback so we can send people who fit.",
       },
       {
+        icon: ReceiptText,
         title: "Simple, transparent billing",
         body: "Timesheets are confirmed against the shifts worked and invoiced on agreed terms, with no hidden charges.",
       },
@@ -123,26 +136,7 @@ const HowItWorks = () => {
           aria-labelledby={`${base}-tab-${k}`}
           hidden={active !== k}
         >
-          <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {JOURNEYS[k].steps.map((step, i) => (
-              <li
-                key={step.title}
-                className="relative rounded-card border border-border bg-white p-6 shadow-card"
-              >
-                <span
-                  aria-hidden="true"
-                  className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-800 text-base font-bold text-white"
-                >
-                  {i + 1}
-                </span>
-                <h3 className="text-lg font-bold text-primary-950">
-                  <span className="sr-only">Step {i + 1}: </span>
-                  {step.title}
-                </h3>
-                <p className="mt-2 leading-relaxed text-textMuted">{step.body}</p>
-              </li>
-            ))}
-          </ol>
+          <StepTimeline steps={JOURNEYS[k].steps} />
         </div>
       ))}
 

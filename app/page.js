@@ -3,6 +3,7 @@ import IntentRouter from "@layouts/home/IntentRouter";
 import ServicesOverview from "@layouts/home/ServicesOverview";
 import TrustSignals from "@layouts/home/TrustSignals";
 import HowItWorks from "@layouts/home/HowItWorks";
+import Stats from "@layouts/home/Stats";
 import Testimonials from "@layouts/home/Testimonials";
 import CtaBand from "@layouts/home/CtaBand";
 
@@ -20,6 +21,7 @@ const Home = () => (
     <ServicesOverview />
     <TrustSignals />
     <HowItWorks />
+    <Stats />
     <Testimonials />
     <CtaBand />
   </>
