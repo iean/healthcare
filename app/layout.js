@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import SiteHeader from "@layouts/partials/SiteHeader";
 import SiteFooter from "@layouts/partials/SiteFooter";
 import Providers from "@layouts/partials/Providers";
+import RouteTransition from "@layouts/partials/RouteTransition";
+import StickyContactBar from "@components/ui/StickyContactBar";
+import CookieConsent from "@components/ui/CookieConsent";
 import site from "@config/site.json";
 
 /**
@@ -46,7 +49,14 @@ export const metadata = {
     description: site.seo.default_description,
     images: [site.seo.og_image],
   },
-  icons: { icon: "/images/favicon.png" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
   robots: { index: true, follow: true },
 };
 
@@ -117,8 +127,12 @@ export default function RootLayout({ children }) {
         />
         <Providers>
           <SiteHeader />
-          <main id="main">{children}</main>
+          <main id="main">
+            <RouteTransition>{children}</RouteTransition>
+          </main>
           <SiteFooter />
+          <StickyContactBar />
+          <CookieConsent />
         </Providers>
       </body>
     </html>

@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { FaPhoneAlt } from "react-icons/fa";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { Phone, Menu, X } from "lucide-react";
 import config from "@config/config.json";
 import site from "@config/site.json";
 import Button from "@components/ui/Button";
@@ -24,6 +23,7 @@ import Button from "@components/ui/Button";
 const SiteHeader = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [condensed, setCondensed] = useState(false);
   const toggleRef = useRef(null);
   const { logo, title } = config.site;
   const { phone, phone_href } = site.business;
@@ -33,6 +33,16 @@ const SiteHeader = () => {
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  // Condense the header once the user scrolls past the hero fold. The utility
+  // bar collapses and the logo shrinks, so the CTA stays reachable without the
+  // header eating a third of a small screen.
+  useEffect(() => {
+    const onScroll = () => setCondensed(window.scrollY > 120);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Close on Escape, and return focus to the button that opened it.
   useEffect(() => {
@@ -51,7 +61,11 @@ const SiteHeader = () => {
     url === "/" ? pathname === "/" : pathname === url || pathname.startsWith(`${url}/`);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-header">
+    <header
+      className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
+        condensed ? "shadow-[0_2px_12px_rgba(6,36,99,0.10)]" : "shadow-header"
+      }`}
+    >
       {/* Skip link - first focusable thing on the page */}
       <a
         href="#main"
@@ -61,7 +75,12 @@ const SiteHeader = () => {
       </a>
 
       {/* Utility bar */}
-      <div className="hidden bg-primary-950 text-white md:block">
+      <div
+        className={`hidden overflow-hidden bg-primary-950 text-white transition-[max-height,opacity] duration-300 md:block ${
+          condensed ? "max-h-0 opacity-0" : "max-h-16 opacity-100"
+        }`}
+        aria-hidden={condensed}
+      >
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-2 text-sm lg:px-8">
           <p className="text-primary-100">
             Office {site.business.opening_hours.office} · On-call{" "}
@@ -71,7 +90,7 @@ const SiteHeader = () => {
             href={phone_href}
             className="flex items-center gap-2 font-semibold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950"
           >
-            <FaPhoneAlt aria-hidden="true" className="text-xs" />
+            <Phone aria-hidden="true" className="h-3.5 w-3.5" />
             <span className="sr-only">Call us on </span>
             {phone}
           </a>
@@ -79,7 +98,11 @@ const SiteHeader = () => {
       </div>
 
       {/* Main bar */}
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 py-3 lg:px-8">
+      <div
+        className={`mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 transition-[padding] duration-300 lg:px-8 ${
+          condensed ? "py-2" : "py-3"
+        }`}
+      >
         <Link
           href="/"
           className="flex shrink-0 items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
@@ -90,7 +113,7 @@ const SiteHeader = () => {
             width={220}
             height={59}
             priority
-            className="h-11 w-auto object-contain sm:h-12"
+            className={`w-auto object-contain transition-[height] duration-300 ${condensed ? "h-9 sm:h-10" : "h-11 sm:h-12"}`}
           />
         </Link>
 
@@ -132,7 +155,7 @@ const SiteHeader = () => {
           className="rounded-btn p-2 text-2xl text-primary-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 lg:hidden"
         >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-          {open ? <HiX aria-hidden="true" /> : <HiMenuAlt3 aria-hidden="true" />}
+          {open ? <X aria-hidden="true" className="h-7 w-7" /> : <Menu aria-hidden="true" className="h-7 w-7" />}
         </button>
       </div>
 
@@ -169,7 +192,7 @@ const SiteHeader = () => {
               href={phone_href}
               className="mt-2 flex items-center justify-center gap-2 py-2 text-base font-semibold text-primary-800"
             >
-              <FaPhoneAlt aria-hidden="true" className="text-sm" />
+              <Phone aria-hidden="true" className="h-4 w-4" />
               {phone}
             </a>
           </div>
