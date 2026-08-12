@@ -2,13 +2,13 @@
 import Link from "next/link";
 
 const AboutBanner = () => (
-  <section className="relative z-10 bg-gradient-to-br from-[#431c52] via-[#6a2c70] to-[#f4b860] text-white">
+  <section className="relative z-10 bg-gradient-to-br from-primary-950 via-primary-900 to-primary-700 text-white">
     <div className="container py-20 text-center">
       <h1
         className="text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent"
         style={{
           backgroundImage:
-            "linear-gradient(to right, #9e3ea1, #d46f4d, #f4b860)",
+            "linear-gradient(to right, #12469B, #1D5BC0, #847432)",
         }}
       >
         Your Privacy is Central — Your Care is Personal
@@ -26,7 +26,7 @@ const AboutBanner = () => (
       </p>
       <Link
         href="/domiciliary/get-started"
-        className="inline-block mt-6 border-2 border-white text-white px-6 py-3 rounded-full text-lg font-semibold shadow hover:bg-white hover:text-accent transition"
+        className="inline-block mt-6 border-2 border-white text-white px-6 py-3 rounded-full text-lg font-semibold shadow hover:bg-white hover:text-primary-800 transition"
       >
         Get Started
       </Link>

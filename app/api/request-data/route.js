@@ -41,8 +41,8 @@ async function sendEmail(formData) {
     <p><strong>Submission Date:</strong> ${new Date().toLocaleString("en-GB")}</p>
     <p><strong>Request ID:</strong> DR-${Date.now()}</p>
 
-    <div style="background-color: #f0f8ff; padding: 15px; margin: 20px 0; border-left: 4px solid #0066cc;">
-      <h3 style="color: #0066cc; margin-top: 0;">UK GDPR Compliance Notice</h3>
+    <div style="background-color: #F1F6FD; padding: 15px; margin: 20px 0; border-left: 4px solid #12469B;">
+      <h3 style="color: #12469B; margin-top: 0;">UK GDPR Compliance Notice</h3>
       <p style="margin-bottom: 10px;"><strong>Response Deadline:</strong> 30 days from submission date</p>
       <p style="margin-bottom: 10px;"><strong>Required Actions:</strong></p>
       <ul style="margin: 10px 0; padding-left: 20px;">

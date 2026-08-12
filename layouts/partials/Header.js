@@ -41,7 +41,7 @@ const Header = ({ menuItems }) => {
         <div className="hidden sm:flex">
           <Link
             href="/"
-            className="border border-[#431c52] text-[#431c52] text-xs font-bold px-5 py-2 rounded-full hover:bg-[#431c52] hover:text-white transition flex items-center space-x-2"
+            className="border border-primary-900 text-primary-900 text-xs font-bold px-5 py-2 rounded-full hover:bg-primary-900 hover:text-white transition flex items-center space-x-2"
           >
             <FaArrowLeft className="text-sm" />
             <span>OTHER SERVICES</span>
@@ -53,7 +53,7 @@ const Header = ({ menuItems }) => {
           <button
             onClick={() => setNavOpen(!navOpen)}
             aria-label="Toggle Menu"
-            className="text-[#431c52] text-2xl"
+            className="text-primary-900 text-2xl"
           >
             {navOpen ? <HiX /> : <HiMenuAlt3 />}
           </button>
@@ -79,7 +79,7 @@ const Header = ({ menuItems }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="bg-[#3bb273] p-2 rounded-full"
+              className="bg-success p-2 rounded-full"
             >
               <FaFacebookF />
             </a>
@@ -88,7 +88,7 @@ const Header = ({ menuItems }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
-              className="bg-[#3bb273] p-2 rounded-full"
+              className="bg-success p-2 rounded-full"
             >
               <FaTwitter />
             </a>
@@ -97,7 +97,7 @@ const Header = ({ menuItems }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="bg-[#3bb273] p-2 rounded-full"
+              className="bg-success p-2 rounded-full"
             >
               <FaLinkedinIn />
             </a>
@@ -115,8 +115,8 @@ const Header = ({ menuItems }) => {
                   href={item.url}
                   className={`px-4 py-2 rounded-full transition ${
                     pathname === item.url
-                      ? "bg-[#431c52] text-white"
-                      : "hover:text-[#431c52]"
+                      ? "bg-primary-900 text-white"
+                      : "hover:text-primary-900"
                   }`}
                 >
                   {item.name}
@@ -125,13 +125,13 @@ const Header = ({ menuItems }) => {
             ))}
           </ul>
         </div>
-        <div className="h-1 bg-gradient-to-r from-[#a3d9c3] via-[#b2d0df] to-[#8b90b3]" />
+        <div className="h-1 bg-gradient-to-r from-successBg via-primary-200 to-textMuted" />
       </nav>
 
       {/* Mobile Dropdown Nav */}
       {navOpen && (
         <div className="lg:hidden px-4 pt-2 pb-4 border-t bg-white shadow-inner">
-          <ul className="flex flex-col space-y-3 text-base font-semibold text-[#431c52]">
+          <ul className="flex flex-col space-y-3 text-base font-semibold text-primary-900">
             {main.map((item, i) => (
               <li key={i}>
                 <Link
@@ -139,8 +139,8 @@ const Header = ({ menuItems }) => {
                   onClick={() => setNavOpen(false)}
                   className={`block px-3 py-2 rounded-full ${
                     pathname === item.url
-                      ? "bg-[#431c52] text-white"
-                      : "hover:bg-[#eee]"
+                      ? "bg-primary-900 text-white"
+                      : "hover:bg-border"
                   }`}
                 >
                   {item.name}
@@ -150,7 +150,7 @@ const Header = ({ menuItems }) => {
             <li className="pt-3">
               <Link
                 href="/"
-                className="block text-center border border-[#431c52] text-[#431c52] rounded-full px-4 py-2 text-sm hover:bg-[#431c52] hover:text-white flex items-center justify-center space-x-2"
+                className="block text-center border border-primary-900 text-primary-900 rounded-full px-4 py-2 text-sm hover:bg-primary-900 hover:text-white flex items-center justify-center space-x-2"
               >
                 <FaArrowLeft className="text-sm" />
                 <span>OTHER SERVICES</span>
@@ -160,21 +160,21 @@ const Header = ({ menuItems }) => {
             <li className="pt-3 flex items-center justify-center space-x-3">
               <a
                 href="https://facebook.com"
-                className="bg-[#3bb273] p-2 rounded-full text-white"
+                className="bg-success p-2 rounded-full text-white"
                 aria-label="Facebook"
               >
                 <FaFacebookF />
               </a>
               <a
                 href="https://twitter.com"
-                className="bg-[#3bb273] p-2 rounded-full text-white"
+                className="bg-success p-2 rounded-full text-white"
                 aria-label="Twitter"
               >
                 <FaTwitter />
               </a>
               <a
                 href="https://linkedin.com"
-                className="bg-[#3bb273] p-2 rounded-full text-white"
+                className="bg-success p-2 rounded-full text-white"
                 aria-label="LinkedIn"
               >
                 <FaLinkedinIn />
