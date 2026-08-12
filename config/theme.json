@@ -1,29 +1,59 @@
 {
+  "_comment": "Blue/white healthcare palette anchored on the navy sampled from the Heart & Haven logo (#000048). Change colours HERE, never in components. NOTE the historical naming trap: tailwind.config.js maps theme_color.secondary -> Tailwind `primary`. That mapping is kept so existing markup does not break.",
   "colors": {
     "default": {
       "text_color": {
-        "default": "#5a2671",
-        "light": "#7a4b91",
-        "dark": "#2e1540"
+        "default": "#14203A",
+        "light": "#4A5773",
+        "dark": "#000048"
       },
       "theme_color": {
-        "primary": "#b9892f",
-        "secondary": "#5a2671",
+        "primary": "#847432",
+        "secondary": "#12469B",
         "body": "#ffffff",
-        "border": "#e0e0e0",
-        "theme_light": "#f9f7fc"
+        "border": "#DCE3ED",
+        "theme_light": "#F1F6FD"
       }
+    },
+    "blue": {
+      "50": "#F1F6FD",
+      "100": "#DCE7F8",
+      "200": "#BBCFF0",
+      "300": "#8DAEE4",
+      "400": "#5B8AD9",
+      "500": "#2E68CB",
+      "600": "#1D5BC0",
+      "700": "#12469B",
+      "800": "#0B347F",
+      "900": "#062463",
+      "950": "#000048"
+    },
+    "neutral": {
+      "surface": "#F7F9FC",
+      "surface_alt": "#EEF3FA",
+      "text": "#14203A",
+      "text_muted": "#4A5773",
+      "border": "#DCE3ED",
+      "border_strong": "#8B95A2"
+    },
+    "state": {
+      "success": "#0F7A4A",
+      "success_bg": "#E7F5EE",
+      "warning": "#8A5A00",
+      "warning_bg": "#FDF3E2",
+      "danger": "#B3261E",
+      "danger_bg": "#FCEBEA"
     }
   },
   "fonts": {
     "font_size": {
-      "base": "16px",
-      "scale": "1.25"
+      "base": "17px",
+      "scale": "1.2"
     },
     "font_family": {
-      "primary": "Poppins:wght@400;500;600;700",
+      "primary": "Inter:wght@400;500;600;700",
       "primary_type": "sans-serif",
-      "secondary": "Open+Sans:wght@400;600",
+      "secondary": "Inter:wght@400;500;600;700",
       "secondary_type": "sans-serif"
     }
   },
@@ -42,20 +72,20 @@
   },
   "buttons": {
     "default": {
-      "padding": "12px 24px",
-      "border_radius": "9999px",
+      "padding": "14px 28px",
+      "border_radius": "10px",
       "font_weight": "600",
       "text_transform": "none"
     },
     "primary": {
-      "background_color": "#b9892f",
+      "background_color": "#12469B",
       "text_color": "#ffffff",
-      "hover_background": "#a87a28"
+      "hover_background": "#0B347F"
     },
     "secondary": {
-      "background_color": "#5a2671",
-      "text_color": "#ffffff",
-      "hover_background": "#4c1f5e"
+      "background_color": "#ffffff",
+      "text_color": "#12469B",
+      "hover_background": "#F1F6FD"
     }
   }
 }
