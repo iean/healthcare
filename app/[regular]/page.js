@@ -49,13 +49,23 @@ const RegularPages = async ({ params }) => {
 };
 export default RegularPages;
 
+/**
+ * Slugs that have a real page under app/ and must NOT be generated here.
+ *
+ * This catch-all was silently winning over the dedicated routes: /contact and
+ * /faq both rendered the old Lorem-ipsum markdown instead of the new pages,
+ * because content/contact.md and content/faq.md produced matching static
+ * params. Anything added as a real route must be listed here too.
+ */
+const RESERVED = new Set(["contact", "faq", "404", "_index", "index"]);
+
 // for regular page routes
 export const generateStaticParams = async () => {
   const allslugs = await getSinglePage("content");
-  const slugs = allslugs.map((item) => item.slug);
-  const paths = slugs.map((slug) => ({
-    regular: slug,
-  }));
+  const paths = allslugs
+    .map((item) => item.slug)
+    .filter((slug) => !RESERVED.has(slug))
+    .map((slug) => ({ regular: slug }));
 
   return paths;
 };
