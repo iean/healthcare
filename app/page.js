@@ -1,33 +1,28 @@
-import config from "@config/config.json";
-import Cta from "@layouts/components/Cta";
-import SeoMeta from "@layouts/SeoMeta";
+import Hero from "@layouts/home/Hero";
+import IntentRouter from "@layouts/home/IntentRouter";
+import ServicesOverview from "@layouts/home/ServicesOverview";
+import TrustSignals from "@layouts/home/TrustSignals";
+import HowItWorks from "@layouts/home/HowItWorks";
+import Testimonials from "@layouts/home/Testimonials";
+import CtaBand from "@layouts/home/CtaBand";
 
-import HomeFeatures from "@layouts/partials/HomeFeatures";
-import HomeBannerMain from "@layouts/partials/HomeBannerMain";
-import Services from "@layouts/partials/Services";
-import { getListPage } from "../lib/contentParser";
-import banner from "@/content/home/banner.json";
-/**
- *
- *
- * @return {*}
- */
-const Home = async () => {
-  const homePage = await getListPage("content/_index.md");
-  const { frontmatter } = homePage;
-  const { feature, services, workflow, call_to_action } = frontmatter;
-  const { title } = config.site;
-
-  return (
-    <>
-      <SeoMeta title={title} />
-      {/* Banner */}
-      <HomeBannerMain banner={banner} />
-      {/* services */}
-      <HomeFeatures feature={feature} />
-      <Services services={services} />
-    </>
-  );
+export const metadata = {
+  title: "Home Care & Care Home Staffing in the UK",
+  description:
+    "Heart & Haven Care provides domiciliary care at home, supported living, and supplies vetted nurses and care assistants to care homes. Talk to us about care or staffing today.",
+  alternates: { canonical: "/" },
 };
+
+const Home = () => (
+  <>
+    <Hero />
+    <IntentRouter />
+    <ServicesOverview />
+    <TrustSignals />
+    <HowItWorks />
+    <Testimonials />
+    <CtaBand />
+  </>
+);
 
 export default Home;

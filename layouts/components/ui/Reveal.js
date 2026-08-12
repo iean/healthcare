@@ -35,7 +35,10 @@ const Reveal = ({ children, delay = 0, className = "", as: As = "div" }) => {
           io.unobserve(entry.target);
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      // threshold 0 (not a fraction): an element taller than the viewport
+      // can never reach a high intersection ratio, so a fractional threshold
+      // would leave it permanently hidden.
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();

@@ -95,13 +95,13 @@ const SiteHeader = () => {
         </Link>
 
         <nav aria-label="Main" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-0.5">
             {nav.map((item) => (
               <li key={item.url}>
                 <Link
                   href={item.url}
                   aria-current={isActive(item.url) ? "page" : undefined}
-                  className={`rounded-btn px-3 py-2 text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 ${
+                  className={`whitespace-nowrap rounded-btn px-2.5 py-2 text-[15px] font-semibold transition-colors xl:px-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 ${
                     isActive(item.url)
                       ? "bg-primary-50 text-primary-800"
                       : "text-primary-950 hover:bg-primary-50 hover:text-primary-800"
@@ -115,10 +115,10 @@ const SiteHeader = () => {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <Button href="/careers" variant="secondary" size="sm">
+          <Button href="/careers" variant="secondary" size="sm" className="whitespace-nowrap">
             Join our team
           </Button>
-          <Button href="/contact" size="sm">
+          <Button href="/contact" size="sm" className="whitespace-nowrap">
             Enquire now
           </Button>
         </div>
