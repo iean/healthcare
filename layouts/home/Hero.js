@@ -27,6 +27,9 @@ const Hero = () => (
         fill
         priority
         sizes="100vw"
+        // Decorative, sits at 25% opacity behind a gradient - it does not need
+        // full quality, and it is the page's LCP element so weight matters.
+        quality={45}
         className="object-cover object-center opacity-25"
       />
       <div
