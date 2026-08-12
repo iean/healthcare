@@ -34,7 +34,9 @@ const StickyContactBar = () => {
       label: "WhatsApp",
       sr: "Message us on WhatsApp (opens in a new tab)",
       external: true,
-      className: "bg-[#128C7E] text-white hover:bg-[#0e7065]",
+      // WhatsApp brand green is 4.14:1 on white, which fails AA for the small
+      // label. Darkened to #118578 (4.52:1) - still unmistakably WhatsApp.
+      className: "bg-[#118578] text-white hover:bg-[#0d6b60]",
     },
     {
       href: "/contact",

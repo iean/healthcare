@@ -30,12 +30,11 @@ const Stats = () => (
         </p>
       </div>
 
-      <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-8 lg:grid-cols-4">
         {STATS.map((s, i) => (
-          <Reveal key={s.label} delay={i * 90}>
-            <div className="text-center">
-              <dt className="sr-only">{s.label}</dt>
-              <dd>
+          <li key={s.label}>
+            <Reveal delay={i * 90}>
+              <div className="text-center">
                 <StatCounter
                   value={s.value}
                   className="block text-4xl font-bold tracking-tight text-white md:text-5xl"
@@ -46,11 +45,11 @@ const Stats = () => (
                 <span className="mt-2 block text-xs font-semibold text-amber-200">
                   [TODO: {s.todo}]
                 </span>
-              </dd>
-            </div>
-          </Reveal>
+              </div>
+            </Reveal>
+          </li>
         ))}
-      </dl>
+      </ul>
     </Container>
   </section>
 );

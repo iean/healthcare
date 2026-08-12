@@ -5,7 +5,6 @@ export const metadata = {
   title: "Complaints Procedure",
   description:
     "How to make a complaint about Kare Plus Rugby, what happens when you do, and who to contact if you are not satisfied with our response.",
-  alternates: { canonical: "/complaints" },
 };
 
 const ComplaintsPage = () => {

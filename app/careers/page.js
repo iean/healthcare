@@ -15,7 +15,6 @@ export const metadata = {
   title: "Careers — Carer & Nurse Jobs",
   description:
     "Join Kare Plus Rugby. We recruit care assistants, senior carers, support workers and registered nurses for home care and care home placements. Apply online.",
-  alternates: { canonical: "/careers" },
   openGraph: {
     title: "Careers at Kare Plus Rugby",
     description: "Carer, support worker and nurse roles. Apply online in a few minutes.",

@@ -8,7 +8,6 @@ export const metadata = {
   title: "Frequently Asked Questions",
   description:
     "Answers to common questions about home care, supported living, care home staffing and working for Kare Plus Rugby.",
-  alternates: { canonical: "/faq" },
 };
 
 /**

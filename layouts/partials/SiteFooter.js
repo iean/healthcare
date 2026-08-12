@@ -150,7 +150,7 @@ const SiteFooter = () => {
           <h2 className="mb-5 text-sm font-bold uppercase tracking-wider text-primary-100">
             Where to find us
           </h2>
-          <LocationMap height="300" />
+          <LocationMap height="300" tone="dark" />
         </Container>
       </div>
 

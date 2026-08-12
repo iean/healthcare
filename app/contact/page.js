@@ -10,7 +10,6 @@ export const metadata = {
   title: "Contact Us",
   description:
     "Contact Kare Plus Rugby about home care, supported living, care home staffing or careers. Call us or send an enquiry and we will get back to you.",
-  alternates: { canonical: "/contact" },
 };
 
 const ContactPage = () => {

@@ -14,7 +14,6 @@ export const metadata = {
   title: "About Us",
   description:
     "Kare Plus Rugby provides domiciliary care, supported living and care home staffing. Learn about our values, how we recruit, and how we are regulated.",
-  alternates: { canonical: "/about" },
 };
 
 const VALUES = [

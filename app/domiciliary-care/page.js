@@ -17,7 +17,6 @@ export const metadata = {
   title: "Domiciliary Care at Home",
   description:
     "Domiciliary care from Kare Plus Rugby: personal care, medication support, meals, companionship and live-in care, delivered in your own home by trained, vetted carers.",
-  alternates: { canonical: "/domiciliary-care" },
   openGraph: {
     title: "Domiciliary Care at Home | Kare Plus Rugby",
     description:

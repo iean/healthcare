@@ -5,7 +5,6 @@ export const metadata = {
   title: "Safeguarding",
   description:
     "How Kare Plus Rugby protects the people it supports from abuse and neglect, and how to raise a safeguarding concern.",
-  alternates: { canonical: "/safeguarding" },
 };
 
 const SafeguardingPage = () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote, Pause, Play } from "lucide-react";
 
 /**
@@ -30,7 +30,6 @@ const TestimonialCarousel = ({ items }) => {
   const [paused, setPaused] = useState(false);
   const [canAuto, setCanAuto] = useState(false);
   const regionRef = useRef(null);
-  const baseId = useId();
   const count = items.length;
 
   const go = useCallback((next) => setIndex(((next % count) + count) % count), [count]);
@@ -148,23 +147,29 @@ const TestimonialCarousel = ({ items }) => {
           <ChevronLeft aria-hidden="true" className="h-5 w-5" />
         </button>
 
-        <ul className="flex items-center gap-2" role="tablist" aria-label="Choose testimonial">
+        <div className="flex items-center gap-2">
           {items.map((t, i) => (
-            <li key={t.id}>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={i === index}
-                aria-controls={`${baseId}-slide-${i}`}
-                aria-label={`Testimonial ${i + 1} of ${count}`}
-                onClick={() => go(i)}
-                className={`h-2.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 ${
-                  i === index ? "w-7 bg-primary-700" : "w-2.5 bg-primary-200 hover:bg-primary-400"
+            <button
+              key={t.id}
+              type="button"
+              aria-label={`Show testimonial ${i + 1} of ${count}`}
+              aria-current={i === index ? "true" : undefined}
+              onClick={() => go(i)}
+              // The visible dot is small, but the button itself is 24x24 so it
+              // meets the WCAG 2.2 minimum target size.
+              className="group flex h-6 w-6 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+            >
+              <span
+                aria-hidden="true"
+                className={`block h-2.5 rounded-full transition-all ${
+                  i === index
+                    ? "w-6 bg-primary-700"
+                    : "w-2.5 bg-primary-200 group-hover:bg-primary-400"
                 }`}
               />
-            </li>
+            </button>
           ))}
-        </ul>
+        </div>
 
         <button
           type="button"

@@ -16,7 +16,6 @@ export const metadata = {
   title: "Supported Living",
   description:
     "Supported living from Kare Plus Rugby: flexible support for adults with learning disabilities, autism or mental health needs to live independently in their own home.",
-  alternates: { canonical: "/supported-living" },
   openGraph: {
     title: "Supported Living | Kare Plus Rugby",
     description:

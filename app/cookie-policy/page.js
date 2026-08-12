@@ -5,7 +5,6 @@ export const metadata = {
   title: "Cookie Policy",
   description:
     "How Kare Plus Rugby uses cookies and similar technologies on this website, and how to control them.",
-  alternates: { canonical: "/cookie-policy" },
 };
 
 const CookiePolicyPage = () => {
