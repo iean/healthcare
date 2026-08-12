@@ -82,7 +82,7 @@ const RequestPersonalDataPage = () => {
                     held by Heart & Haven Healthcare.
                   </p>
 
-                  <h3 className="text-xl font-semibold text-accent mb-4">
+                  <h3 className="text-xl font-semibold text-primary-800 mb-4">
                     Right of Access
                   </h3>
                   <p className="mb-4">
@@ -91,7 +91,7 @@ const RequestPersonalDataPage = () => {
                     &quot;Subject Access Request&quot; (SAR).
                   </p>
 
-                  <h3 className="text-xl font-semibold text-accent mb-4">
+                  <h3 className="text-xl font-semibold text-primary-800 mb-4">
                     Right to Rectification
                   </h3>
                   <p className="mb-4">
@@ -99,7 +99,7 @@ const RequestPersonalDataPage = () => {
                     personal information.
                   </p>
 
-                  <h3 className="text-xl font-semibold text-accent mb-4">
+                  <h3 className="text-xl font-semibold text-primary-800 mb-4">
                     Right to Erasure
                   </h3>
                   <p className="mb-4">
@@ -107,7 +107,7 @@ const RequestPersonalDataPage = () => {
                     certain circumstances.
                   </p>
 
-                  <h3 className="text-xl font-semibold text-accent mb-4">
+                  <h3 className="text-xl font-semibold text-primary-800 mb-4">
                     Right to Portability
                   </h3>
                   <p className="mb-4">

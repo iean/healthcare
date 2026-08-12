@@ -45,7 +45,7 @@ const PrivacyPolicyPage = () => {
                 <h2 className="text-2xl font-bold text-primary mb-6">
                   2. Information We Collect
                 </h2>
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   2.1 Personal Information
                 </h3>
                 <p className="mb-4">
@@ -64,7 +64,7 @@ const PrivacyPolicyPage = () => {
                   <li>Communication preferences</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   2.2 Technical Information
                 </h3>
                 <p className="mb-4">We automatically collect:</p>

@@ -69,7 +69,7 @@ const TermsAndConditionsPage = () => {
                 <h2 className="text-2xl font-bold text-primary mb-6">
                   3. Service Provision
                 </h2>
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   3.1 Care Services
                 </h3>
                 <p className="mb-4">We provide the following services:</p>
@@ -82,7 +82,7 @@ const TermsAndConditionsPage = () => {
                   <li>Specialist care for specific conditions</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   3.2 Service Standards
                 </h3>
                 <p className="mb-6">
@@ -112,7 +112,7 @@ const TermsAndConditionsPage = () => {
                 <h2 className="text-2xl font-bold text-primary mb-6">
                   5. Booking and Cancellation
                 </h2>
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   5.1 Booking
                 </h3>
                 <p className="mb-4">Care services can be booked through:</p>
@@ -123,7 +123,7 @@ const TermsAndConditionsPage = () => {
                   <li>Direct contact with our care coordinators</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   5.2 Cancellation Policy
                 </h3>
                 <p className="mb-6">
@@ -135,7 +135,7 @@ const TermsAndConditionsPage = () => {
                 <h2 className="text-2xl font-bold text-primary mb-6">
                   6. Payment Terms
                 </h2>
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   6.1 Fees
                 </h3>
                 <p className="mb-4">Our fees are:</p>
@@ -146,7 +146,7 @@ const TermsAndConditionsPage = () => {
                   <li>Exclusive of additional services (clearly stated)</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   6.2 Payment Methods
                 </h3>
                 <p className="mb-6">
@@ -195,7 +195,7 @@ const TermsAndConditionsPage = () => {
                 <h2 className="text-2xl font-bold text-primary mb-6">
                   10. Website Use
                 </h2>
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   10.1 Acceptable Use
                 </h3>
                 <p className="mb-4">You agree not to:</p>
@@ -206,7 +206,7 @@ const TermsAndConditionsPage = () => {
                   <li>Interfere with website functionality</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold text-accent mb-4">
+                <h3 className="text-xl font-semibold text-primary-800 mb-4">
                   10.2 Intellectual Property
                 </h3>
                 <p className="mb-6">
