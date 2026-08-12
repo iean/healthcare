@@ -117,7 +117,7 @@ const CareHomeStaffingPage = () => (
       />
       <FeatureGrid items={VETTING} columns={2} />
       <p className="mx-auto mt-8 max-w-3xl rounded-card border-2 border-dashed border-amber-500 bg-amber-50 p-4 text-center text-[15px] font-semibold text-amber-900">
-        [TODO: CONFIRM THIS VETTING PROCESS MATCHES WHAT HEART &amp; HAVEN
+        [TODO: CONFIRM THIS VETTING PROCESS MATCHES WHAT KARE PLUS RUGBY
         ACTUALLY DOES, AND ADD ANY ACCREDITATIONS OR FRAMEWORK MEMBERSHIPS. No
         specific standards, percentages or certifications have been claimed.]
       </p>

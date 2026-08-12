@@ -115,7 +115,7 @@ const SupportedLivingPage = () => (
             give benefits or financial advice.
           </p>
           <p className="mt-4 rounded-card border-2 border-dashed border-amber-500 bg-amber-50 p-4 text-[15px] font-semibold text-amber-900">
-            [TODO: CONFIRM WHICH LOCAL AUTHORITIES HEART &amp; HAVEN HOLDS
+            [TODO: CONFIRM WHICH LOCAL AUTHORITIES KARE PLUS RUGBY HOLDS
             CONTRACTS WITH, AND WHETHER SUPPORTED LIVING IS AVAILABLE IN ALL
             OPERATING AREAS.]
           </p>
