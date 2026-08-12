@@ -9,7 +9,7 @@ import CtaBand from "@layouts/home/CtaBand";
 export const metadata = {
   title: "Home Care & Care Home Staffing in the UK",
   description:
-    "Heart & Haven Care provides domiciliary care at home, supported living, and supplies vetted nurses and care assistants to care homes. Talk to us about care or staffing today.",
+    "Kare Plus Rugby provides domiciliary care at home, supported living, and supplies vetted nurses and care assistants to care homes. Talk to us about care or staffing today.",
   alternates: { canonical: "/" },
 };
 

@@ -17,10 +17,10 @@ import {
 export const metadata = {
   title: "Care Home Staffing — Nurses & Carers",
   description:
-    "Heart & Haven Care supplies registered nurses, senior carers and care assistants to care homes. Planned rotas, sickness cover and last-minute shifts, from staff who are properly vetted.",
+    "Kare Plus Rugby supplies registered nurses, senior carers and care assistants to care homes. Planned rotas, sickness cover and last-minute shifts, from staff who are properly vetted.",
   alternates: { canonical: "/care-home-staffing" },
   openGraph: {
-    title: "Care Home Staffing | Heart & Haven Care",
+    title: "Care Home Staffing | Kare Plus Rugby",
     description:
       "Registered nurses, senior carers and care assistants supplied to care homes.",
   },

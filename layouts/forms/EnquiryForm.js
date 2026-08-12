@@ -292,7 +292,7 @@ const EnquiryForm = ({ variant = "general", id = "enquiry" }) => {
             className="mt-1 h-5 w-5 shrink-0 rounded border-borderStrong text-primary-700 focus:ring-2 focus:ring-primary-600"
           />
           <label htmlFor={fid("consent")} className="text-[15px] leading-relaxed text-text">
-            I agree to Heart &amp; Haven Care contacting me about this enquiry.
+            I agree to Kare Plus Rugby contacting me about this enquiry.
             <span aria-hidden="true" className="ml-0.5 text-danger">*</span>
             <span className="sr-only"> (required)</span>
           </label>

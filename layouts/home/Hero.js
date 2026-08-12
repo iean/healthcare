@@ -49,7 +49,7 @@ const Hero = () => (
         </h1>
 
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
-          Heart &amp; Haven Care supports people to live well in their own
+          Kare Plus Rugby supports people to live well in their own
           homes, and supplies vetted nurses and care staff to care homes that
           need cover they can trust.
         </p>

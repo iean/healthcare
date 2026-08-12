@@ -42,9 +42,10 @@ async function sendEmail(formData) {
 
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
-    // Was "info@haven&heartcare.com" — not a valid address ("&" cannot appear
-    // in a domain), so this never delivered. Single source of truth is now
-    // params.contact_email in config/config.json.
+    // Single source of truth is params.contact_email in config/config.json
+    // (kp.rugby@kareplus.co.uk). This previously pointed at a hardcoded
+    // address containing an "&", which is illegal in a domain and never
+    // delivered.
     to: config.params.contact_email,
     subject: `New Get Started Request - ${formData.name}`,
     html,

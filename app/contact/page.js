@@ -4,11 +4,12 @@ import Card from "@components/ui/Card";
 import ContactTabs from "@layouts/forms/ContactTabs";
 import site from "@config/site.json";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import LocationMap from "@components/ui/LocationMap";
 
 export const metadata = {
   title: "Contact Us",
   description:
-    "Contact Heart & Haven Care about home care, supported living, care home staffing or careers. Call us or send an enquiry and we will get back to you.",
+    "Contact Kare Plus Rugby about home care, supported living, care home staffing or careers. Call us or send an enquiry and we will get back to you.",
   alternates: { canonical: "/contact" },
 };
 
@@ -23,11 +24,11 @@ const ContactPage = () => {
       href: b.phone_href,
       note: "Office hours, with an on-call line outside them",
     },
-    { icon: FaEnvelope, label: "Email", value: b.email, href: null, note: "We aim to reply within one working day" },
+    { icon: FaEnvelope, label: "Email", value: b.email, href: b.email_href, note: "We aim to reply within one working day" },
     {
       icon: FaMapMarkerAlt,
       label: "Address",
-      value: `${b.address.street}, ${b.address.locality}, ${b.address.postcode}`,
+      value: b.address.full,
       href: null,
       note: "Visits by appointment",
     },
@@ -126,6 +127,11 @@ const ContactPage = () => {
             <ContactTabs />
           </div>
         </div>
+      </Section>
+
+      <Section tone="surface" size="md">
+        <h2 className="mb-6 text-2xl font-bold text-primary-950">Find us</h2>
+        <LocationMap />
       </Section>
     </>
   );

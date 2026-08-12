@@ -11,6 +11,6 @@ info:
 
     Or simply fill out the form below and a member of our care coordination team will get back to you promptly.
 
-    Your care. Your way. With Heart & Haven.
+    Your care. Your way. With Kare Plus Rugby.
   contacts: []
 ---

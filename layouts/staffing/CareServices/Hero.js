@@ -11,7 +11,7 @@ const Hero = () => (
           Professional Staffing Services
         </h1>
         <p className="mt-4 text-lg text-white max-w-xl mx-auto lg:mx-0">
-          Heart & Haven Care supplies compassionate and reliable professionals
+          Kare Plus Rugby supplies compassionate and reliable professionals
           across hospitals, care homes and community services.
         </p>
         <Link

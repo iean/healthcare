@@ -25,7 +25,7 @@ const PLACEHOLDERS = [
   },
   {
     id: 3,
-    context: "Carer working through Heart & Haven",
+    context: "Carer working through Kare Plus Rugby",
   },
 ];
 

@@ -38,7 +38,7 @@ const DomiciliaryHomeServices = () => (
       <div className="flex justify-center mb-4">
         <Image
           src="/images/logo-transparent.png"
-          alt="Heart and Haven Care"
+          alt="Kare Plus Rugby"
           width={180}
           height={80}
           className="drop-shadow-md"

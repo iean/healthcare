@@ -7,7 +7,7 @@ import site from "@config/site.json";
 export const metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers to common questions about home care, supported living, care home staffing and working for Heart & Haven Care.",
+    "Answers to common questions about home care, supported living, care home staffing and working for Kare Plus Rugby.",
   alternates: { canonical: "/faq" },
 };
 

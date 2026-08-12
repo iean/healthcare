@@ -16,30 +16,30 @@ const Footer = () => {
           <div className="space-y-3">
             <Image
               src={config.site.logo}
-              alt="Heart & Haven Care"
+              alt="Kare Plus Rugby"
               width={140}
               height={60}
             />
             <div className="text-sm text-text">
               <p>
-                <strong>T:</strong> 01788 422422
+                <strong>T:</strong> 07563 247176
               </p>
               <p>
                 <strong>E:</strong>{" "}
                 <a
-                  href="mailto:info@heartandhavencare.co.uk"
+                  href="mailto:kp.rugby@kareplus.co.uk"
                   className="text-primary-700 hover:underline"
                 >
-                  info@heartandhavencare.co.uk
+                  kp.rugby@kareplus.co.uk
                 </a>
               </p>
               <p>
                 <strong>E:</strong>{" "}
                 <a
-                  href="mailto:support@heartandhavencare.co.uk"
+                  href="mailto:support@kareplus.co.uk"
                   className="text-primary-700 hover:underline"
                 >
-                  support@heartandhavencare.co.uk
+                  support@kareplus.co.uk
                 </a>
               </p>
             </div>
@@ -52,7 +52,7 @@ const Footer = () => {
             </h4>
             <p className="text-sm text-text">
               6A Davy Court, <br />
-              Castle Mound Way, Central Park, <br />
+              Mound Way, Central Park, <br />
               Rugby, CV23 0UZ
             </p>
           </div>
@@ -94,8 +94,8 @@ const Footer = () => {
             />
             <div className="text-sm">
               <p>
-                CQC regulates Heart & Haven Care Ltd to provide care at{" "}
-                <strong>Heart & Haven Care - Main Office</strong>
+                CQC regulates Kare Plus Rugby to provide care at{" "}
+                <strong>Kare Plus Rugby - Main Office</strong>
               </p>
               <p className="text-red-600 font-semibold">
                 We haven't inspected this service yet

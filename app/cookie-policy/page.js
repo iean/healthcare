@@ -4,7 +4,7 @@ import site from "@config/site.json";
 export const metadata = {
   title: "Cookie Policy",
   description:
-    "How Heart & Haven Care uses cookies and similar technologies on this website, and how to control them.",
+    "How Kare Plus Rugby uses cookies and similar technologies on this website, and how to control them.",
   alternates: { canonical: "/cookie-policy" },
 };
 

@@ -142,7 +142,7 @@ const ApplicationForm = ({ id = "apply" }) => {
     return (
       <SuccessPanel title="Application received — thank you">
         <p>
-          Thanks for applying to join Heart &amp; Haven Care. Someone from our
+          Thanks for applying to join Kare Plus Rugby. Someone from our
           recruitment team will be in touch to talk about the role and the next
           steps.
         </p>
@@ -281,7 +281,7 @@ const ApplicationForm = ({ id = "apply" }) => {
             className="mt-1 h-5 w-5 shrink-0 rounded border-borderStrong text-primary-700 focus:ring-2 focus:ring-primary-600"
           />
           <label htmlFor="consent" className="text-[15px] leading-relaxed text-text">
-            I agree to Heart &amp; Haven Care storing the details I have given
+            I agree to Kare Plus Rugby storing the details I have given
             here so my application can be considered.
             <span aria-hidden="true" className="ml-0.5 text-danger">*</span>
             <span className="sr-only"> (required)</span>

@@ -15,10 +15,10 @@ import {
 export const metadata = {
   title: "Supported Living",
   description:
-    "Supported living from Heart & Haven Care: flexible support for adults with learning disabilities, autism or mental health needs to live independently in their own home.",
+    "Supported living from Kare Plus Rugby: flexible support for adults with learning disabilities, autism or mental health needs to live independently in their own home.",
   alternates: { canonical: "/supported-living" },
   openGraph: {
-    title: "Supported Living | Heart & Haven Care",
+    title: "Supported Living | Kare Plus Rugby",
     description:
       "Support for adults to live independently in their own tenancy, at the level of help they choose.",
   },

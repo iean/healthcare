@@ -14,6 +14,11 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // Optimised images are immutable; cache them hard.
     minimumCacheTTL: 60 * 60 * 24 * 30,
+    // The logo is a local SVG we author ourselves. next/image refuses SVG
+    // without this. The CSP below keeps it inert (no scripts inside an SVG).
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // Long-lived caching for static assets, and baseline security headers.

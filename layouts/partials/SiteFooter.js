@@ -5,6 +5,7 @@ import config from "@config/config.json";
 import site from "@config/site.json";
 import { Container } from "@components/ui/Section";
 import Social from "@components/Social";
+import LocationMap from "@components/ui/LocationMap";
 import social from "@config/social.json";
 
 /**
@@ -57,7 +58,7 @@ const SiteFooter = () => {
               Safeguarding
             </h2>
             <p className="max-w-4xl text-[15px] leading-relaxed text-white/90">
-              Heart &amp; Haven Care is committed to protecting the safety, dignity
+              Kare Plus Rugby is committed to protecting the safety, dignity
               and wellbeing of every person we support. All staff are recruited
               safely, receive safeguarding training, and have a duty to report
               any concern about abuse or neglect. If you are worried about
@@ -78,10 +79,10 @@ const SiteFooter = () => {
           {/* Brand + contact */}
           <div className="lg:col-span-2">
             <Image
-              src="/images/white-logo-transparent.png"
+              src="/images/kare-plus-rugby-logo-white.svg"
               alt={logo_text}
-              width={200}
-              height={54}
+              width={210}
+              height={48}
               className="h-12 w-auto object-contain"
             />
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-white/80">
@@ -102,9 +103,17 @@ const SiteFooter = () => {
                   </span>
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-white/85">
-                <FaEnvelope aria-hidden="true" className="text-primary-300" />
-                <span>{b.email}</span>
+              <li>
+                <a
+                  href={b.email_href}
+                  className="flex items-center gap-3 text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950"
+                >
+                  <FaEnvelope aria-hidden="true" className="text-primary-300" />
+                  <span>
+                    <span className="sr-only">Email: </span>
+                    {b.email}
+                  </span>
+                </a>
               </li>
               <li className="flex items-start gap-3 text-white/85">
                 <FaMapMarkerAlt
@@ -114,7 +123,9 @@ const SiteFooter = () => {
                 <address className="not-italic">
                   {b.address.street}
                   <br />
-                  {b.address.locality}, {b.address.postcode}
+                  {b.address.locality}
+                  <br />
+                  {b.address.postcode}
                 </address>
               </li>
             </ul>
@@ -132,6 +143,16 @@ const SiteFooter = () => {
           <Column heading="Legal & Policies" items={legal} />
         </div>
       </Container>
+
+      {/* Where to find us */}
+      <div className="border-t border-white/15">
+        <Container className="py-10">
+          <h2 className="mb-5 text-sm font-bold uppercase tracking-wider text-primary-100">
+            Where to find us
+          </h2>
+          <LocationMap height="300" />
+        </Container>
+      </div>
 
       {/* CQC block - preserved from the previous footer, claims unverified */}
       <div className="border-t border-white/15">

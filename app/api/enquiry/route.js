@@ -1,28 +1,27 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+import config from "@config/config.json";
 
 /**
- * ============================================================================
- * STUB ROUTE — NOT CONNECTED TO ANYTHING YET
- * ============================================================================
+ * Enquiry endpoint.
  *
- * [TODO: CONNECT THIS TO A REAL EMAIL/CRM DESTINATION BEFORE GOING LIVE]
+ * Sends to params.contact_email (kp.rugby@kareplus.co.uk) via nodemailer.
  *
- * Right now this validates the payload and returns success. It does NOT email
- * anyone and does NOT persist anything, so **enquiries submitted through the
- * site will be lost**. That is deliberate and visible rather than silently
- * pretending to work.
+ * [TODO: SET EMAIL_USER AND EMAIL_PASS ON THE SERVER]
+ * Until those environment variables exist there is no SMTP transport, so this
+ * route returns HTTP 503 and the form shows a visible error telling the
+ * visitor to phone instead. It deliberately does NOT return success - a care
+ * enquiry silently vanishing is far worse than an honest failure.
  *
- * To finish it you need, from the client:
- *   1. A destination email address for enquiries
- *   2. A sending service (the existing routes use Gmail via nodemailer with
- *      EMAIL_USER / EMAIL_PASS; a transactional provider such as SendGrid,
- *      Postmark or Resend would be more reliable for a business)
- *   3. A decision on storage. Do NOT write to data/*.json - the existing
- *      routes do that, and the server's copy diverges from git, which
- *      eventually breaks deploys. Use a real datastore or rely on email.
+ * EMAIL_PASS must be a Gmail App Password, not an account password.
+ * Consider a transactional provider (Postmark/SendGrid/Resend) for
+ * deliverability; Gmail SMTP is rate-limited and easy to get blocked.
  *
- * Server-side validation below is intentionally independent of the client:
- * client-side checks are a convenience and can be bypassed entirely.
+ * Nothing is written to disk on purpose: data/*.json is tracked in git and
+ * runtime writes there make `git pull` conflict, which silently stalls deploys.
+ *
+ * Server-side validation is intentionally independent of the client - client
+ * checks are a convenience and can be bypassed entirely.
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -58,19 +57,69 @@ export async function POST(req) {
     );
   }
 
-  // Never log the message body or contact details in production - this is a
-  // healthcare site and those are personal data. Metadata only.
-  console.info(
-    `[enquiry:STUB] type=${body.enquiryType} received=${new Date().toISOString()} ` +
-      `— NOT DELIVERED, no email service configured`
-  );
+  const to = config.params.contact_email;
 
-  return NextResponse.json({
-    ok: true,
-    delivered: false,
-    notice:
-      "STUB: enquiry validated but not delivered. Connect an email service before going live.",
-  });
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    // Metadata only - never log message bodies or contact details.
+    console.error(
+      `[enquiry] type=${body.enquiryType} NOT SENT: EMAIL_USER/EMAIL_PASS unset`
+    );
+    return NextResponse.json(
+      {
+        error:
+          "Our enquiry form is temporarily unavailable. Please call us instead.",
+      },
+      { status: 503 }
+    );
+  }
+
+  const esc = (v) =>
+    String(v ?? "").replace(/[&<>"']/g, (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]
+    );
+
+  const LABELS = {
+    care: "Home care enquiry",
+    referral: "Professional referral",
+    staffing: "Care home staffing request",
+    general: "General enquiry",
+  };
+
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
+    });
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to,
+      // replyTo means staff can hit reply and reach the enquirer directly.
+      replyTo: str(body.email),
+      subject: `${LABELS[body.enquiryType]} — ${str(body.name)}`,
+      html: `
+        <h2>${esc(LABELS[body.enquiryType])}</h2>
+        <p><strong>Name:</strong> ${esc(body.name)}</p>
+        <p><strong>Email:</strong> ${esc(body.email)}</p>
+        <p><strong>Phone:</strong> ${esc(body.phone)}</p>
+        ${body.organisation ? `<p><strong>Organisation:</strong> ${esc(body.organisation)}</p>` : ""}
+        <p><strong>Subject:</strong> ${esc(body.subject)}</p>
+        <p><strong>Message:</strong></p>
+        <p>${esc(body.message).replace(/\n/g, "<br>")}</p>
+        <hr>
+        <p style="color:#666;font-size:12px">Sent from the Kare Plus Rugby website at ${new Date().toISOString()}</p>
+      `,
+    });
+  } catch (err) {
+    console.error(`[enquiry] send failed: ${err.message}`);
+    return NextResponse.json(
+      { error: "We could not send your enquiry. Please call us instead." },
+      { status: 502 }
+    );
+  }
+
+  console.info(`[enquiry] type=${body.enquiryType} delivered=true`);
+  return NextResponse.json({ ok: true, delivered: true });
 }
 
 export async function GET() {

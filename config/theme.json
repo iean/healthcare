@@ -1,5 +1,5 @@
 {
-  "_comment": "Blue/white healthcare palette anchored on the navy sampled from the Heart & Haven logo (#000048). Change colours HERE, never in components. NOTE the historical naming trap: tailwind.config.js maps theme_color.secondary -> Tailwind `primary`. That mapping is kept so existing markup does not break.",
+  "_comment": "Blue/white healthcare palette anchored on the navy sampled from the Kare Plus Rugby logo (#000048). Change colours HERE, never in components. NOTE the historical naming trap: tailwind.config.js maps theme_color.secondary -> Tailwind `primary`. That mapping is kept so existing markup does not break.",
   "colors": {
     "default": {
       "text_color": {

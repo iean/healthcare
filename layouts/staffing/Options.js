@@ -31,10 +31,10 @@ const StaffingOptions = () => (
           <FaUserNurse size={40} className="text-primary-900" />
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-          Heart & Haven Staffing Services
+          Kare Plus Rugby Staffing Services
         </h2>
         <p className="mt-4 text-gray-600 max-w-2xl">
-          At Heart & Haven Care, we go beyond traditional staffing. We match you
+          At Kare Plus Rugby, we go beyond traditional staffing. We match you
           with compassionate, qualified professionals who treat every individual
           with the dignity, respect, and warmth they deserve — whether at home,
           in hospitals, or residential settings.

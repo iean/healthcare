@@ -16,10 +16,10 @@ import {
 export const metadata = {
   title: "Domiciliary Care at Home",
   description:
-    "Domiciliary care from Heart & Haven Care: personal care, medication support, meals, companionship and live-in care, delivered in your own home by trained, vetted carers.",
+    "Domiciliary care from Kare Plus Rugby: personal care, medication support, meals, companionship and live-in care, delivered in your own home by trained, vetted carers.",
   alternates: { canonical: "/domiciliary-care" },
   openGraph: {
-    title: "Domiciliary Care at Home | Heart & Haven Care",
+    title: "Domiciliary Care at Home | Kare Plus Rugby",
     description:
       "Support in your own home — from a short daily visit to full live-in care.",
   },

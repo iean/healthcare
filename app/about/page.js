@@ -13,7 +13,7 @@ import {
 export const metadata = {
   title: "About Us",
   description:
-    "Heart & Haven Care provides domiciliary care, supported living and care home staffing. Learn about our values, how we recruit, and how we are regulated.",
+    "Kare Plus Rugby provides domiciliary care, supported living and care home staffing. Learn about our values, how we recruit, and how we are regulated.",
   alternates: { canonical: "/about" },
 };
 
@@ -31,7 +31,7 @@ const AboutPage = () => (
     <PageHeader
       eyebrow="About us"
       title="Caring from the heart"
-      intro="Heart & Haven Care supports people to live well at home, and supplies the nurses and carers that care homes depend on."
+      intro="Kare Plus Rugby supports people to live well at home, and supplies the nurses and carers that care homes depend on."
       breadcrumbs={[{ label: "About" }]}
       primary={{ label: "Get in touch", href: "/contact" }}
       secondary={{ label: "Work with us", href: "/careers" }}
@@ -48,7 +48,7 @@ const AboutPage = () => (
           />
           <div className="space-y-4 text-lg leading-relaxed text-textMuted">
             <p>
-              Heart &amp; Haven Care works across two sides of the same sector.
+              Kare Plus Rugby works across two sides of the same sector.
               We provide care directly to people in their own homes, and we
               supply trained staff to care homes that need cover.
             </p>
@@ -60,7 +60,7 @@ const AboutPage = () => (
             </p>
             <div className="rounded-card border-2 border-dashed border-amber-500 bg-amber-50 p-4 text-[15px] font-semibold text-amber-900">
               [TODO: REPLACE THIS SECTION WITH THE REAL COMPANY STORY — when
-              Heart &amp; Haven was founded, by whom, and why. Nothing about the
+              Kare Plus Rugby was founded, by whom, and why. Nothing about the
               founding date, founder or history has been invented here.]
             </div>
           </div>

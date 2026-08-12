@@ -4,7 +4,7 @@ import site from "@config/site.json";
 export const metadata = {
   title: "Safeguarding",
   description:
-    "How Heart & Haven Care protects the people it supports from abuse and neglect, and how to raise a safeguarding concern.",
+    "How Kare Plus Rugby protects the people it supports from abuse and neglect, and how to raise a safeguarding concern.",
   alternates: { canonical: "/safeguarding" },
 };
 
@@ -39,7 +39,7 @@ const SafeguardingPage = () => {
       <h2>Our commitment</h2>
       <p>
         Everyone we support has the right to live free from abuse, neglect and
-        harm. Heart &amp; Haven Care is committed to protecting the safety,
+        harm. Kare Plus Rugby is committed to protecting the safety,
         dignity and wellbeing of every person in our care, and to acting
         promptly whenever a concern is raised.
       </p>

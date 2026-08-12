@@ -6,7 +6,7 @@ const ContactBanner = () => (
   <section className="py-12 bg-gradient-to-r from-primary-950 via-primary-900 to-primary-700 text-center text-white">
     <h2 className="text-2xl md:text-3xl font-semibold mb-4">Need Caring Professionals?</h2>
     <p className="mb-6 max-w-xl mx-auto">
-      Get in touch with our friendly team today and discover how Heart & Haven Care can support your organisation.
+      Get in touch with our friendly team today and discover how Kare Plus Rugby can support your organisation.
     </p>
     <Link
       href="/contact"
