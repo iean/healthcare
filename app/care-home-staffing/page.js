@@ -23,6 +23,7 @@ export const metadata = {
     description:
       "Registered nurses, senior carers and care assistants supplied to care homes.",
   },
+  alternates: { canonical: "/care-home-staffing" },
 };
 
 const ROLES = [

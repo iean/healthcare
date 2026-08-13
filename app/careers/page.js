@@ -19,6 +19,7 @@ export const metadata = {
     title: "Careers at Kare Plus Rugby",
     description: "Carer, support worker and nurse roles. Apply online in a few minutes.",
   },
+  alternates: { canonical: "/careers" },
 };
 
 const BENEFITS = [

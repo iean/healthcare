@@ -8,9 +8,10 @@ import Testimonials from "@layouts/home/Testimonials";
 import CtaBand from "@layouts/home/CtaBand";
 
 export const metadata = {
-  title: "Home Care & Care Home Staffing in the UK",
+  title: "Home Care & Care Home Staffing in Rugby | Kare Plus Rugby",
   description:
     "Kare Plus Rugby provides domiciliary care at home, supported living, and supplies vetted nurses and care assistants to care homes. Talk to us about care or staffing today.",
+  alternates: { canonical: "/" },
 };
 
 const Home = () => (

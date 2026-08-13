@@ -21,6 +21,7 @@ export const metadata = {
     description:
       "Support for adults to live independently in their own tenancy, at the level of help they choose.",
   },
+  alternates: { canonical: "/supported-living" },
 };
 
 const SUPPORT = [

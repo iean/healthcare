@@ -22,6 +22,7 @@ export const metadata = {
     description:
       "Support in your own home — from a short daily visit to full live-in care.",
   },
+  alternates: { canonical: "/domiciliary-care" },
 };
 
 const INCLUDED = [
