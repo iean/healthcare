@@ -6,6 +6,7 @@ import FeatureGrid from "@components/ui/FeatureGrid";
 import Card from "@components/ui/Card";
 import Reveal from "@components/ui/Reveal";
 import CtaBand from "@layouts/home/CtaBand";
+import AreasWeCover from "@components/ui/AreasWeCover";
 import MultiStepEnquiry from "@layouts/forms/MultiStepEnquiry";
 import site from "@config/site.json";
 import {
@@ -170,6 +171,8 @@ const DomiciliaryCarePage = () => (
         <MultiStepEnquiry id="care-enquiry" />
       </Container>
     </Section>
+
+    <AreasWeCover tone="surface" compact />
 
     <CtaBand
       title="Would it help to talk it through first?"

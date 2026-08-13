@@ -101,7 +101,12 @@ const orgSchema = {
         },
       }
     : {}),
-  ...(isReal(b.areas_served) ? { areaServed: b.areas_served } : {}),
+  // Real areaServed entries help local search far more than a prose string.
+  areaServed: b.areas.map((a) => ({
+    "@type": "AdministrativeArea",
+    name: a.name,
+    ...(a.county && a.county !== a.name ? { containedInPlace: { "@type": "AdministrativeArea", name: a.county } } : {}),
+  })),
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

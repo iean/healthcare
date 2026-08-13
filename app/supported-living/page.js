@@ -5,6 +5,7 @@ import SectionHeading from "@components/ui/SectionHeading";
 import FeatureGrid from "@components/ui/FeatureGrid";
 import Reveal from "@components/ui/Reveal";
 import CtaBand from "@layouts/home/CtaBand";
+import AreasWeCover from "@components/ui/AreasWeCover";
 import EnquiryForm from "@layouts/forms/EnquiryForm";
 import site from "@config/site.json";
 import {
@@ -129,6 +130,8 @@ const SupportedLivingPage = () => (
         <EnquiryForm variant="referral" id="enquiry-form" />
       </Container>
     </Section>
+
+    <AreasWeCover tone="surface" compact />
 
     <CtaBand
       title="Referring someone for supported living?"

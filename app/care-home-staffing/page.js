@@ -6,6 +6,7 @@ import FeatureGrid from "@components/ui/FeatureGrid";
 import Card from "@components/ui/Card";
 import Reveal from "@components/ui/Reveal";
 import CtaBand from "@layouts/home/CtaBand";
+import AreasWeCover from "@components/ui/AreasWeCover";
 import EnquiryForm from "@layouts/forms/EnquiryForm";
 import site from "@config/site.json";
 import {
@@ -167,6 +168,8 @@ const CareHomeStaffingPage = () => (
         <EnquiryForm variant="staffing" id="request-form" />
       </Container>
     </Section>
+
+    <AreasWeCover tone="white" compact />
 
     <CtaBand
       title="Need cover tonight?"

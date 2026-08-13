@@ -95,7 +95,7 @@ const GROUPS = [
     items: [
       {
         q: "Which areas do you cover?",
-        a: "[TODO: CONFIRM COVERAGE AREA — the towns, boroughs or counties served. This is also important for local search.]",
+        a: "We cover Rugby, Coventry, Leicestershire and Northamptonshire. Our office is in Rugby, so that is where we have the deepest coverage, and we work outwards from there. Coverage also depends on the level of support needed and our current staffing, so please call us to check your specific address — we would rather tell you honestly up front than agree to a package we cannot staff properly.",
       },
       {
         q: "Are you regulated?",
