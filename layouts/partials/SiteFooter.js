@@ -15,9 +15,8 @@ import social from "@config/social.json";
  * (privacy, cookies, complaints), which the previous footer either omitted or
  * pointed at "#".
  *
- * The CQC block is PRESERVED from the previous footer, not authored here. Its
- * claims could not be verified during this work, so the registration ID is a
- * visible placeholder rather than an invented number. See OVERNIGHT_REPORT.md.
+ * The CQC block is now verified against the CQC public register: provider
+ * "Divergent Healthcare Limited", ID 1-18444576596, not yet inspected.
  */
 const SiteFooter = () => {
   const { logo_text } = config.site;
@@ -154,7 +153,14 @@ const SiteFooter = () => {
         </Container>
       </div>
 
-      {/* CQC block - preserved from the previous footer, claims unverified */}
+      {/*
+        CQC block. Every value here is verified against the CQC public register:
+        provider "Divergent Healthcare Limited", provider ID 1-18444576596,
+        status "not yet inspected". The previous version named the wrong legal
+        entity and carried a placeholder ID; both are now correct.
+        Deliberately NOT claimed: any rating, any inspection outcome, or a
+        registered manager's name (unverified — see the About page TODO).
+      */}
       <div className="border-t border-white/15">
         <Container className="py-8">
           <div className="flex flex-col gap-5 rounded-card bg-white/5 p-5 md:flex-row md:items-center md:justify-between">
@@ -171,15 +177,27 @@ const SiteFooter = () => {
                   Regulated by the Care Quality Commission
                 </p>
                 <p className="mt-1">
-                  Provider ID: {b.cqc_provider_id}
+                  CQC regulates {b.cqc_provider_name} to provide care at{" "}
+                  <strong className="font-semibold text-white">
+                    {b.trading_name} — {b.address.locality}
+                  </strong>
                 </p>
-                <p className="mt-2 rounded bg-amber-300/20 px-2 py-1 text-sm font-semibold text-amber-200">
-                  [TODO: VERIFY CQC REGISTRATION STATUS AND WORDING WITH CQC
-                  BEFORE PUBLISHING — DO NOT PUBLISH THIS BLOCK IF NOT
-                  REGISTERED]
+                <p className="mt-1.5">Provider ID: {b.cqc_provider_id}</p>
+                <p className="mt-1.5 text-primary-100">
+                  We haven&apos;t inspected this service yet.
                 </p>
               </div>
             </div>
+
+            <a
+              href={b.cqc_profile_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 rounded-btn bg-white px-5 py-2.5 text-center font-semibold text-primary-800 transition-colors hover:bg-primary-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950"
+            >
+              See registration details
+              <span className="sr-only"> on the CQC website (opens in a new tab)</span>
+            </a>
           </div>
         </Container>
       </div>
@@ -188,9 +206,10 @@ const SiteFooter = () => {
       <div className="border-t border-white/15">
         <Container className="flex flex-col gap-3 py-6 text-sm text-white/70 md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {b.legal_name}. All rights reserved.
+            © {year} {b.legal_name}, trading as {b.trading_name}. All rights
+            reserved.
             {" · "}Registered in England &amp; Wales, company no.{" "}
-            {b.companies_house_number}
+            {b.companies_house_number}. Registered office: {b.address.full}.
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
             {legal.slice(0, 3).map((i) => (

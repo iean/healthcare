@@ -100,7 +100,7 @@ const SimpleHeader = () => {
                   Contact Us
                 </span>
                 <span className="font-bold text-text whitespace-nowrap">
-                  07563 247176
+                  01788 422422
                 </span>
               </div>
             </div>

@@ -22,7 +22,7 @@ const Footer = () => {
             />
             <div className="text-sm text-text">
               <p>
-                <strong>T:</strong> 07563 247176
+                <strong>T:</strong> 01788 422422
               </p>
               <p>
                 <strong>E:</strong>{" "}
@@ -94,7 +94,7 @@ const Footer = () => {
             />
             <div className="text-sm">
               <p>
-                CQC regulates Kare Plus Rugby to provide care at{" "}
+                CQC regulates Divergent Healthcare Limited to provide care at{" "}
                 <strong>Kare Plus Rugby - Main Office</strong>
               </p>
               <p className="text-red-600 font-semibold">
@@ -107,7 +107,9 @@ const Footer = () => {
             </div>
           </div>
           <Link
-            href="/registration-details"
+            href="https://www.cqc.org.uk/provider/1-18444576596"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-semibold text-sm"
           >
             See registration details

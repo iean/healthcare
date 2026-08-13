@@ -197,7 +197,7 @@ const PrivacyPolicyPage = () => {
                   </p>
                   <p className="mb-2">Kare Plus Rugby Healthcare</p>
                   <p className="mb-2">Email: kp.rugby@kareplus.co.uk</p>
-                  <p className="mb-2">Phone: 07563 247176</p>
+                  <p className="mb-2">Phone: 01788 422422</p>
                   <p className="mb-2">Address: [Your Business Address]</p>
                 </div>
 

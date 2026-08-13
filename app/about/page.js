@@ -5,6 +5,7 @@ import SectionHeading from "@components/ui/SectionHeading";
 import FeatureGrid from "@components/ui/FeatureGrid";
 import Reveal from "@components/ui/Reveal";
 import CtaBand from "@layouts/home/CtaBand";
+import Leadership from "@layouts/about/Leadership";
 import site from "@config/site.json";
 import {
   FaHandHoldingHeart, FaBalanceScale, FaEye, FaUsers, FaShieldAlt, FaSeedling,
@@ -104,8 +105,12 @@ const AboutPage = () => (
           </p>
           <dl className="mt-6 space-y-4">
             {[
+              ["Legal entity", site.business.legal_name],
+              ["Trading as", site.business.trading_name],
+              ["Companies House number", `${site.business.companies_house_number} (incorporated ${site.business.incorporated})`],
+              ["CQC provider", site.business.cqc_provider_name],
               ["CQC provider ID", site.business.cqc_provider_id],
-              ["Companies House number", site.business.companies_house_number],
+              ["CQC status", site.business.cqc_status],
               ["ICO registration", site.business.ico_registration],
             ].map(([label, value]) => (
               <div key={label} className="border-t border-border pt-4">
@@ -116,35 +121,25 @@ const AboutPage = () => (
               </div>
             ))}
           </dl>
-          <p className="mt-6 rounded-card border-2 border-dashed border-amber-500 bg-amber-50 p-4 text-[15px] font-semibold text-amber-900">
-            ⚠ [TODO: VERIFY CQC REGISTRATION STATUS BEFORE PUBLISHING. Do not
-            state or imply CQC registration, and do not display the CQC logo,
-            unless the registration is current. No registration numbers, ratings
-            or inspection outcomes have been invented on this site.]
+          <p className="mt-6 text-[15px] leading-relaxed text-textMuted">
+            These details are taken from the Companies House and CQC public
+            registers. You can check our CQC registration yourself at{" "}
+            <a
+              href={site.business.cqc_profile_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary-700 underline underline-offset-4"
+            >
+              cqc.org.uk
+            </a>
+            . No rating is shown because this service has not yet been
+            inspected.
           </p>
         </div>
       </Container>
     </Section>
 
-    {/* Team - structure without invented people */}
-    <Section tone="tint" size="md">
-      <Container width="narrow">
-        <SectionHeading
-          eyebrow="Our team"
-          title="The people behind the service"
-          subtitle="Registered manager, care coordinators, and the office team who keep everything running."
-          className="mb-8"
-        />
-        <div className="rounded-card border-2 border-dashed border-amber-500 bg-amber-50 p-6 text-center">
-          <p className="text-[15px] font-semibold text-amber-900">
-            [TODO: ADD REAL TEAM MEMBERS — name, role and a short bio for at
-            least the Registered Manager, who CQC requires to be named. Photos
-            optional but help. No staff names, headcounts or qualifications have
-            been invented.]
-          </p>
-        </div>
-      </Container>
-    </Section>
+    <Leadership />
 
     <CtaBand
       title="Want to know more?"

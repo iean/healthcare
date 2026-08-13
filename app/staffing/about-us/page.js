@@ -303,7 +303,7 @@ const AboutUs = () => (
               </svg>
             </div>
             <h3 className="text-xl font-semibold mb-2">Phone</h3>
-            <p className="mb-2">07563 247176</p>
+            <p className="mb-2">01788 422422</p>
             <p className="text-sm opacity-90">Main Office</p>
           </div>
 
@@ -330,7 +330,7 @@ const AboutUs = () => (
               </svg>
             </div>
             <h3 className="text-xl font-semibold mb-2">Address</h3>
-            <p className="mb-2">6A, Davy Court, Mound Way</p>
+            <p className="mb-2">6a Davy Court, Castle Mound Way</p>
             <p className="text-sm opacity-90">Rugby, CV23 0UZ</p>
           </div>
         </div>

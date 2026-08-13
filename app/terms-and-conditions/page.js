@@ -117,7 +117,7 @@ const TermsAndConditionsPage = () => {
                 <p className="mb-4">Care services can be booked through:</p>
                 <ul className="list-disc pl-6 mb-6 space-y-2">
                   <li>Our website contact forms</li>
-                  <li>Phone: 07563 247176</li>
+                  <li>Phone: 01788 422422</li>
                   <li>Email: kp.rugby@kareplus.co.uk</li>
                   <li>Direct contact with our care coordinators</li>
                 </ul>
@@ -246,7 +246,7 @@ const TermsAndConditionsPage = () => {
                   <p className="mb-2">
                     <strong>Kare Plus Rugby Healthcare</strong>
                   </p>
-                  <p className="mb-2">Phone: 07563 247176</p>
+                  <p className="mb-2">Phone: 01788 422422</p>
                   <p className="mb-2">Email: kp.rugby@kareplus.co.uk</p>
                   <p className="mb-2">Address: [Your Business Address]</p>
                   <p className="mb-2">CQC Registration: [Your CQC Number]</p>

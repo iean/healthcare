@@ -10,6 +10,7 @@ import {
   FaCalendarAlt, FaGraduationCap, FaUserFriends, FaRoute,
   FaHeadset, FaChartLine,
 } from "react-icons/fa";
+import { BadgeCheck } from "lucide-react";
 
 export const metadata = {
   title: "Careers — Carer & Nurse Jobs",
@@ -66,6 +67,35 @@ const CareersPage = () => (
         className="mb-12"
       />
       <FeatureGrid items={BENEFITS} columns={3} />
+
+      {/*
+        Sponsor licence. Worded to state only the verifiable fact - that the
+        licence exists and is A-rated. It deliberately does NOT promise
+        sponsorship to any individual, imply a visa will be granted, or suggest
+        every role is open to sponsorship. Overstating this would mislead
+        candidates making major life decisions.
+      */}
+      <div className="mx-auto mt-10 max-w-3xl rounded-card border border-primary-200 bg-primary-50 p-6">
+        <div className="flex items-start gap-4">
+          <span
+            aria-hidden="true"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-primary-700"
+          >
+            <BadgeCheck className="h-5 w-5" />
+          </span>
+          <div>
+            <h3 className="text-lg font-bold text-primary-950">
+              Licensed UK visa sponsor
+            </h3>
+            <p className="mt-1.5 leading-relaxed text-textMuted">
+              {site.business.legal_name} holds an active, A-rated UK sponsor
+              licence. Sponsorship is not available for every role and depends
+              on the position, your circumstances and Home Office requirements —
+              so please ask us before applying if this matters to you.
+            </p>
+          </div>
+        </div>
+      </div>
       <p className="mx-auto mt-8 max-w-3xl rounded-card border-2 border-dashed border-amber-500 bg-amber-50 p-4 text-center text-[15px] font-semibold text-amber-900">
         [TODO: ADD REAL PAY RATES, HOLIDAY ENTITLEMENT, PENSION, MILEAGE
         ALLOWANCE AND ANY REFERRAL BONUS. Pay is the single biggest factor in

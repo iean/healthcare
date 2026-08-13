@@ -1,34 +1,55 @@
 {
   "_comment": "Single source of truth for business details, navigation and SEO defaults. Contact details here are REAL and supplied by the client. Values still wrapped in [TODO: ...] are placeholders that must be replaced before launch. Never invent regulatory values.",
   "business": {
-    "legal_name": "Kare Plus Rugby",
+    "legal_name": "Divergent Healthcare Limited",
     "trading_name": "Kare Plus Rugby",
-    "phone": "07563 247176",
-    "phone_href": "tel:+447563247176",
+    "phone": "01788 422422",
+    "phone_href": "tel:+441788422422",
     "email": "kp.rugby@kareplus.co.uk",
     "careers_email": "kp.rugby@kareplus.co.uk",
     "safeguarding_email": "kp.rugby@kareplus.co.uk",
     "address": {
-      "street": "6A, Davy Court, Mound Way",
+      "street": "6a Davy Court, Castle Mound Way",
       "locality": "Central Park, Rugby",
       "region": "Warwickshire",
       "postcode": "CV23 0UZ",
       "country": "GB",
-      "full": "6A, Davy Court, Mound Way, Central Park, Rugby, CV23 0UZ"
+      "full": "6a Davy Court, Castle Mound Way, Central Park, Rugby, Warwickshire, CV23 0UZ"
     },
-    "companies_house_number": "[TODO: INSERT COMPANIES HOUSE REGISTRATION NUMBER]",
-    "cqc_provider_id": "[TODO: INSERT CQC PROVIDER ID - VERIFY REGISTRATION BEFORE PUBLISHING ANY CQC CLAIM]",
+    "companies_house_number": "14277673",
+    "cqc_provider_id": "1-18444576596",
     "ico_registration": "[TODO: INSERT ICO DATA PROTECTION REGISTRATION NUMBER]",
     "opening_hours": {
       "office": "Monday to Friday, 9:00am – 5:00pm",
       "on_call": "24 hours a day, 7 days a week"
     },
     "areas_served": "Rugby and the surrounding Warwickshire area",
-    "phone_raw": "07563247176",
     "whatsapp_href": "https://wa.me/447563247176",
     "email_href": "mailto:kp.rugby@kareplus.co.uk",
-    "map_embed_query": "6A Davy Court, Mound Way, Central Park, Rugby, CV23 0UZ",
-    "_note": "Phone, address and email supplied directly by the client on 2026-08-12 and used site-wide. Regulatory identifiers below remain TODO and must NOT be invented."
+    "map_embed_query": "6a Davy Court, Castle Mound Way, Central Park, Rugby, CV23 0UZ",
+    "_note": "Company details verified against Companies House (no. 14277673, incorporated 4 August 2022) and the CQC public register (provider 1-18444576596). Treat these as ground truth over anything else in the codebase. Directors' names are published with the client's permission; their dates of birth, nationality and residential addresses are on the public register but MUST NOT be reproduced here.",
+    "incorporated": "4 August 2022",
+    "mobile": "07563 247176",
+    "mobile_href": "tel:+447563247176",
+    "cqc_provider_name": "Divergent Healthcare Limited",
+    "cqc_profile_url": "https://www.cqc.org.uk/provider/1-18444576596",
+    "cqc_status": "Registered — not yet inspected",
+    "sponsor_licence": "Licensed UK visa sponsor (A-rated)",
+    "registered_manager": "[TODO: ADD REGISTERED MANAGER NAME]",
+    "directors": [
+      {
+        "name": "Mimosha Alam",
+        "title": "Director",
+        "bio": "[TODO: ADD REAL BIO]",
+        "photo": "[TODO: ADD PHOTO]"
+      },
+      {
+        "name": "Choudhury Taimur Sadat",
+        "title": "Director",
+        "bio": "[TODO: ADD REAL BIO]",
+        "photo": "[TODO: ADD PHOTO]"
+      }
+    ]
   },
   "nav": {
     "primary": [
@@ -145,7 +166,7 @@
     "site_name": "Kare Plus Rugby",
     "base_url": "https://www.heartandhavenhealthcare.co.uk",
     "default_title": "Kare Plus Rugby | Home Care & Care Home Staffing in Rugby",
-    "default_description": "Kare Plus Rugby provides domiciliary care at home and supplies vetted nurses and carers to care homes across Rugby and Warwickshire. Call 07563 247176.",
+    "default_description": "Kare Plus Rugby provides domiciliary care at home and supplies vetted nurses and carers to care homes across Rugby and Warwickshire. Call 01788 422422.",
     "og_image": "/images/og-default.png",
     "twitter_handle": ""
   }

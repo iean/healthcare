@@ -117,7 +117,19 @@ const CareHomeStaffingPage = () => (
         className="mb-12"
       />
       <FeatureGrid items={VETTING} columns={2} />
-      <p className="mx-auto mt-8 max-w-3xl rounded-card border-2 border-dashed border-amber-500 bg-amber-50 p-4 text-center text-[15px] font-semibold text-amber-900">
+      {/* Verifiable fact only - no claim about any individual worker's status */}
+      <div className="mx-auto mt-10 max-w-3xl rounded-card border border-primary-200 bg-primary-50 p-6">
+        <h3 className="text-lg font-bold text-primary-950">
+          Licensed UK visa sponsor
+        </h3>
+        <p className="mt-1.5 leading-relaxed text-textMuted">
+          {site.business.legal_name} holds an active, A-rated UK sponsor
+          licence. Every worker we place has their right to work verified before
+          they set foot in your home, whatever their immigration route.
+        </p>
+      </div>
+
+      <p className="mx-auto mt-6 max-w-3xl rounded-card border-2 border-dashed border-amber-500 bg-amber-50 p-4 text-center text-[15px] font-semibold text-amber-900">
         [TODO: CONFIRM THIS VETTING PROCESS MATCHES WHAT KARE PLUS RUGBY
         ACTUALLY DOES, AND ADD ANY ACCREDITATIONS OR FRAMEWORK MEMBERSHIPS. No
         specific standards, percentages or certifications have been claimed.]

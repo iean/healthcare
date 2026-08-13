@@ -286,7 +286,7 @@ const RequestPersonalDataPage = () => {
                   <p className="text-sm text-gray-600">
                     <strong>Contact:</strong> For urgent requests or questions,
                     please contact our Data Protection Officer at
-                    kp.rugby@kareplus.co.uk or call 07563 247176.
+                    kp.rugby@kareplus.co.uk or call 01788 422422.
                   </p>
                 </div>
               </div>
