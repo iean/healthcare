@@ -3,10 +3,11 @@
     "title": "Kare Plus Rugby",
     "base_url": "/",
     "favicon": "/images/favicon.png",
-    "logo": "/images/kare-plus-rugby-logo.svg",
-    "logo_width": "210",
-    "logo_height": "48",
-    "logo_text": "Kare Plus Rugby"
+    "logo": "/images/kareplus-logo.png",
+    "logo_width": "640",
+    "logo_height": "239",
+    "logo_text": "Kare Plus Rugby",
+    "logo_white": "/images/kareplus-logo-white.png"
   },
   "settings": {
     "pagination": 4,

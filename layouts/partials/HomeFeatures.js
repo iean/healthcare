@@ -27,7 +27,7 @@ const HomeFeatures = ({ feature }) => {
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="flex justify-center mb-4">
             <Image
-              src="/images/logo-transparent.png"
+              src="/images/kareplus-logo.png"
               alt="Kare Plus Rugby"
               width={180}
               height={80}

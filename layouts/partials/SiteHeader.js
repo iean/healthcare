@@ -110,10 +110,10 @@ const SiteHeader = () => {
           <Image
             src={logo}
             alt={`${title} — home`}
-            width={220}
-            height={59}
+            width={640}
+            height={239}
             priority
-            className={`w-auto object-contain transition-[height] duration-300 ${condensed ? "h-9 sm:h-10" : "h-11 sm:h-12"}`}
+            className={`w-auto object-contain transition-[height] duration-300 ${condensed ? "h-10 sm:h-11" : "h-12 sm:h-14"}`}
           />
         </Link>
 

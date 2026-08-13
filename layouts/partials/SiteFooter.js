@@ -78,11 +78,11 @@ const SiteFooter = () => {
           {/* Brand + contact */}
           <div className="lg:col-span-2">
             <Image
-              src="/images/kare-plus-rugby-logo-white.svg"
+              src="/images/kareplus-logo-white.png"
               alt={logo_text}
-              width={210}
-              height={48}
-              className="h-12 w-auto object-contain"
+              width={640}
+              height={239}
+              className="h-14 w-auto object-contain"
             />
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-white/80">
               Home care for people who want to stay independent, and trusted
