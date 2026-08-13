@@ -50,8 +50,14 @@ module.exports = {
           950: theme.colors.blue["950"],
           DEFAULT: theme.colors.default.theme_color.secondary,
         },
-        // Single accent, used sparingly. Logo gold darkened to pass AA on white.
+        // Accent = the AA-safe darkened green. The raw brand green is only
+        // 1.95:1 on white, so it is exposed separately as brandGreen and must
+        // only be used for large decorative fills, never for text.
         accent: theme.colors.default.theme_color.primary,
+        brandGreen: theme.colors.green.brand,
+        greenTint: theme.colors.green["50"],
+        greenTint100: theme.colors.green["100"],
+        greenDark: theme.colors.green.dark,
         brandText: theme.colors.neutral.text,
 
         // ---- Surfaces ----

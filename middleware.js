@@ -89,7 +89,7 @@ export function middleware(req) {
   return new NextResponse("Authentication required.", {
     status: 401,
     headers: {
-      "WWW-Authenticate": 'Basic realm="Heart & Haven admin", charset="UTF-8"',
+      "WWW-Authenticate": 'Basic realm="Kare Plus Rugby admin", charset="UTF-8"',
       // Never let a protected response sit in a shared cache.
       "Cache-Control": "no-store",
     },

@@ -13,7 +13,10 @@ const rows=[
  ['muted text on surface',     t.colors.neutral.text_muted, S, 4.5],
  ['primary link on white',     B['700'], W, 4.5],
  ['primary link on surface',   B['700'], S, 4.5],
- ['accent on white',           t.colors.default.theme_color.primary, W, 4.5],
+ ['accent (green) on white',   t.colors.default.theme_color.primary, W, 4.5],
+ // Brand green is a light fill: text ON it must be dark navy, never white.
+ ['navy text on brand green', t.colors.blue['950'], t.colors.green.brand, 4.5],
+ ['green text on green tint',  t.colors.default.theme_color.primary, t.colors.green['50'], 4.5],
  ['white on primary btn',      W, B['700'], 4.5],
  ['white on primary hover',    W, B['800'], 4.5],
  ['white on navy 900',         W, B['900'], 4.5],

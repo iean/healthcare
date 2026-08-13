@@ -1,7 +1,5 @@
 
 <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
-  <rect width='512' height='512' rx='104' fill='#12469B'/>
-  <path d='M256 118c-52 0-96 28-118 69C116 146 72 118 20 118v186c0 110 96 189 236 252 140-63 236-142 236-252V118c-52 0-96 28-118 69-22-41-66-69-118-69z'
-        transform='translate(50 44) scale(0.80)' fill='#ffffff' opacity='0.14'/>
-  <path d='M256 150v212M150 256h212' stroke='#ffffff' stroke-width='54' stroke-linecap='round'/>
+  <rect width='512' height='512' rx='96' fill='#0E3F89'/>
+  <path d='M212 96h88v116h116v88H300v116h-88V300H96v-88h116z' fill='#ffffff'/>
 </svg>

@@ -1,17 +1,18 @@
-# Heart & Haven Care — start here
+# Kare Plus Rugby — start here
 
 **Read [PROJECT.md](PROJECT.md) in full before doing anything.** It holds the site map, design system, work log, backlog, and the working process. This file is only a pointer plus the rules that must never be broken.
 
 ## What this is
 
-A UK healthcare website — domiciliary care, temporary staffing, and supported living. Next.js 14 (App Router) + Tailwind + Markdown content, built on the Bigspring Light template. **Self-hosted on a VPS — every push to `main` auto-deploys to production.**
+A UK healthcare website for Kare Plus Rugby (legal entity: Divergent Healthcare Limited, company 14277673) — domiciliary care, care home staffing, and supported living. Next.js 14 (App Router) + Tailwind + Markdown content, built on the Bigspring Light template. **Hosted on Vercel** at www.heartandhavenhealthcare.co.uk — every push to `main` auto-deploys. A GitHub Actions workflow ALSO deploys to a VPS at 46.252.193.48:3000, which no domain points at. See DEPLOYMENT_REPORT.md.
 
 Ongoing goal: improve the design and change content/topics as Alif directs, across many sessions.
 
 ## Rules
 
-1. **Follow the design system** in PROJECT.md §4. Use the Tailwind tokens `primary` (#5a2671 purple), `accent` (#b9892f gold), `background`, and `text-h1`…`text-h6`. Never hardcode a hex that isn't in §4. For global changes edit `config/theme.json`, not individual components.
-   - **Naming trap:** `theme.json` calls the gold "primary" and the purple "secondary". Tailwind swaps them. Go by the Tailwind name.
+1. **Follow the design system.** The palette is **blue and white**, anchored on the navy in the logo. Use the Tailwind tokens `primary-50`…`primary-950` (brand blue, `primary` = #12469B), `accent` (#847432, used sparingly), `surface`, `text`, `textMuted`, `border`. Never hardcode a hex. For global changes edit `config/theme.json`, not individual components.
+   - **Contrast is enforced:** run `node scripts/check-contrast.mjs` after any palette change. It exits non-zero if a pairing fails WCAG AA.
+   - PROJECT.md §4 still describes the OLD purple/gold theme and is out of date on this point.
 2. **Log every change** in PROJECT.md §6 — date, files, why — and tick the §7 backlog item.
 3. **For topic/content changes, update the §3 site map first**, then do the work.
 4. **Reuse before creating.** Search `layouts/` first. There is already heavy duplication between `layouts/domiciliary/` and `layouts/staffing/`; don't add more.
